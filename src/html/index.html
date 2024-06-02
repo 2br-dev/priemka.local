@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="/css/master.css">
+</head>
+<body>
+	<header></header>
+	<main>
+		<section id="hero">Герой</section>
+		<section id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col l4 m12">
+						<h2>Давай знакомиться!</h2>
+					</div>
+					<div class="col l7 m12">
+						<p class="large">Это КубГАУ, университет современного образования с самым большим и удобным кампусом на Юге России! У наших студентов огромные возможности для всестороннего развития, а энергии хватает на всё. Как? Смотри сам:</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="cards-wrapper">
+							<div class="card" id="territory">
+								<h3>Территория вуза</h3>
+								<p>168 га: как 4 Ватикана, 7,5 парков «Краснодар» или 235 футбольных полей</p>
+							</div>
+							<div class="card" id="park">
+								<h3>Прогулочный парк</h3>
+								<p>Свой, зелёный, с уникальными растениями и прямо на территории кампуса</p>
+							</div>
+							<div class="card" id="lck">
+								<h3>Уникальная Лаборатория цифрового контента</h3>
+								<p>Интерактивная студия для записи контента любой сложности. Снимай блоги, пиши подкасты, готовь презентации как Илон Маск!</p>
+							</div>
+							<div class="card" id="sport">
+								<h3>Спортивные возможности</h3>
+								<p>Стадион по стандартам УЕФА , игровые площадки и станции воркаута, беговые треки, бассейн, зал киберспорта – качай и разум, и тело</p>
+							</div>
+							<div class="card" id="teachers">
+								<h3>Профессорско-преподавательский состав</h3>
+								<p>Один из лучших в стране, и всегда открыт для студентов. Команда преподавателей всегда готова проконсультировать, подсказать, поделиться личным опытом и помочь определиться с вектором развития</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="features">
+			<div class="container">
+				<div class="row flex">
+					<div class="col s12">
+						<h2>После КубГАУ хоть куда!</h2>
+					</div>
+					@@loop('./parts/feature.html', './data/features.json')
+				</div>
+			</div>
+		</section>
+		<section id="calculator">Калькулятор</section>
+		<section id="task">
+			<div class="container">
+				<div class="row flex">
+					<div class="col s12">
+						<h2>Твоё первое задание как студента – подать документы</h2>
+					</div>
+					<div class="col l7 m6 margin-bottom">
+						<div class="outline-block">
+							<h3>Способы подачи</h3>
+							<ul>
+								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">Лично</h4><span class="content">Заглядывай с оригиналами и паспортом в гости! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.</span></span></div></li>
+								<li><a href="" class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">Онлайн</h4><span class="content">Регистрируйся на сайте, и через Личный кабинет сможешь подать всё онлайн - быстро, удобно и в прохладе.</span></span></a></li>
+								<li><a href="" class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">По почте</h4><span class="content">Можешь выбрать "Почту России", CDEK или любого другого удобного оператора.</span></span></a></li>
+								<li><a href="" class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">Через Госуслуги</h4><span class="content">Быстро, удобно и хоть с мобильного - переходи раздел «Поступление в вуз онлайн»!</span></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col l5 m6 margin-bottom">
+						<div class="fill-block">
+							<h3>Какие документы нужны</h3>
+							<ul>
+								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Паспорт</h4></div></li>
+								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Документы об образовании (аттестат, диплои, и др.)</h4></div></li>
+								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Фотографии (3х4) 4 шт.</h4></div></li>
+								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">СНИЛС</h4></div></li>
+								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Медицинская справка №086/У</h4></div></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="calendar">
+			<div class="container"><div class="row">
+				<div class="col s12">
+					<h2>Приёмная кампания 2024 начнётся уже совсем скоро. Заскринь график, чтобы не опоздать!</h2>
+				</div>
+				<div class="col s12">
+					<ul class="tabs">
+						<li class="tab"><a href="#bakalavr" class="active"><h3>Бакалавриат/специалитет</h3></a></li>
+						<li class="tab"><a href="#magister"><h3>Магистратура</h3></a></li>
+						<li class="tab"><a href="#aspirant"><h3>Аспирантура</h3></a></li>
+					</ul>
+					<div class="calendar-wrapper">
+						<div id="bakalavr" class="page active">
+							@@loop('./parts/calendar_entry.html', './data/calendar_bakalavr.json')
+						</div>
+						<div id="magister" class="page">
+							@@loop('./parts/calendar_entry.html', './data/calendar_bakalavr.json')
+						</div>
+						<div id="aspirant" class="page">
+							@@loop('./parts/calendar_entry.html', './data/calendar_bakalavr.json')
+						</div>
+					</div>
+				</div>
+			</div></div>
+		</section>
+		<section id="baner">Банер</section>
+		<section id="bonus">Бонус</section>
+		<section id="faq">Вопрос-ответ</section>
+		<section id="docs-baner">Банер с документами</section>
+		<section id="contacts">Контакты</section>
+	</main>
+	<footer>
+
+	</footer>
+	<script src="/js/master.js"></script>
+</body>
+</html>

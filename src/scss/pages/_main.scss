@@ -1,0 +1,163 @@
+@import '../parts/vars';
+
+@mixin icon-block{
+	display: flex;
+	margin-bottom: $gutter-width;
+
+	@media(max-width: $small){
+		flex-direction: column;
+	}
+
+	& .icon-wrapper{
+		padding-right: $gutter-width;
+		padding-bottom: $gutter-width;
+	}
+}
+
+body{
+
+	main{
+
+		& section{
+
+			&#about{
+
+				& h2, & p{
+					margin-top: 0;
+				}
+
+				.cards-wrapper{
+
+					display: grid;
+					grid-template-columns: repeat(3, 1fr);
+					gap: $gutter-width;
+		
+					& .card{
+						aspect-ratio: 1 / .8;
+						background-color: #ececec;
+						padding: clamp(5px, 3vw, 20px);
+						border-radius: $border-radius;
+
+						& h3, & p{
+							margin-top: 0;
+							margin-bottom: $gutter-width;
+						}
+		
+						&#territory{
+							grid-row: 1 / 3;
+							aspect-ratio: unset;
+		
+							@media (max-width: $small){
+								aspect-ratio: 1 / 1.7;
+							}
+						}
+					}
+		
+					@media(max-width: $large){
+						grid-template-columns: repeat(2, 1fr);
+					}
+		
+					@media(max-width: $small){
+						grid-template-columns: 1fr;
+					}
+				}
+			}
+
+			&#features{
+
+				& .icon-block{
+
+					@include icon-block();
+
+					& img{
+						display: block;
+						width: clamp(60px, 3vw, 100px);
+						aspect-ratio: 1 / 1;
+						object-fit: cover;
+					}
+
+					& .content-wrapper{
+
+						& h3{
+							margin-top: 0;
+						}
+					}
+				}
+			}
+
+			&#task{
+
+				& h3, & h4{
+					margin: 0;
+				}
+
+				& h3{
+					margin-bottom: $gutter-width;
+				}
+
+				& .outline-block{
+					border: 2px solid $secondary;
+					padding: clamp(5px, 3vw, 20px);
+					box-sizing: border-box;
+					border-radius: $border-radius;
+					height: 100%;
+
+					& .icon-block{
+						@include icon-block();
+						border: 1px solid #ccc;
+						padding: clamp(5px, 3vw, 20px);
+						color: $text;
+						border-radius: clamp(3px, 3vw, 10px);
+
+						& img{
+							display: block;
+							width: clamp(60px, 3vw, 100px);
+							aspect-ratio: 1 / 1;
+						}
+
+					}
+					& a:hover{
+						background-color: #ededed;
+						transition: background-color 0.2s ease;
+					}
+				}
+
+				& .fill-block{
+					border: 2px solid $secondary;
+					padding: clamp(5px, 3vw, 20px);
+					box-sizing: border-box;
+					border-radius: $border-radius;
+					height: 100%;
+					background-color: $secondary;
+					color: #fff;
+
+					& .icon-block{
+
+						@include icon-block();
+						color: #fff;
+
+						& img{
+							display: block;
+							width: 100px;
+							aspect-ratio: 1 / 1;
+							object-fit: cover;
+						}
+					}
+				}
+			}
+
+			&#calendar{
+
+				& .page{
+					border: 1px solid red;
+					display: none;
+
+					&.active{
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
