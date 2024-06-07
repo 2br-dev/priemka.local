@@ -7,9 +7,50 @@
 	<link rel="stylesheet" href="/css/master.css">
 </head>
 <body>
-	<header></header>
+	@@include('./parts/header.html')
 	<main>
-		<section id="hero">Герой</section>
+		<section id="hero">
+			<div class="container">
+				<div class="row flex vcenter">
+					<div class="col m6 s12 order-m1">
+						<h1>Думай головой, <span class="accent">выбирай сердцем!</span></h1>
+						<div class="timer">
+							<div class="num">
+								<div class="val" id="days">
+									<div class="value">00</div>
+									<div class="separator">:</div>
+								</div>
+								<div class="text">дней</div>
+							</div>
+							<div class="num">
+								<div class="val" id="hours">
+									<div class="value">00</div>
+									<div class="separator">:</div>
+								</div>
+								<div class="text">часов</div>
+							</div>
+							<div class="num">
+								<div class="val" id="minutes">
+									<div class="value">00</div>
+									<div class="separator">:</div>
+								</div>
+								<div class="text">минут</div>
+							</div>
+							<div class="num">
+								<div class="val" id="seconds">
+									<div class="value">00</div>
+								</div>
+								<div class="text">секунд</div>
+							</div>
+						</div>
+						<div class="call-to-action"><a href="#task" class="bttn-large scroll-link">Подать документы</a></div>
+					</div>
+					<div class="col m6 s12 hero-image">
+						<img data-src="/img/hero_image.png" alt="" class="lazy responsive-img" width="937" height="1069">
+					</div>
+				</div>
+			</div>
+		</section>
 		<section id="about">
 			<div class="container">
 				<div class="row">
@@ -23,23 +64,35 @@
 				<div class="row">
 					<div class="col">
 						<div class="cards-wrapper">
-							<div class="card" id="territory">
-								<h3>Территория вуза</h3>
-								<p>168 га: как 4 Ватикана, 7,5 парков «Краснодар» или 235 футбольных полей</p>
+							<div class="card hoverable" id="territory">
+								<div class="territory-content">
+									<div class="header">
+										<h3>Территория вуза</h3>
+										<p>168 га: как 4 Ватикана, 7,5 парков «Краснодар» или 235 футбольных полей</p>
+									</div>
+									<div class="footer">
+										<ul class="pagination">
+											<li class="page"><a href="javascript:void(0);" id="left"></a></li>
+											<li class="page"><a href="javascript:void(0);" class="active" id="center"></a></li>
+											<li class="page"><a href="javascript:void(0);" id="right"></a></li>
+										</ul>
+									</div>
+								</div>
+								<img src="/img/map.jpg" alt="" class="lazy center">
 							</div>
-							<div class="card" id="park">
+							<div class="card hoverable" id="park">
 								<h3>Прогулочный парк</h3>
 								<p>Свой, зелёный, с уникальными растениями и прямо на территории кампуса</p>
 							</div>
-							<div class="card" id="lck">
+							<div class="card hoverable" id="lck">
 								<h3>Уникальная Лаборатория цифрового контента</h3>
 								<p>Интерактивная студия для записи контента любой сложности. Снимай блоги, пиши подкасты, готовь презентации как Илон Маск!</p>
 							</div>
-							<div class="card" id="sport">
+							<div class="card hoverable" id="sport">
 								<h3>Спортивные возможности</h3>
 								<p>Стадион по стандартам УЕФА , игровые площадки и станции воркаута, беговые треки, бассейн, зал киберспорта – качай и разум, и тело</p>
 							</div>
-							<div class="card" id="teachers">
+							<div class="card hoverable" id="teachers">
 								<h3>Профессорско-преподавательский состав</h3>
 								<p>Один из лучших в стране, и всегда открыт для студентов. Команда преподавателей всегда готова проконсультировать, подсказать, поделиться личным опытом и помочь определиться с вектором развития</p>
 							</div>
@@ -58,7 +111,52 @@
 				</div>
 			</div>
 		</section>
-		<section id="calculator">Калькулятор</section>
+		<section id="calculator">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h2>Узнай, куда поступишь на бюджет!</h2>
+						<div class="calculator-app" data-level="Бакалавриат/специалитет">
+							<div class="calculator-head">
+								<ul class="pseudo-tabs">
+									<li class="pseudo-tab active">
+										<input type="radio" name="level" id="l1" checked value="Бакалавриат/специалитет">
+										<label for="l1">Бакалавриат/специалитет</label>
+									</li>
+									<li class="pseudo-tab">
+										<input type="radio" name="level" id="l2" value="Магистратура">
+										<label for="l2">Магистратура</label>
+									</li>
+									<li class="pseudo-tab disabled">
+										<!-- <input type="radio" name="level" id="l3" value="Аспирантура"> -->
+										<label for="l3">Аспирантура</label>
+									</li>
+								</ul>
+								<div class="quick-search">
+									<input type="search" name="search" placeholder="Поиск">
+								</div>
+							</div>
+							<div class="calculator-body">
+								<input type="search" name="search" placeholder="Поиск" class="mobile-search">
+								<p class="large mt0 fogged intro">
+									Пожалуйста, выберите, предметы ЕГЭ, которые вы сдавали (минимум 3 предмета) и нажмите «Подобрать», или воспользуйтесь поиском
+								</p>
+								<div class="tags">
+									@@loop('./parts/eg.html', './data/tags.json')
+								</div>
+								<div class="actions">
+									<a href="javascript:void(0);" id="calc-reset" class="bttn-outline">Сброс</a>
+									<a href="javascript:void(0);" id="calc-apply" class="bttn">Применить</a>
+								</div>
+								<div id="output">
+
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section id="task">
 			<div class="container">
 				<div class="row flex">
@@ -69,10 +167,10 @@
 						<div class="outline-block">
 							<h3>Способы подачи</h3>
 							<ul>
-								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">Лично</h4><span class="content">Заглядывай с оригиналами и паспортом в гости! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.</span></span></div></li>
-								<li><a href="" class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">Онлайн</h4><span class="content">Регистрируйся на сайте, и через Личный кабинет сможешь подать всё онлайн - быстро, удобно и в прохладе.</span></span></a></li>
-								<li><a href="" class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">По почте</h4><span class="content">Можешь выбрать "Почту России", CDEK или любого другого удобного оператора.</span></span></a></li>
-								<li><a href="" class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><span class="content-wrapper"><h4 class="title">Через Госуслуги</h4><span class="content">Быстро, удобно и хоть с мобильного - переходи раздел «Поступление в вуз онлайн»!</span></span></a></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/walkman_icon.png" alt=""></span><span class="content-wrapper"><h4 class="title">Лично</h4><span class="content">Заглядывай с оригиналами и паспортом в гости! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.</span></span></div></li>
+								<li><a href="" class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/cellphone_icon.png" alt=""></span><span class="content-wrapper"><h4 class="title">Онлайн</h4><span class="content">Регистрируйся на сайте, и через Личный кабинет сможешь подать всё онлайн - быстро, удобно и в прохладе.</span></span></a></li>
+								<li><a href="" class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/mail_icon.png" alt=""></span><span class="content-wrapper"><h4 class="title">По почте</h4><span class="content">Можешь выбрать "Почту России", CDEK или любого другого удобного оператора.</span></span></a></li>
+								<li><a href="" class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/gosuslugi_icon.png" alt=""></span><span class="content-wrapper"><h4 class="title">Через Госуслуги</h4><span class="content">Быстро, удобно и хоть с мобильного - переходи раздел «Поступление в вуз онлайн»!</span></span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -80,11 +178,11 @@
 						<div class="fill-block">
 							<h3>Какие документы нужны</h3>
 							<ul>
-								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Паспорт</h4></div></li>
-								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Документы об образовании (аттестат, диплои, и др.)</h4></div></li>
-								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Фотографии (3х4) 4 шт.</h4></div></li>
-								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">СНИЛС</h4></div></li>
-								<li><div class="icon-block"><span class="icon-wrapper"><img src="" alt=""></span><h4 class="content-wrapper">Медицинская справка №086/У</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/passport_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Паспорт</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/diploma_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Документы об образовании <span class="note">(аттестат, диплом и др.)</span></h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/photo_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Фотографии (3х4) 4 шт.</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/snils_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">СНИЛС</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/spravka_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Медицинская справка №086/У</h4></div></li>
 							</ul>
 						</div>
 					</div>
@@ -116,14 +214,198 @@
 				</div>
 			</div></div>
 		</section>
-		<section id="baner">Банер</section>
-		<section id="bonus">Бонус</section>
-		<section id="faq">Вопрос-ответ</section>
-		<section id="docs-baner">Банер с документами</section>
-		<section id="contacts">Контакты</section>
+		<section id="baner">
+			<div class="container">
+				<div class="banner-home">
+					<div class="mobile-header"><h2>У нас уютно, как и должно быть дома</h2></div>
+					<div class="banner-content">
+						<div class="desktop-header">
+							<h2>У нас уютно, как и должно быть дома</h2>
+						</div>
+						<div class="points">
+							<div class="point">
+								<div class="point-image">
+									<img src="/img/home_icon.png" alt="" class="lazy responsive-img">
+								</div>
+								<div class="point-content">
+									<h3>Жилье</h3>
+									<p>20 корпусов общежитий находятся на территории университета, а несколько минут пешком по самому зелёному кампусу не только полезно, но и приятно.</p>
+								</div>
+							</div>
+							<div class="point">
+								<div class="point-image">
+									<img src="/img/health_icon.png" alt="" class="lazy responsive-img">
+								</div>
+								<div class="point-content">
+									<h3>Здоровье</h3>
+									<p>Если простудишься, всё под контролем: на территории есть своя студенческая поликлиника. Знай, но не болей!</p>
+								</div>
+							</div>
+							<div class="point">
+								<div class="point-image">
+									<img src="/img/service_icon.png" alt="" class="lazy responsive-img">
+								</div>
+								<div class="point-content">
+									<h3>Сервис</h3>
+									<p>Прачечные и сушильные комнаты, двухэтажная столовая и десятки буфетов по всему кампусу, оборудованные кухни в общежитиях: учитесь с комфортом!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="banner-image lazy" data-bg="/img/students_bg.png">
+						<img data-src="/img/students_fg.png" alt="" class="lazy">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="bonus">
+			<div class="container">
+				<div class="row">
+					<div class="col xl5 l4 m3 s6 offset-s3 xs8 offset-xs2">
+						<img data-src="/img/bonus.png" alt="" class="lazy responsive-img">
+					</div>
+					<div class="col xl6 offset-xl1 l7 offset-l1 m8 offset-m1 s12">
+						<div class="row flex">
+							<div class="col"><h2>Приятный бонус для усердных</h2></div>
+							<div class="col xl4 l6 m6 s12 margin-bottom">
+								<div class="price-block">
+									<h4 class="price">15 000₽</h4>
+									<p class="small">Для победителей всероссийских олимпиад и конкурсов школьников, таких, как: АгроНТИ АгроСтарт, Иннагрика, Агро, и т.п.</p>
+								</div>
+							</div>
+							<div class="col xl4 l6 m6 s12 margin-bottom">
+								<div class="price-block">
+									<h4 class="price">10 000₽</h4>
+									<p class="small">Для студентов-бюджетников направления 19.03.02, набравших не менее 225 баллов по ЕГЭ</p>
+								</div>
+							</div>
+							<div class="col xl4 l6 m6 s12 margin-bottom">
+								<div class="price-block">
+									<h4 class="price">10 000₽</h4>
+									<p class="small">Для студентов-бюджетников всех направлений, набравших не менее 255 баллов по ЕГЭ.</p>
+								</div>
+							</div>
+							<div class="col align-center-m-down">
+								<p>В КубГАУ до первой сессии стипендию получают все первокурсники бюджетных отделений. Дальше - в зависимости от успеваемости и вовлечённости в науку, но даже студенты коммерческой формы могут получить поддержку: от универа, города, страны, фондов или будущих работодателей. Кстати, стипендии суммируются</p>
+								<a href="/programs.html" class="bttn-large">Все программы</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="faq">
+			<div class="container">
+				<div class="col">
+					<h2>Самые популярные вопросы</h2>
+				</div>
+				<div class="col">
+					@@loop('./parts/faq_entry.html', './data/faq.json')
+				</div>
+			</div>
+		</section>
+		<section id="docs-baner">
+			<div class="container">
+				<a href="https://kubsau.ru" rel="nofollow" target="_blank" class="banner hoverable">
+					<div class="banner-content">
+						<img data-src="/img/folder.png" alt="" class="lazy" width="513" height="380">
+						<h2>Официальные документы</h2>
+						<p class="large">А полную нормативно-правовую базу можешь скачать и прочитать на основном сайте КубГАУ по ссылке</p>
+						<span class="bttn-white large">cмотреть документы</span>
+					</div>
+				</a>
+			</div>
+		</section>
+		<section id="contacts">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h2>До встречи в КубГАУ!</h2>
+						<p>Если у тебя остались вопросы, с удовольствием всё объясним и подробно расскажем: хоть лично, хоть по телефону или в мессенджере</p>
+					</div>
+					<div class="col l5">
+						<h4>Звоните</h4>
+						<div class="contacts-wrapper">
+							<div class="contact">
+								<p class="title">«Горячая линия» по вопросам поступления</p>
+								<a href="tel:"><i class="bx bxs-phone"></i> +7 (861) 221-58-81</a>
+							</div>
+							<div class="contact">
+								<p class="title">Отдел по работе с абитуриентами</p>
+								<a href="tel:"><i class="bx bxs-phone"></i> +7 (861) 221-58-18</a>
+							</div>
+							<div class="contact">
+								<p class="title">Горячая линия по вопросам приёма лиц с ограниченными возможностями здоровья и инвалидов</p>
+								<a href="tel:"><i class="bx bxs-phone"></i> +7 (861) 221-58-57</a>
+							</div>
+							<div class="contact">
+								<p class="title">Деканат факультета заочного обучения</p>
+								<a href="tel:"><i class="bx bxs-phone"></i> +7 (861) 221-58-57</a>
+							</div>
+							<div class="contact">
+								<p class="title">Центр довузовской подготовки</p>
+								<a href="tel:"><i class="bx bxs-phone"></i>+7 (861) 221-58-17</a>
+							</div>
+						</div>
+					</div>
+					<div class="col xl2 l3 offset-xl1 m5 s4">
+						<h4>Пишите</h4>
+						<div class="contact">
+							<p class="title">Электронная почта приёмной комиссии</p>
+							<a href="mailto:pk@kubsau.ru"><i class="bx bxs-envelope-open"></i> pk@kubsau.ru</a>
+						</div>
+					</div>
+					<div class="col xl4 l4 m7 s8">
+						<h4>Приезжайте</h4>
+						<div class="contact">
+							<p class="title">Ссылка откроется в новом окне</p>
+							<a href="mailto:pk@kubsau.ru"><i class="bx bxs-envelope-open"></i> 350044, Россия, г. Краснодар, ул. Калинина, д. 13</a>
+						</div>
+					</div>
+				</div>
+				<div class="row flex vcenter">
+					<div class="col s9">
+						<h3>Увидимся в студенчестве!</h3>
+					</div>
+					<div class="col s3">
+						<div class="align-right-s-up align-center-s-down">
+							<a href="" class="social-icon"><i class="bx bxl-telegram"></i></a>
+							<a href="" class="social-icon"><i class="bx bxl-vk"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="map-section">
+			<div id="map"></div>
+		</section>
 	</main>
-	<footer>
-
+	<footer class="center-align">
+		<div class="row">
+			<div class="col s12">
+				<a target="_blank" rel="nofollow" href="https://kubsau.ru/" class="bttn-white">На основной сайт</a>
+				<a target="_blank" rel="nofollow" href="https://kubsau.ru/sveden/common/" class="bttn-outline"><i>Сведения</i> об <span>образовательном </span>учреждении</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col xl4 offset-xl4 l6 offset-l3 m8 offset-m2 s10 offset-s1 xs12">
+				<p>
+					© <span id="year"></span> ФГБОУ ВО «Кубанский Государственный Аграрный Университет имени И. Т. Трубилина»
+		350044, Россия, г. Краснодар, ул. Калинина, 13
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<a href="https://2br.agency" rel="nofollow" target="_blank">
+					<img data-src="/img/2br.svg" alt="Брегдинг и коммуникации" class="lazy responsive-img" width="70"/>
+				</a>
+			</div>
+			<div class="col s12">
+				<p>Дизайн страницы – <a href="https://2br.agency" rel="nofollow" target="_blank" class="agency-link">2br.agency</a></p>
+			</div>
+			
+		</div>
 	</footer>
 	<script src="/js/master.js"></script>
 </body>

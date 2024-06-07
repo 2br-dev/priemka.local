@@ -1,3 +1,5 @@
+@import "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css";
+
 @font-face {
     font-family: 'Cygre';
     font-weight: normal;
@@ -29,19 +31,19 @@ body{
 	color: $text;
 
     & h1{
-        font-size: clamp(36px, 4vw, 96px);
+        font-size: clamp(31px, 4vw, 96px);
     }
 
     & h2{
-        font-size: clamp(32px, 4vw, 72px);
+        font-size: clamp(26px, 4vw, 72px);
     }
 
     & h3{
-        font-size: clamp(26px, 3vw, 40px);
+        font-size: clamp(18px, 3vw, 40px);
     }
 
     & h4{
-        font-size: clamp(20px, 3vw, 32px);
+        font-size: clamp(16px, 3vw, 32px);
     }
 
     & .small{
@@ -49,6 +51,7 @@ body{
     }
 
     & .large{
-        font-size: clamp(20px, 2vw, 32px);
+        font-size: clamp(18px, 2vw, 32px);
+        line-height: 1.6em;
     }
 }

@@ -3,4 +3,53 @@ body{
 	& .margin-bottom{
 		margin-bottom: $gutter-width;
 	}
+
+	& .bttn{
+		display: inline-block;
+		line-height: 2em;
+		padding: 0 1em;
+		border-radius: 2em;
+		background-color: $primary;
+		color: #fff;
+
+		&-large{
+			@extend .bttn;
+			font-size: clamp(18px, 2vw, 24px);
+		}
+
+		&-outline{
+			@extend .bttn;
+			color: $primary;
+			background-color: transparent;
+			box-shadow: 0 0 0 1px $primary inset;
+		}
+
+		&-white{
+			@extend .bttn;
+			background-color: #fff;
+			color: $primary;
+		}
+	}
+
+	.mt0{
+		margin-top: 0;
+	}
+
+	& .no-margin{
+		margin: 0;
+	}
+
+	& .fogged{
+		color: #808080;
+	}
+
+	& .disabled{
+
+		opacity: .5;
+		cursor: not-allowed !important;
+		
+		& *{
+			cursor: not-allowed !important;
+		}
+	}
 }
