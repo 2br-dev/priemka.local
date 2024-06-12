@@ -10,46 +10,43 @@
 	@@include('./parts/header.html')
 	<main>
 		<section id="hero">
-			<div class="container">
-				<div class="row flex vcenter">
-					<div class="col m6 s12 order-m1">
-						<h1>Думай головой, <span class="accent">выбирай сердцем!</span></h1>
-						<div class="timer">
-							<div class="num">
-								<div class="val" id="days">
-									<div class="value">00</div>
-									<div class="separator">:</div>
-								</div>
-								<div class="text">дней</div>
-							</div>
-							<div class="num">
-								<div class="val" id="hours">
-									<div class="value">00</div>
-									<div class="separator">:</div>
-								</div>
-								<div class="text">часов</div>
-							</div>
-							<div class="num">
-								<div class="val" id="minutes">
-									<div class="value">00</div>
-									<div class="separator">:</div>
-								</div>
-								<div class="text">минут</div>
-							</div>
-							<div class="num">
-								<div class="val" id="seconds">
-									<div class="value">00</div>
-								</div>
-								<div class="text">секунд</div>
-							</div>
+			<div class="hero-content center-align">
+				<h1><span>Думай головой,</span><span class="accent">выбирай сердцем!</span></h1>
+				<div class="timer" data-end="June 20, 2024">
+					<div class="num">
+						<div class="val" id="days">
+							<div class="value" id="d">00</div>
 						</div>
-						<div class="call-to-action"><a href="#task" class="bttn-large scroll-link">Подать документы</a></div>
+						<div class="text">дней</div>
 					</div>
-					<div class="col m6 s12 hero-image">
-						<img data-src="/img/hero_image.png" alt="" class="lazy responsive-img" width="937" height="1069">
+					<div class="separator">:</div>
+					<div class="num">
+						<div class="val" id="hours">
+							<div class="value" id="h">00</div>
+						</div>
+						<div class="text">часов</div>
+					</div>
+					<div class="separator">:</div>
+					<div class="num">
+						<div class="val" id="minutes">
+							<div class="value" id="m">00</div>
+						</div>
+						<div class="text">минут</div>
+					</div>
+					<div class="separator">:</div>
+					<div class="num">
+						<div class="val" id="seconds">
+							<div class="value" id="s">00</div>
+						</div>
+						<div class="text">секунд</div>
 					</div>
 				</div>
+				<div class="call-to-action">
+					<a href="#task" class="bttn-outline large scroll-link">Подать документы</a>
+					<a href="#сalculator" class="bttn large scroll-link">Выбрать специальность</a>
+				</div>
 			</div>
+			<video class="lazy" muted loop playsinline autoplay data-src="/video/hero_compressed.mp4" width="1920" height="1080"></video>
 		</section>
 		<section id="about">
 			<div class="container">
@@ -71,14 +68,18 @@
 										<p>168 га: как 4 Ватикана, 7,5 парков «Краснодар» или 235 футбольных полей</p>
 									</div>
 									<div class="footer">
-										<ul class="pagination">
-											<li class="page"><a href="javascript:void(0);" id="left"></a></li>
-											<li class="page"><a href="javascript:void(0);" class="active" id="center"></a></li>
-											<li class="page"><a href="javascript:void(0);" id="right"></a></li>
-										</ul>
+
 									</div>
 								</div>
-								<img src="/img/map.jpg" alt="" class="lazy center">
+								<div class="swiper" id="map-slider">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map1.jpg"></div>
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map2.jpg"></div>
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map3.jpg"></div>
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map4.jpg"></div>
+									</div>
+									<div class="swiper-pagination"></div>
+								</div>
 							</div>
 							<div class="card hoverable" id="park">
 								<h3>Прогулочный парк</h3>
@@ -196,23 +197,76 @@
 				</div>
 				<div class="col s12">
 					<ul class="tabs">
-						<li class="tab"><a href="#bakalavr" class="active"><h3>Бакалавриат/специалитет</h3></a></li>
-						<li class="tab"><a href="#magister"><h3>Магистратура</h3></a></li>
-						<li class="tab"><a href="#aspirant"><h3>Аспирантура</h3></a></li>
+						<li class="tab active">
+							<input checked type="radio" name="calendar" value="Бакалавриат/специалитет" id="bakalavr">
+							<label for="bakalavr">Бакалавриат/специалитет</label>
+						</li>
+						<li class="tab">
+							<input type="radio" name="calendar" value="Магистратура" id="magistr">
+							<label for="magistr">Магистратура</label>
+						</li>
+						<li class="tab">
+							<input type="radio" name="calendar" value="Аспирантура" id="aspirant">
+							<label for="aspirant">Аспирантура</label>
+						</li>
 					</ul>
-					<div class="calendar-wrapper">
-						<div id="bakalavr" class="page active">
-							@@loop('./parts/calendar_entry.html', './data/calendar_bakalavr.json')
-						</div>
-						<div id="magister" class="page">
-							@@loop('./parts/calendar_entry.html', './data/calendar_bakalavr.json')
-						</div>
-						<div id="aspirant" class="page">
-							@@loop('./parts/calendar_entry.html', './data/calendar_bakalavr.json')
+					<div class="calendar-wrapper" data-section="Бакалавриат/специалитет">
+						<ul class="subtabs">
+							<li class="tab active"><a href="javascript:void(0);" data-section="Бакалавриат/специалитет" data-form="free">Все формы (бюджет)</a></li>
+							<li class="tab"><a href="javascript:void(0);" data-section="Бакалавриат/специалитет" data-form="direct">Очная форма <i class="bx bx-ruble"></i></a></li>
+							<li class="tab"><a href="javascript:void(0);" data-section="Бакалавриат/специалитет" data-form="remote">Заочная форма <i class="bx bx-ruble"></i></a></li>
+						</ul>
+						<div id="calendar-output">
+
 						</div>
 					</div>
 				</div>
 			</div></div>
+		</section>
+		<section id="bank">
+			<div class="container">
+				<div class="row flex">
+					<div class="col"><h2>Не упусти время и возможность получить образование!</h2></div>
+					<div class="col m6 s12">
+						<p class="large">Если учиться хочется, но прямо сейчас нет возможности оплатить обучение, воспользуйся Образовательным кредитом - льготной программой с фиксированной ставкой 3% годовых.</p>
+						<div class="banks-wrapper">
+							<p>Ознакомься с официальными документами от банков-партнёров</p>
+							<ul>
+								<li><a class="bank-bttn" href="" id="rnkb"><span>Скачать</span><i class="bx bxs-download"></i></a></li>
+								<li><a class="bank-bttn" href="" id="sber"><span>Скачать</span><i class="bx bxs-download"></i></a></li>
+							</ul>
+						</div>
+						<div class="howto-wrapper">
+							<div class="row flex">
+								<div class="col">
+									<h3>Как это работает</h3>
+								</div>
+								<div class="col xl3 l6 m6 s6 xs6">
+									<img data-src="/img/doc_icon.svg" alt="" class="responsive-img lazy">
+									<p>Ты подписываешь с вузом контракт о платном образовании</p>
+								</div>
+								<div class="col xl3 l6 m6 s6 xs6">
+									<img data-src="/img/bank_icon.svg" alt="" class="responsive-img lazy">
+									<p>Выбираешь банк, связываешься с сотрудником</p>
+								</div>
+								<div class="col xl3 l6 m6 s6 xs6">
+									<img data-src="/img/handshake_icon.svg" alt="" class="responsive-img lazy">
+									<p>Подписываешь кредитный договор</p>
+								</div>
+								<div class="col xl3 l6 m6 s6 xs6">
+									<img data-src="/img/cash_icon.svg" alt="" class="responsive-img lazy">
+									<p>Банк сам перечислит деньги на счёт вуза</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col m6 s12">
+						<div class="pin">
+							<img alt="" class="lazy responsive-img" data-src="/img/student_girl.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 		<section id="baner">
 			<div class="container">

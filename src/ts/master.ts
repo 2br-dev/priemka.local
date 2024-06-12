@@ -1,8 +1,10 @@
 import Lazy from 'vanilla-lazyload';
 import * as M from 'materialize-css';
 import mustache from 'mustache';
-import { IData, ICardData, IEducationLevel, IEducationForm, IRequirement, IPreparedData, ISection } from "./lib/card";
+import { IData, ICardData, IEducationLevel, IEducationForm, IRequirement, IPreparedData, ISection } from "./lib/card_interfaces";
+import { IEventsData, IEventsSection, IEvent, IEventsFilter } from './lib/events_interfaces';
 import template from './lib/template';
+import eventsTpl from './lib/events_template';
 
 let cards_data:IData;
 declare var ymaps:any;
@@ -12,6 +14,15 @@ let filterParams = {
 	level: "Бакалавриат/специалитет",
 	requirements: []
 }
+let eventsData:IEventsData;
+let eventsFilter:IEventsFilter = {
+	section: "Бакалавриат/специалитет",
+	subsection: "free"
+};
+import Swiper from 'swiper';
+import { Pagination } from 'swiper/modules';
+
+Swiper.use([Pagination]);
 
 document.addEventListener('DOMContentLoaded', () => {
 	
@@ -19,11 +30,234 @@ document.addEventListener('DOMContentLoaded', () => {
 	M.Sidenav.init(document.querySelector('.sidenav'), { edge: 'right' });	// Сайднав (боковая панель навигации)
 	$('body').on('click', '.card .footer a', view3DMap);					// Просмотр 3D-карты 
 	$('body').on('click', '.faq-header', toggleFAQ);						// Отображение блоков вопрос-ответ
+	$('body').on('click', clickOutside);									// Закрытие объектов по щелчку мимо них
+	renderPage();															// Установка header'а
+	
+	new Swiper('#map-slider', {
+		pagination: {
+			type: 'bullets',
+			el: '.swiper-pagination',
+			clickable: true
+		}
+	});
+
+	// Scroll-base анимации
+	let iconBlocks = document.querySelectorAll('#features .icon-block');
+	
+	iconBlocks.forEach((el:HTMLElement) => {
+		let observer = new IntersectionObserver(reactIntersect, {
+			threshold: .2
+		});
+		observer.observe(el);
+	})
 
 	initCalculator();
 	initMap();
+	initCalendar();
 });
 
+function reactIntersect(entries:IntersectionObserverEntry[], observer:IntersectionObserver){
+	entries.forEach((entry:IntersectionObserverEntry) => {
+		let el = entry.target;
+		if(entry.isIntersecting){
+			el.classList.add('visible');
+		}else{
+			el.classList.remove('visible');
+		}
+	})
+}
+
+
+/**
+ * Отрисовка динамических элементов
+ */
+function renderPage(){
+
+	// #region Header
+	let scrollTop = document.documentElement.scrollTop;
+	let headerTop = 74 - scrollTop;
+	let percent = Math.round((scrollTop * 74) / 100);
+	let header = <HTMLElement>document.querySelector('header');
+
+	if(percent > 70){
+		percent = 70;
+		// Переключаемся на тёмный текст
+		header.classList.add('dark');
+		$('#logo-text').attr('src', '/img/logo_text.svg');
+		$('#logo-leaf').attr('src', '/img/logo_leaf.svg');
+	}else{
+		header.classList.remove('dark');
+		$('#logo-text').attr('src', '/img/logo_text_white.svg');
+		$('#logo-leaf').attr('src', '/img/logo_leaf_white.svg');
+	}
+	
+	if(headerTop < 0 || window.innerWidth <= 900) headerTop = 0
+	let top = `${headerTop}px`;	
+	
+	header.style.backgroundColor = `rgba(255, 255, 255, ${percent / 100})`;
+	header.style.top = top;
+
+	// #endregion
+
+	// #region Timer
+	let currentDate = new Date(); // Текущая дата
+	let timerEl = <HTMLElement>document.querySelector('.timer');
+	let endDateStr = timerEl.dataset['end'];
+	let endDate = new Date(endDateStr); // Целевая дата
+
+	// Расчитываем разницу между текущей и целевой датой
+	var timeDiff = (endDate.getTime() - currentDate.getTime());
+
+	if(timeDiff <= 0){
+		// Скрываем счётчик, и отображаем уведомление о том, что приём начался
+		$('.intro, .counter').hide();
+		$('.new-intro').show();
+		$('#in-touch').hide();
+		$('#hero .bttn-large').hide();
+	}
+
+	// Вычисляем количество дней, часов, минут и секунд до достижения цели
+	var days = Math.floor(timeDiff / (1000 * 3600 * 24));
+	var hours = Math.floor((timeDiff % (1000 * 3600 * 24)) / (1000 * 3600));
+	var minutes = Math.floor((timeDiff % (1000 * 3600)) / 60000);
+	var seconds = Math.floor((timeDiff % 60000) / 1000);
+
+	let daysEl = <HTMLElement>document.querySelector('#d');
+	let hoursEl = <HTMLElement>document.querySelector('#h');
+	let minutesEl = <HTMLElement>document.querySelector('#m');
+	let secondsEl = <HTMLElement>document.querySelector('#s');
+
+	daysEl.textContent = addZero(days);
+	hoursEl.textContent = addZero(hours);
+	minutesEl.textContent = addZero(minutes);
+	secondsEl.textContent = addZero(seconds);
+	// #endregion
+
+	requestAnimationFrame(renderPage);
+}
+
+/**
+ * Добавление «лидирующего» нуля
+ * @param {number} n - Число, к которому нужмо применить лидирующий нуль
+ * @returns {string} Строка с лидирующим нулем или без него
+ */
+function addZero(n: number): string {
+	return n > 9 ? "" + n : "0" + n;
+}
+
+/**
+ * Закрытие объектов по клику вне их
+ */
+function clickOutside(e:JQuery.ClickEvent){
+	let path = e.originalEvent.composedPath();
+	let pathArray = Array.from(path);
+
+	// Закрываем открытые баблы
+	let bubbles = pathArray.filter((el:HTMLElement) => {
+		if(el.classList){
+			return el.classList.contains('info-trigger');
+		}
+	});
+
+	if(!bubbles.length){
+		$('.info-trigger').removeClass('open');
+	}
+}
+
+/**
+ * Инициализация календаря событий
+ */
+function initCalendar(){
+	
+	// Загрузка начальных данных
+	fetch("/data/events.json")
+		.then(res => res.json())
+		.then((data:IEventsData) => {
+			eventsData = data;
+			let eventsSection = filterEvents();
+			renderEventsSection(eventsSection);
+		})
+
+	$('body').on('click', '[data-form]', filterEventsSection);
+	$('body').on('change', '[name=calendar]', filterEventsSection);
+	$('body').on('click', '[data-bubble]', openBubble);
+	
+}
+
+/**
+ * Отображение всплывающих подсказок для эвентов и их заголовков
+ */
+function openBubble(e:JQuery.ClickEvent){
+	e.preventDefault();
+	let already = $(e.currentTarget).hasClass('open');
+	let classList = Array.from(e.currentTarget.classList);
+	let initialClassArray = classList.filter((c:string) => {
+		return c !== "open"
+	});
+	let initialClass = initialClassArray.join(" ");
+	let newClass:string = already ? initialClass : initialClass + " open";
+	$('.info-trigger').removeClass('open');
+	$(e.currentTarget).attr('class', newClass);
+}
+
+/**
+ * Триггер фильтрации событий
+ */
+function filterEventsSection(e:Event){
+	e.preventDefault();
+
+	e.stopImmediatePropagation();
+	let el = <HTMLInputElement>e.currentTarget;
+	let section = el.value || el.dataset['section'];
+	let form = el.dataset['form'];
+	let root = document.querySelector('.calendar-wrapper');
+	let tabs = $(el).parents('ul').find('.tab');
+	let currentTab = $(el).parents('.tab');
+
+	if(section) eventsFilter.section = section;
+	if(form) eventsFilter.subsection = form;
+	
+	tabs.removeClass('active');
+	currentTab.addClass('active');
+
+	root.setAttribute("data-section", section)
+
+	let section2render = filterEvents();
+	renderEventsSection(section2render);
+}
+
+/**
+ * Рендер секции событий
+ * @param {IEventsSection} section Секция событий
+ */
+function renderEventsSection(section:IEventsSection){
+	if(section){
+		let output = mustache.render(eventsTpl, section);
+		$('#calendar-output').html(output);
+	}else{
+		$('#calendar-output').html("К сожалению, ничего не найденно!");
+	}
+}
+
+/**
+ * Фильтрация событий
+ */
+function filterEvents():IEventsSection{
+
+	let filteredData:IEventsSection = eventsData.events.filter((s:IEventsSection) => {
+		if(eventsFilter.section == "Бакалавриат/специалитет"){
+			return s.section == eventsFilter.section && s.subsection == eventsFilter.subsection;
+		}else{
+			return s.section == eventsFilter.section;
+		}
+	})[0];
+
+	return filteredData;
+}
+
+/**
+ * Отображение FAQ
+ */
 function toggleFAQ(e:JQuery.ClickEvent){
 	e.preventDefault();
 	let _this = <HTMLElement>e.currentTarget;

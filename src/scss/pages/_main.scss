@@ -167,84 +167,110 @@
 
 body{
 
+	
 	main{
-
+		
 		& section{
-
+			
 			padding: 4vmax 0;
-
+			
 			&#hero{
-
+				
 				overflow: hidden;
-				border-bottom: 1px solid #cecece;
 				padding: 0;
+				box-sizing: border-box;
+				min-height: 98vh;
+				position: relative;
+				overflow: hidden;
+				max-width: 100vw;
+				
+				& .hero-content{
 
-				& .row{
-					margin: 0;
-				}
+					position: absolute;
+					z-index: 1;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					color: #fff;
 
-				& .timer{
+					& h1{
 
-					display: flex;
+						line-height: 1.2em;
+						margin: 0;
 
-					& .num{
+						& span{
+							display: block;
 
-						text-align: center;
-						
-						& .val{
-							font-size: clamp(28px, 5vw, 134px);
-							line-height: 1em;
-							font-weight: 700;
-							display: flex;
-
-							& .separator{
-								padding: 0 clamp(0px, 2vw, 20px);
+							&.accent{
+								color: $primary;
 							}
 						}
+					}
 
-						&:last-of-type{
-							color: $secondary;
+					& .bttn{
+						color: $text;
+						background-color: #fff;
+						margin-bottom: 20px;
+
+						&-outline{
+							background-color: transparent;
+							color: #fff;
+							box-shadow: 0 0 0 1px #fff inset;
 						}
+					}
 
-						@media(max-width: $medium){
+					& .timer{
 
-							& .val{
+						display: flex;
+						justify-content: center;
+						margin: #{$gutter-width * 2} 0;
+
+						& .separator{
+							font-size: clamp(28px, 5vw, 134px);
+							line-height: .75em;
+							padding: 0 10px;
+							
+							@media(max-width: $medium){
 								font-size: clamp(34px, 12vw, 134px);
 							}
 						}
-					}
-				}
-
-				& .hero-image{
-					position: relative;
-					display: flex;
-					align-items: flex-end;
-
-					&:before{
-						content: '';
-						display: block;
-						position: absolute;
-						z-index: -1;
-						width: 45vw;
-						height: 100%;
-						top: 0;
-						left: 15%;
-						background-image: url(/img/hero_forest.jpg);
-						border-top-left-radius: clamp(20px, 12vw, 200px);
-						background-size: cover;
-					}
-
-					@media(max-width: $medium){
-
-						&:before{
-							width: 100%;
+	
+						& .num{
+	
+							text-align: center;
+							
+							& .val{
+								font-size: clamp(28px, 5vw, 134px);
+								line-height: 1em;
+								font-weight: 700;
+								display: flex;
+								width: 1.2em;
+								justify-content: center;
+							}
+	
+							&:last-of-type{
+								color: $primary;
+							}
+	
+							@media(max-width: $medium){
+	
+								& .val{
+									font-size: clamp(34px, 12vw, 134px);
+								}
+							}
 						}
 					}
 				}
 
-				& .call-to-action{
-					margin-top: #{$gutter-width * 2};
-					text-align: center;
+				& video{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					object-position: center center;
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0%;
 				}
 			}
 
@@ -265,6 +291,9 @@ body{
 						border-radius: $border-radius;
 						padding: clamp(5px, 3vw, 20px);
 						box-sizing: border-box;
+						aspect-ratio: 1 / .9;
+						min-height: 100%;
+						overflow: hidden;
 
 						& h3, & p{
 							margin-top: 0;
@@ -272,13 +301,17 @@ body{
 						}
 
 						& h3{
-							font-size: clamp(20px, 2vw, 30px);
+							font-size: clamp(20px, 1.6vw, 30px);
+							line-height: 1.3em;
 						}
-
+						
 						& p{
 							transition: opacity .2s, transform .2s;
 							transform: translateY(20px);
 							opacity: 0;
+							font-size: clamp(16px, 1.6vw, 18px);
+							line-height: 1.4em;
+							margin-top: -20px;
 						}
 
 						&:hover p{
@@ -288,21 +321,29 @@ body{
 		
 						&#territory{
 							grid-row: 1 / 3;
-							aspect-ratio: 1 / 1.8;
 							position: relative;
 							overflow: hidden;
 							padding: 0;
 							color: #fff;
+							position: relative;
+							height: 100%;
+							width: 100%;
+							
+							@media(max-width: $small){
+								aspect-ratio: 1 / 1.8;
+							}
 
 							& .territory-content{
 								padding: clamp(5px, 3vw, 20px);
-								position: relative;
 								z-index: 1;
 								background-image: linear-gradient(to bottom, rgba(black, .9), rgba(black, 0) 30%);
 								display: flex;
 								flex-direction: column;
 								justify-content: space-between;
 								height: 100%;
+								position: absolute;
+								z-index: 200;
+								pointer-events: none;
 
 								& .pagination{
 									margin: 0;
@@ -334,26 +375,39 @@ body{
 
 							$duration: .8s;
 
-							& img{
-								display: block;
-								position: absolute;
+							& .swiper{
+
 								height: 100%;
-								top: 0;
-								transition: transform $duration, left $duration;
 
-								&.left{
-									left: 0;
-									transform: none;
+								& img{
+									display: block;
+									height: 100%;
 								}
 
-								&.center{
-									left: 50%;
-									transform: translateX(-50%);
-								}
+								& .swiper-pagination{
 
-								&.right{
-									left: 100%;
-									transform: translateX(-100%);
+									position: absolute;
+									bottom: 20px;
+									z-index: 200;
+									width: calc(100% - 40px);
+									left: 20px;
+									display: flex;
+
+									&-bullet{
+										width: 20px;
+										flex-grow: 1;
+										display: block;
+										margin: 6px;
+										height: .5rem;
+										background-color: rgba(white, .4);
+										border-radius: 1rem;
+										transition: background-color #fff;
+										cursor: pointer;
+
+										&-active{
+											background-color: white;
+										}
+									}
 								}
 							}
 						}
@@ -363,6 +417,43 @@ body{
 							background-position: bottom right;
 							background-size: auto 60%;
 							background-repeat: no-repeat;
+						}
+
+						&#lck{
+
+							color: #fff;
+							background: url(/img/lck.jpg);
+							background-position: center center;
+							background-size: cover;
+							position: relative;
+
+							&:before{
+								content: '';
+								display: block;
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 100%;
+								height: 100%;
+								background-color: rgba(black, .4);
+								transition: opacity .2s;
+								opacity: 0;
+							}
+
+							& h3{
+								position: relative;
+								z-index: 2;
+								margin-bottom: 30px;
+							}
+
+							& p{
+								position: relative;
+								z-index: 2;
+							}
+
+							&:hover:before{
+								opacity: 1;
+							}
 						}
 
 						&#sport{
@@ -379,6 +470,14 @@ body{
 							background-size: contain;
 							background-repeat: no-repeat;
 							background-position: bottom center;
+
+							& p{
+								margin-left: -20px;
+								width: calc(100% + 40px);
+								padding: 20px;
+								padding-top: 0;
+								background-color: rgba(#ececec, .7);
+							}
 						}
 					}
 		
@@ -393,6 +492,8 @@ body{
 			}
 
 			&#features{
+
+				overflow: hidden;
 
 				& .icon-block{
 
@@ -413,6 +514,49 @@ body{
 
 						& h3{
 							margin-top: 0;
+						}
+					}
+				}
+
+				& .col{
+
+					&:nth-child(2) .icon-block{
+						transform: scale(.7) translate(-50%, 50%) rotate(9deg);
+					}
+
+					&:nth-child(3) .icon-block{
+						transform: scale(.5) translate(50%, 50%) rotate(-6deg);
+					}
+
+					&:nth-child(4) .icon-block{
+						transform: scale(.7) rotate(-8deg);
+					}
+
+					&:nth-child(5) .icon-block{
+						transform: scale(1.2) rotate(15deg);
+					}
+
+					&:nth-child(6) .icon-block{
+						transform: scale(.8) translate(-30%) rotate(6deg);
+					}
+
+					&:nth-child(7) .icon-block{
+						transform: scale(1.2) translate(15%) rotate(-8deg);
+					}
+
+					&:nth-child(8) .icon-block{
+						transform: rotate(-2deg) translate(30%, 6%);
+					}
+
+					& .icon-block{
+
+						transition: transform .6s cubic-bezier(.45,.01,.04,1.22), opacity .6s;
+						transform-origin: center center;
+						opacity: 0;
+
+						&.visible{
+							opacity: 1;
+							transform: none;
 						}
 					}
 				}
@@ -676,11 +820,11 @@ body{
 
 								& .title{
 									padding: 0 $padding;
-									display: -webkit-box;
-									-webkit-line-clamp: 2;
-									-webkit-box-orient: vertical;
-									overflow: hidden;
-									user-select: none;
+									// display: -webkit-box;
+									// -webkit-line-clamp: 2;
+									// -webkit-box-orient: vertical;
+									// overflow: hidden;
+									// user-select: none;
 
 									&.expanded{
 										-webkit-line-clamp: 20;
@@ -943,12 +1087,301 @@ body{
 
 			&#calendar{
 
-				& .page{
-					border: 1px solid red;
-					display: none;
+				& .tabs{
 
-					&.active{
-						display: block;
+					margin: 0;
+
+					& h3{
+						margin: 0;
+					}
+
+					@include tabs();
+				}
+
+				& .calendar-wrapper{
+
+					border: 1px solid $primary;
+					border-radius: $border-radius;
+					border-top-left-radius: 0;
+					padding: clamp(5px, 2vw, 30px);
+					margin-top: -1px;
+
+					@media (min-resolution: 144dpi){
+						border: 1.5px solid $primary;
+					}
+
+					&:not([data-section="Бакалавриат/специалитет"]){
+
+						& .subtabs{
+							display: none;
+						}
+					}
+
+					& .event{
+
+						display: flex;
+						margin-bottom: $gutter-width;
+						
+						& .event-date{
+							
+							padding: clamp(5px, 2vw, 30px);
+							border: 1px solid $secondary;
+							border-right: 0;
+							border-top-left-radius: $border-radius;
+							border-bottom-left-radius: $border-radius;
+							font-size: clamp(20px, 2vw, 40px);
+							width: 25%;
+							flex-shrink: 0;
+							color: $secondary;
+
+							@media(min-width: $large){
+								min-width: 340px;
+							}
+
+							@media(min-resolution: 144dpi){
+								border-width: 1.5px;
+							}
+
+							&.outline .date{
+
+								position: relative;
+
+								&:before{
+									content: '';
+									display: block;
+									position: absolute;
+									width: calc(100% + 25px);
+									height: calc(100% + 40px);
+									top: -20px;
+									left: -20px;
+									background: url(/img/date_outline.svg);
+									background-size: 100% 100%;
+									z-index: -1;
+								}
+							}
+
+							& .time{
+								font-size: clamp(16px, 2vw, 18px);
+							}
+						}
+
+						& .event-divider{
+							width: 4px;
+							background-color: $secondary;
+							margin: 0 $gutter-width;
+							position: relative;
+
+							&:before{
+								content: '';
+								display: block;
+								width: 26px;
+								aspect-ratio: 1 / 1.3;
+								background-image: url(/img/leaf.svg);
+								background-size: 100% 100%;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%);
+								position: absolute;
+							}
+						}
+
+						& .event-content{
+							@extend .event-date;
+							border-top-left-radius: 0;
+							border-bottom-left-radius: 0;
+							border-top-right-radius: $border-radius;
+							border-bottom-right-radius: $border-radius;
+							width: unset;
+							font-size: clamp(16px, 2vw, 22px);
+							flex-shrink: unset;
+							border-left: 0;
+							border-right: 1px solid $secondary;
+							color: $text;
+							flex-grow: 1;
+							display: flex;
+							align-items: center;
+
+							@media(min-resolution: 144dpi){
+								border-width: 1.5px;
+							}
+						}
+
+						@media(max-width: $large){
+
+							flex-direction: column;
+							margin-bottom: 0;
+
+							& .event-divider:before{
+								display: none;
+							}
+
+							& .event-date{
+								margin-bottom: -2px;
+								border-width: 2px;
+								min-width: 70%;
+
+								& .date{
+									font-size: 26px;
+								}
+							}
+
+							& .event-content{
+								border-width: 2px;
+								margin-left: 20px;
+							}
+						}
+					}
+
+					@media(max-width: 660px){
+						border-top-left-radius: $border-radius;
+					}
+
+					& .info-trigger{
+
+						position: relative;
+						cursor: pointer;
+						width: fit-content;
+						
+						& i{
+							font-size: 21px !important;
+						}
+
+						&:after{
+							content: attr(data-bubble);
+							font-size: clamp(16px, 2vw, 18px);
+							line-height: 1.2em;
+							position: absolute;
+							width: max-content;
+							max-width: 100%;
+							right: 0;
+							top: calc(-2rem - 40px);
+							padding: clamp(10px, 2vw, 20px);
+							box-sizing: border-box;
+							background: #fff;
+							box-shadow: 0 6px 24px rgba(black, .2);
+							border-radius: 4px;
+							pointer-events: none;
+							transition: transform .2s, opacity .2s;
+							font-weight: normal;
+							transform: translateY(2em);
+							opacity: 0;
+						}
+
+						&.open:after{
+							opacity: 1;
+							transform: none;
+						}
+					}
+
+					& .subtabs{
+						box-shadow: 0 0 0 1px $secondary inset;
+						display: flex;
+						border-radius: 2rem;
+						width: fit-content;
+						overflow: hidden;
+
+						& .tab{
+
+							display: block;
+							
+							& a{
+
+								display: flex;
+								line-height: 2em;
+								padding: 0 clamp(10px, 2vw, 1em);
+								align-items: center;
+								color: $secondary;
+								white-space: nowrap;
+
+								& i{
+									margin-left: 4px;
+									border-radius: 50%;
+									background-color: $secondary;
+									color: #fff;
+									font-size: 12px;
+									line-height: 16px;
+									width: 16px;
+									text-align: center;
+								}
+							}
+
+							&.active{
+
+								& a{
+									color: #fff;
+									background-color: $secondary;
+
+									& i{
+										color: $secondary;
+										background-color: #fff;
+									}
+								}
+							}
+						}
+
+						@media(max-width: $small){
+							flex-direction: column;
+							width: 100%;
+							border-radius: 0;
+							box-shadow: none;
+
+							& a{
+								border-radius: 6px;
+								justify-content: center;
+								width: 100%;
+								box-shadow: 0 0 0 1px $secondary inset;
+								margin-bottom: 6px;
+							}
+						}
+					}
+				}
+			}
+
+			&#bank{
+
+				& .banks-wrapper{
+
+					& ul{
+						display: flex;
+						flex-wrap: wrap;
+					}
+				}
+
+				& .bank-bttn{
+					margin-bottom: 6px;
+					margin-right: 6px;
+					line-height: 3em;
+					padding-left: 160px;
+					padding-right: 20px;
+					border-radius: 6px;
+					color: #fff;
+					display: inline-flex;
+					align-items: center;
+					background-position: left 20px center;
+					background-repeat: no-repeat;
+					background-position: left 20px center;
+					transition: background-color .2s;
+
+					&#sber{
+						background-color: #21A038;
+						background-image: url(/img/logo_sber.svg);
+						
+						&:hover{
+							background-color: lighten(#21A038, 10);
+						}
+					}
+					
+					&#rnkb{
+						background-color: #333E48;
+						background-image: url(/img/logo_rnkb.svg);
+
+						&:hover{
+							background-color: lighten(#333E48, 10);
+						}
+					}
+
+					& i{
+						margin-left: 10px;
 					}
 				}
 			}
@@ -1009,6 +1442,13 @@ body{
 										margin-right: 20px;
 									}
 								}
+							}
+						}
+
+						& .banner-image{
+
+							& img{
+								object-position: bottom left !important;
 							}
 						}
 					}
@@ -1088,7 +1528,7 @@ body{
 						
 						& img{
 							object-fit: cover;
-							object-position: center center;
+							object-position: bottom left;
 							max-width: 100%;
 							position: relative;
 							z-index: 2;
@@ -1100,7 +1540,6 @@ body{
 					}
 				}
 			}
-			
 
 			&#bonus{
 
@@ -1290,6 +1729,7 @@ body{
 			&#map-section{
 
 				padding: 0;
+				overflow: hidden;
 
 				& #map{
 					height: 70vh;
@@ -1298,4 +1738,3 @@ body{
 		}
 	}
 }
-

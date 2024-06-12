@@ -1,13 +1,16 @@
 header{
 
 	padding: 5px 0;
-	margin: clamp(0px, 2vw, 60px) 0;
-	position: sticky;
-	top: 0;
-	z-index: 200;
-
+	z-index: 300;
 	background-color: rgba(#fff, .7);
-	backdrop-filter: blur(10px);
+	position: fixed;
+	width: 100%;
+	top: 3vmax;
+	background-color: transparent;
+
+	& a{
+		color: #fff;
+	}
 
 	& .container{
 
@@ -36,6 +39,11 @@ header{
 					}
 				}
 			}
+
+			& .bttn-outline{
+				color: #fff;
+				box-shadow: 0 0 0 1px #fff inset;
+			}
 		}
 
 		& .right-links{
@@ -58,7 +66,7 @@ header{
 							height: 100%;
 							line-height: 2em;
 							padding: 0 1em;
-							color: $text;
+							// color: $text;
 
 
 							&.active{
@@ -187,6 +195,23 @@ header{
 				& i{
 					display: initial;
 				}
+			}
+		}
+	}
+
+	&.dark{
+
+		backdrop-filter: blur(10px);
+		
+		& a:not(.bttn){
+			color: $text;
+		}
+
+		& .left-links{
+
+			& .bttn-outline{
+				color: $primary;
+				box-shadow: 0 0 0 1px $primary inset;
 			}
 		}
 	}
