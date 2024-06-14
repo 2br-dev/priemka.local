@@ -1,6 +1,6 @@
 let template = `
 {{#sections}}
-<div class="faculty-header waves-effect">
+<div class="faculty-header" data-faculty="{{name}}">
 	<div class="folder-arrow"></div>
 	<h3>{{name}}</h3>
 </div>
@@ -8,18 +8,18 @@ let template = `
 	<div class="section-content">
 	{{#sectionContent}}
 	<div class="spec-card-wrapper">
-	<div class="spec-card hoverable z-depth-1" data-id="{{id}}" data-faculty="{{faculty}}">
+	<div class="spec-card hoverable z-depth-1" data-id="{{id}}" data-faculty="{{faculty.name}}">
 		<div class="card-content">
 			<div class="education-levels">
 			{{#education_levels}}
 				<div data-level="{{name}}" class="education-level">
 					{{#forms}}
-					<div class="education-form">{{name}}</div>
+					<a class="education-form">{{name}}</a>
 					{{/forms}}
 				</div>
 			{{/education_levels}}
 			</div>
-			<div class="title"><h4 class="no-margin">{{speciality}}</h4></div>
+			<div class="title"><h4 class="no-margin">{{speciality.name}}</h4></div>
 			<div class="subtitle"><span class="code">{{education_levels.0.code}}</span> {{profile}}</div>
 			<div class="numbers">
 				<div class="number number-free">

@@ -30,16 +30,32 @@ export interface IEducationLevel{
 	forms: Array<IEducationForm>
 }
 
+export interface IFormSwitcher{
+	name: string,
+	classname: string
+}
+
 export interface ICardData{
 	id?: number,
-	faculty: string,
+	faculty: {
+		name: string,
+		about: string
+	}
 	profile?: string,
-	speciality?: string,
+	speciality?: {
+		name:string,
+		about:string,
+		image:string
+	}
 	education_levels?: Array<IEducationLevel>,
 	requirements?: Array<IRequirement>,
 	necessary?:Array<IRequirement>,
 	optional?:Array<IRequirement>,
-	price?: number
+	price?: number,
+	selectedLevel?:IEducationLevel,
+	selectedForm?:IEducationForm,
+	switcher?: IFormSwitcher[],
+	externalLink?: string
 }
 
 export interface IData{
@@ -53,4 +69,10 @@ export interface ISection{
 
 export interface IPreparedData{
 	sections: ISection[];
+}
+
+export interface IURLCardData{
+	id:number,
+	form:string,
+	level:string
 }
