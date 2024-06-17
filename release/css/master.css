@@ -13129,27 +13129,27 @@ body {
     font-size: clamp(16px, 2vw, 18px);
     -webkit-font-smoothing: subpixel-antialiased;
     color: #2F3932;
-    line-height: 1.6em;
+    line-height: 1.4em;
 }
 
 body h1 {
     font-size: clamp(31px, 4vw, 96px);
-    line-height: 1.6em;
+    line-height: 1.4em;
 }
 
 body h2 {
-    font-size: clamp(26px, 4vw, 72px);
-    line-height: 1.6em;
+    font-size: clamp(26px, 4vw, 64px);
+    line-height: 1.4em;
 }
 
 body h3 {
     font-size: clamp(20px, 3vw, 40px);
-    line-height: 1.6em;
+    line-height: 1.4em;
 }
 
 body h4 {
     font-size: clamp(16px, 3vw, 32px);
-    line-height: 1.6em;
+    line-height: 1.4em;
 }
 
 body .small {
@@ -13416,6 +13416,32 @@ footer a.bttn-outline:hover {
 
 footer .row:last-of-type {
     margin: 0;
+}
+
+body.fixed {
+    overflow: hidden;
+}
+
+body .splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body .splash #loading-leaf {
+    fill: transparent;
+    stroke: #1FAD96;
+    stroke-width: 5px;
+    stroke-dasharray: 170px 30px;
+    animation: liner 2.5s linear forwards infinite;
 }
 
 body main section {
@@ -14939,8 +14965,12 @@ body main section#baner .banner-home .banner-content .points {
 }
 
 body main section#baner .banner-home .banner-content .points .point {
-    width: 33%;
+    width: calc(33% - 20px);
     flex-grow: 1;
+}
+
+body main section#baner .banner-home .banner-content .points .point:not(:last-of-type) {
+    margin-right: 20px;
 }
 
 body main section#baner .banner-home .banner-content .points .point h3 {
@@ -15585,5 +15615,11 @@ body main section#map-section .placemark-text {
         top: 0;
         height: 100%;
         border-radius: 0;
+    }
+}
+
+@keyframes liner {
+    to {
+        stroke-dashoffset: -200px;
     }
 }

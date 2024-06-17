@@ -9,12 +9,16 @@ import Calendar from './lib/calendar';
 import Calculator from './lib/calculator';
 
 declare var ymaps:any;
+let loaded = 0;
 
 Swiper.use([Pagination]);
 
 document.addEventListener('DOMContentLoaded', () => {
 	
 	new Lazy({}, document.querySelectorAll('.lazy'));						// Динамическая загрузка изображений
+	new Lazy({
+		callback_loaded: hideSplash
+	}, document.querySelectorAll('.lazy-video'))
 	M.Sidenav.init(document.querySelector('.sidenav'), { edge: 'right' });	// Сайднав (боковая панель навигации)
 	$('body').on('click', '.card .footer a', view3DMap);					// Просмотр 3D-карты 
 	$('body').on('click', '.faq-header', toggleFAQ);						// Отображение блоков вопрос-ответ
@@ -43,6 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	let calendar = new Calendar('#calendar-output').init();					// Календарь событий
 	let calculator = new Calculator('#output').init();						// Калькулятор
 });
+
+function hideSplash(){
+	$('.splash').fadeOut(500);
+	$('body').removeClass('fixed');
+}
 
 function scrollTo(e:JQuery.ClickEvent){
 	e.preventDefault();

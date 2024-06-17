@@ -333,7 +333,9 @@ class Calculator{
 
 			if(id == 0) return;
 
-			let cardData = this.cards_data.elements[id - 1];
+			let cardData = this.cards_data.elements.filter((c:ICardData) => {
+				return c.id == id
+			})[0];
 			if(cardData){
 
 				let selectedLevel = document.querySelector(".calculator-head .active")?.textContent?.trim();

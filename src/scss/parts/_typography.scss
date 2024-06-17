@@ -29,26 +29,26 @@ body{
     font-size: clamp(16px, 2vw, 18px);
     -webkit-font-smoothing: subpixel-antialiased;
 	color: $text;
-    line-height: 1.6em;
+    line-height: 1.4em;
 
     & h1{
         font-size: clamp(31px, 4vw, 96px);
-        line-height: 1.6em;
+        line-height: 1.4em;
     }
 
     & h2{
-        font-size: clamp(26px, 4vw, 72px);
-        line-height: 1.6em;
+        font-size: clamp(26px, 4vw, 64px);
+        line-height: 1.4em;
     }
 
     & h3{
         font-size: clamp(20px, 3vw, 40px);
-        line-height: 1.6em;
+        line-height: 1.4em;
     }
     
     & h4{
         font-size: clamp(16px, 3vw, 32px);
-        line-height: 1.6em;
+        line-height: 1.4em;
     }
     
     & .small{
