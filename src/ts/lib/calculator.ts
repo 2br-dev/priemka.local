@@ -70,7 +70,15 @@ class Calculator{
 		$('body').on('click', '#share', this.shareModal.bind(this));					// Поделиться
 		$('body').on('click', '.faculty-modal-wrapper', this.closeOutside.bind(this))	// Закрытие модального окна по клику мимо
 		$('body').on('click', '.form-switcher a', this.switchModalForm.bind(this));		// Переключение формы обучения в модальном окне
+		$('body').on('keyup', this.closeCardEsc.bind(this));							// Закрытие модального окна по Esc
 
+	}
+
+	// Закрытие модального окна по нажатию Escape
+	closeCardEsc(e:JQuery.KeyUpEvent){
+		if(e.key == "Escape"){
+			this.closeCard();
+		}
 	}
 
 	/**
@@ -326,42 +334,46 @@ class Calculator{
 			if(id == 0) return;
 
 			let cardData = this.cards_data.elements[id - 1];
-			let selectedLevel = document.querySelector(".calculator-head .active")?.textContent?.trim();
-			let level = cardData.education_levels?.filter((l:IEducationLevel) => {
-				if(selectedLevel == "Бакалавриат/специалитет"){
-					return l.name == "Бакалавриат" || l.name == "Специалитет";
-				}else{
-					return l.name == selectedLevel
+			if(cardData){
+
+				let selectedLevel = document.querySelector(".calculator-head .active")?.textContent?.trim();
+	
+				let level = cardData.education_levels?.filter((l:IEducationLevel) => {
+					if(selectedLevel == "Бакалавриат/специалитет"){
+						return l.name == "Бакалавриат" || l.name == "Специалитет";
+					}else{
+						return l.name == selectedLevel
+					}
+				})[0];
+	
+				if(!level) return;
+				let code = level.code;
+				let freeVacations = level.forms[0].vacations.free.total;
+				let paidVacations = level.forms[0].vacations.paid.total;
+	
+				let cardCode = card.querySelector('.code');
+				if(cardCode) cardCode.textContent = code;
+	
+				document.querySelectorAll('.education-level').forEach((levelEl:Element) => {
+	
+					let level = <HTMLElement>levelEl;
+	
+					level.querySelectorAll('.education-form').forEach((formEl:Element) => {
+	
+						let form = <HTMLFormElement>formEl;
+						form.classList.remove('active');
+					});
+					level.querySelector('.education-form:first-of-type')?.classList.add('active');
+				})
+	
+				// Обновление данных по количеству мест
+				let freeValue = card.querySelector('.number-free .number-value');
+				let paidValue = card.querySelector('.number-paid .number-value');
+	
+				if(freeValue && paidValue){
+					freeValue.textContent = freeVacations.toString();
+					paidValue.textContent = paidVacations.toString();
 				}
-			})[0];
-
-			if(!level) return;
-			let code = level.code;
-			let freeVacations = level.forms[0].vacations.free.total;
-			let paidVacations = level.forms[0].vacations.paid.total;
-
-			let cardCode = card.querySelector('.code');
-			if(cardCode) cardCode.textContent = code;
-
-			document.querySelectorAll('.education-level').forEach((levelEl:Element) => {
-
-				let level = <HTMLElement>levelEl;
-
-				level.querySelectorAll('.education-form').forEach((formEl:Element) => {
-
-					let form = <HTMLFormElement>formEl;
-					form.classList.remove('active');
-				});
-				level.querySelector('.education-form:first-of-type')?.classList.add('active');
-			})
-
-			// Обновление данных по количеству мест
-			let freeValue = card.querySelector('.number-free .number-value');
-			let paidValue = card.querySelector('.number-paid .number-value');
-
-			if(freeValue && paidValue){
-				freeValue.textContent = freeVacations.toString();
-				paidValue.textContent = paidVacations.toString();
 			}
 		})
 	}
