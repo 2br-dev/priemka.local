@@ -1,7 +1,7 @@
 let fullcard_tpl = `
 <div class="faculty-modal-wrapper">
 	<div class="faculty-modal">
-		<div class="faculty-modal-header" style="background-image:url(/img/faculty_media/{{speciality.image}})">
+		<div class="faculty-modal-header" style="background-image:url(/img/faculty_media/wallpapers/{{speciality.image}})">
 			<div class="label">{{selectedLevel.name}}</div>
 			<div class="header-info">
 				<div class="info-top">
@@ -93,7 +93,7 @@ let fullcard_tpl = `
 					<p class="modal-section-header">О факультете</p>
 					<div class="head-info-wrapper">
 						<div class="head-image">
-							<img src="/img/faculty_media/{{extra.head.photo}}">
+							<img src="/img/faculty_media/decans/{{extra.head.photo}}">
 						</div>
 						<div class="head-data">
 							<p>{{extra.head.rank}}</p>
