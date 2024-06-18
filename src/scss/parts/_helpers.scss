@@ -12,6 +12,10 @@ body{
 		background-color: $primary;
 		color: #fff;
 
+		@media(max-width: $small){
+			padding-bottom: 4px;
+		}
+
 		&-large{
 			@extend .bttn;
 			font-size: clamp(18px, 2vw, 24px);

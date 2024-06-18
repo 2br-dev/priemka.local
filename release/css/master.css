@@ -3988,6 +3988,12 @@ body .bttn, body .bttn-large, body .bttn-outline, body .bttn-white {
     color: #fff;
 }
 
+@media (max-width: 600px) {
+    body .bttn, body .bttn-large, body .bttn-outline, body .bttn-white {
+        padding-bottom: 4px;
+    }
+}
+
 body .bttn-large {
     font-size: clamp(18px, 2vw, 24px);
 }
@@ -13448,7 +13454,7 @@ body main section {
     padding: 4vmax 0;
 }
 
-body main section#hero {
+body main section#hero, body main section#new-hero {
     overflow: hidden;
     padding: 0;
     box-sizing: border-box;
@@ -13458,7 +13464,7 @@ body main section#hero {
     max-width: 100vw;
 }
 
-body main section#hero .hero-content {
+body main section#hero .hero-content, body main section#new-hero .hero-content {
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -13467,54 +13473,53 @@ body main section#hero .hero-content {
     color: #fff;
 }
 
-body main section#hero .hero-content h1 {
+body main section#hero .hero-content h1, body main section#new-hero .hero-content h1 {
     line-height: 1.2em;
-    margin: 0;
 }
 
-body main section#hero .hero-content h1 span {
+body main section#hero .hero-content h1 span, body main section#new-hero .hero-content h1 span {
     display: block;
 }
 
-body main section#hero .hero-content h1 span.accent {
+body main section#hero .hero-content h1 span.accent, body main section#new-hero .hero-content h1 span.accent {
     color: #FF8001;
 }
 
-body main section#hero .hero-content .bttn, body main section#hero .hero-content .bttn-large, body main section#hero .hero-content .bttn-outline, body main section#hero .hero-content .bttn-white {
+body main section#hero .hero-content .bttn, body main section#hero .hero-content .bttn-large, body main section#hero .hero-content .bttn-outline, body main section#hero .hero-content .bttn-white, body main section#new-hero .hero-content .bttn, body main section#new-hero .hero-content .bttn-large, body main section#new-hero .hero-content .bttn-outline, body main section#new-hero .hero-content .bttn-white {
     color: #2F3932;
     background-color: #fff;
     margin-bottom: 20px;
 }
 
-body main section#hero .hero-content .bttn-outline {
+body main section#hero .hero-content .bttn-outline, body main section#new-hero .hero-content .bttn-outline {
     background-color: transparent;
     color: #fff;
     box-shadow: 0 0 0 1px #fff inset;
 }
 
-body main section#hero .hero-content .timer {
+body main section#hero .hero-content .timer, body main section#new-hero .hero-content .timer {
     display: flex;
     justify-content: center;
     margin: 40px 0;
 }
 
-body main section#hero .hero-content .timer .separator {
+body main section#hero .hero-content .timer .separator, body main section#new-hero .hero-content .timer .separator {
     font-size: clamp(28px, 5vw, 134px);
     line-height: .75em;
     padding: 0 10px;
 }
 
 @media (max-width: 800px) {
-    body main section#hero .hero-content .timer .separator {
+    body main section#hero .hero-content .timer .separator, body main section#new-hero .hero-content .timer .separator {
         font-size: clamp(34px, 12vw, 134px);
     }
 }
 
-body main section#hero .hero-content .timer .num {
+body main section#hero .hero-content .timer .num, body main section#new-hero .hero-content .timer .num {
     text-align: center;
 }
 
-body main section#hero .hero-content .timer .num .val {
+body main section#hero .hero-content .timer .num .val, body main section#new-hero .hero-content .timer .num .val {
     font-size: clamp(28px, 5vw, 134px);
     line-height: 1em;
     font-weight: 700;
@@ -13523,17 +13528,17 @@ body main section#hero .hero-content .timer .num .val {
     justify-content: center;
 }
 
-body main section#hero .hero-content .timer .num:last-of-type {
+body main section#hero .hero-content .timer .num:last-of-type, body main section#new-hero .hero-content .timer .num:last-of-type {
     color: #FF8001;
 }
 
 @media (max-width: 800px) {
-    body main section#hero .hero-content .timer .num .val {
+    body main section#hero .hero-content .timer .num .val, body main section#new-hero .hero-content .timer .num .val {
         font-size: clamp(34px, 12vw, 134px);
     }
 }
 
-body main section#hero video {
+body main section#hero video, body main section#new-hero video {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -13809,6 +13814,15 @@ body main section#features .icon-block .content-wrapper h3 {
     margin-top: 0;
 }
 
+body main section#features .icon-block .content-wrapper .feature-header {
+    display: flex;
+    align-items: center;
+}
+
+body main section#features .icon-block .content-wrapper .feature-header img {
+    margin-right: 10px;
+}
+
 body main section#features .col:nth-child(2) .icon-block {
     transform: scale(0.7) translate(-50%, 50%) rotate(9deg);
 }
@@ -13872,6 +13886,12 @@ body main section#calculator .calculator-app .calculator-head .pseudo-tabs li {
     position: relative;
     line-height: 2em;
     font-size: clamp(18px, 1.5vw, 30px);
+}
+
+@media (max-width: 600px) {
+    body main section#calculator .calculator-app .calculator-head .pseudo-tabs li {
+        padding-bottom: 4px !important;
+    }
 }
 
 body main section#calculator .calculator-app .calculator-head .pseudo-tabs li:not(:first-of-type) {
@@ -14187,6 +14207,7 @@ body main section#calculator .calculator-app .calculator-body #output .faculty-h
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     border-radius: 50%;
     position: relative;
+    flex-shrink: 0;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .faculty-header .folder-arrow:before {
@@ -14392,6 +14413,16 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     color: #808080;
 }
 
+body main section#calculator .calculator-app .calculator-body #output .spec-card .card-call2action {
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding: 12px;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card [data-form-c2a="Магистратура"] {
+    display: none !important;
+}
+
 body main section#calculator .calculator-app .calculator-body #output .nulltext {
     padding: 2vw;
     text-align: center;
@@ -14451,6 +14482,15 @@ body main section#task .outline-block .icon-block {
 body main section#task .outline-block .icon-block .icon-wrapper {
     padding-right: 20px;
     padding-bottom: 20px;
+}
+
+body main section#task .outline-block .icon-block .content-header {
+    display: flex;
+    align-items: center;
+}
+
+body main section#task .outline-block .icon-block .content-header img {
+    margin-right: 10px;
 }
 
 body main section#task .outline-block .icon-block img {
@@ -14540,6 +14580,12 @@ body main section#calendar .tabs li {
     position: relative;
     line-height: 2em;
     font-size: clamp(18px, 1.5vw, 30px);
+}
+
+@media (max-width: 600px) {
+    body main section#calendar .tabs li {
+        padding-bottom: 4px !important;
+    }
 }
 
 body main section#calendar .tabs li:not(:first-of-type) {
@@ -14919,6 +14965,15 @@ body main section#bank .bank-bttn {
     transition: background-color .2s;
 }
 
+@media (max-width: 800px) {
+    body main section#bank .bank-bttn {
+        width: 100%;
+        text-align: right;
+        justify-content: flex-end;
+        padding: 2vmax;
+    }
+}
+
 body main section#bank .bank-bttn#sber {
     background-color: #21A038;
     background-image: url(../img/logo_sber.svg);
@@ -14971,6 +15026,16 @@ body main section#baner .banner-home .banner-content .points .point {
 
 body main section#baner .banner-home .banner-content .points .point:not(:last-of-type) {
     margin-right: 20px;
+}
+
+body main section#baner .banner-home .banner-content .points .point .point-header {
+    display: flex;
+    align-items: center;
+}
+
+body main section#baner .banner-home .banner-content .points .point .point-header img {
+    width: 80px;
+    margin-right: 10px;
 }
 
 body main section#baner .banner-home .banner-content .points .point h3 {
@@ -15140,6 +15205,7 @@ body main section#faq .faq-entry .faq-header .folder-arrow {
     margin-right: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     position: relative;
+    flex-shrink: 0;
 }
 
 body main section#faq .faq-entry .faq-header .folder-arrow:before {
@@ -15177,12 +15243,17 @@ body main section#faq .faq-entry .faq-content {
 body main section#docs-baner .banner {
     display: block;
     border-radius: clamp(10px, 3vw, 20px);
-    padding: clamp(10px, 3vw, 30px);
+    padding: 30px;
     color: #fff;
     background-color: #FF8001;
-    padding-right: 32vw;
     position: relative;
     overflow: hidden;
+}
+
+@media (min-width: 800px) {
+    body main section#docs-baner .banner {
+        padding-right: 32vw;
+    }
 }
 
 body main section#docs-baner .banner img {
@@ -15195,7 +15266,6 @@ body main section#docs-baner .banner img {
 
 @media (max-width: 1200px) {
     body main section#docs-baner .banner {
-        padding-right: clamp(10px, 3vw, 30px);
         text-align: center;
     }
 
@@ -15348,7 +15418,7 @@ body main section#map-section .placemark-text {
     top: 20px;
     right: 20px;
     width: 40px;
-    height: 40px;
+    aspect-ratio: 1 / 1;
     font-size: 24px;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.4);
@@ -15356,6 +15426,9 @@ body main section#map-section .placemark-text {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color .4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-header .faculty-modal-close:hover {
@@ -15488,7 +15561,8 @@ body main section#map-section .placemark-text {
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty {
     width: 40%;
-    padding: clamp(5px, 2vw, 20px);
+    padding: clamp(5px, 2vw, 30px);
+    background-color: #efefef;
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty .head-info-wrapper {
@@ -15539,7 +15613,7 @@ body main section#map-section .placemark-text {
     }
 }
 
-@media (max-width: 1200px) and (max-width: 400px) {
+@media (max-width: 1200px) and (max-width: 360px) {
     .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper {
         grid-template-columns: 1fr;
     }
@@ -15599,6 +15673,29 @@ body main section#map-section .placemark-text {
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-footer .share-link {
     line-height: 70px !important;
+}
+
+@media (max-width: 800px) {
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-footer {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 4vmax 0 !important;
+    }
+
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-footer .contacts {
+        margin: 2vmax 0;
+    }
+
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-footer .contacts .contacts-block {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-footer #share {
+        line-height: 1.8em !important;
+    }
 }
 
 .faculty-modal-wrapper.open {

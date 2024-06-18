@@ -25,6 +25,10 @@
 		line-height: 2em;
 		font-size: clamp(18px, 1.5vw, 30px);
 
+		@media(max-width: $small){
+			padding-bottom: 4px !important;
+		}
+
 		&:not(:first-of-type){
 			margin-left: -1.8em;
 		}
@@ -198,7 +202,7 @@ body{
 			
 			padding: 4vmax 0;
 			
-			&#hero{
+			&#hero, &#new-hero{
 				
 				overflow: hidden;
 				padding: 0;
@@ -220,7 +224,6 @@ body{
 					& h1{
 
 						line-height: 1.2em;
-						margin: 0;
 
 						& span{
 							display: block;
@@ -550,6 +553,15 @@ body{
 						& h3{
 							margin-top: 0;
 						}
+
+						& .feature-header{
+							display: flex;
+							align-items: center;
+
+							& img{
+								margin-right: 10px;
+							}
+						}
 					}
 				}
 
@@ -779,6 +791,7 @@ body{
 									box-shadow: 0 5px 20px rgba(black, .05);
 									border-radius: 50%;
 									position: relative;
+									flex-shrink: 0;
 
 									&:before{
 										content: '';
@@ -997,6 +1010,17 @@ body{
 									font-size: 12px;
 									color: #808080;
 								}
+
+								& .card-call2action{
+									text-align: center;
+									border-top: 1px solid #ccc;
+									padding: 12px;
+								}
+
+								& [data-form-c2a="Магистратура"]{
+									display: none !important;
+								}
+
 							}
 
 							& .nulltext{
@@ -1051,7 +1075,7 @@ body{
 					box-sizing: border-box;
 					border-radius: $border-radius;
 					height: 100%;
-
+					
 					& .icon-block{
 						@include icon-block();
 						border: 1px solid #ccc;
@@ -1059,13 +1083,23 @@ body{
 						color: $text;
 						border-radius: clamp(3px, 3vw, 10px);
 
+						& .content-header{
+
+							display: flex;
+							align-items: center;
+
+							& img{
+								margin-right: 10px;
+							}
+						}
+
 						& img{
 							display: block;
 							width: clamp(60px, 3vw, 100px);
 							aspect-ratio: 1 / 1;
 						}
-
 					}
+
 					& a:hover{
 						background-color: #ededed;
 						transition: background-color 0.2s ease;
@@ -1398,6 +1432,13 @@ body{
 					background-position: left 20px center;
 					transition: background-color .2s;
 
+					@media(max-width: $medium){
+						width: 100%;
+						text-align: right;
+						justify-content: flex-end;
+						padding: 2vmax;
+					}
+
 					&#sber{
 						background-color: #21A038;
 						background-image: url(/img/logo_sber.svg);
@@ -1450,6 +1491,17 @@ body{
 
 								&:not(:last-of-type){
 									margin-right: 20px;
+								}
+
+								& .point-header{
+
+									display: flex;
+									align-items: center;
+
+									& img{
+										width: 80px;
+										margin-right: 10px;
+									}
 								}
 								
 								& h3{
@@ -1624,6 +1676,7 @@ body{
 							margin-right: 10px;
 							box-shadow: 0 5px 20px rgba(black, .05);
 							position: relative;
+							flex-shrink: 0;
 							
 							&:before{
 								content: '';
@@ -1666,13 +1719,16 @@ body{
 				& .banner{
 					display: block;
 					border-radius: clamp(10px, 3vw, 20px);
-					padding: clamp(10px, 3vw, 30px);
+					padding: 30px;
 					color: #fff;
 					background-color: $primary;
-					padding-right: 32vw;
 					position: relative;
 					overflow: hidden;
 
+					@media(min-width: $medium){
+						padding-right: 32vw;
+					}
+					
 					& img{
 						position: absolute;
 						display: block;
@@ -1683,7 +1739,7 @@ body{
 
 					@media(max-width: $large){
 
-						padding-right: clamp(10px, 3vw, 30px);
+						// padding-right: clamp(10px, 3vw, 30px);
 						text-align: center;
 
 						& img{
@@ -1834,7 +1890,7 @@ body{
 				top: 20px;
 				right: 20px;
 				width: 40px;
-				height: 40px;
+				aspect-ratio: 1 / 1;
 				font-size: 24px;
 				z-index: 1;
 				background-color: rgba(black, .4);
@@ -1842,6 +1898,11 @@ body{
 				border-radius: 50%;
 				cursor: pointer;
 				transition: background-color .4s;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+
 				
 				&:hover{
 					background-color: rgba(black, .7);
@@ -1946,6 +2007,7 @@ body{
 						}
 
 						& .speciality-data{
+
 							
 							& .title{
 								font-size: 12px;
@@ -1983,7 +2045,8 @@ body{
 				& .faculty{
 
 					width: 40%;
-					padding: clamp(5px, 2vw, 20px);
+					padding: clamp(5px, 2vw, 30px);
+					background-color: #efefef;
 
 					& .head-info-wrapper{
 
@@ -2033,7 +2096,7 @@ body{
 								grid-template-columns: repeat(2, 1fr);
 							}
 
-							@media(max-width: 400px){
+							@media(max-width: 360px){
 								grid-template-columns: 1fr;
 							}
 						}
@@ -2102,6 +2165,28 @@ body{
 
 			& .share-link{
 				line-height: 70px !important;
+			}
+
+			@media(max-width: $medium){
+				flex-direction: column;
+				text-align: center;
+				justify-content: center;
+				padding: 4vmax 0 !important;
+
+				& .contacts{
+					margin: 2vmax 0;
+
+					& .contacts-block{
+						width: 100%;
+						margin-right: 0;
+						margin-bottom: 10px;
+					}
+				}
+
+				& #share{
+
+					line-height: 1.8em !important;
+				}
 			}
 		}
 	}

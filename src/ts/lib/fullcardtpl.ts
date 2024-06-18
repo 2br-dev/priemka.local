@@ -128,7 +128,7 @@ let fullcard_tpl = `
 					<div class="contacts-block">
 						<div class="contacts-title">Отдел по работе с абитуриентами</div>
 						<div class="contacts-link">
-							<a href="tel:+78612215881"><i class="bx bxs-phone"></i><span>+7 (861) 221-58-81</span></a>
+							<a href="tel:+78612215818"><i class="bx bxs-phone"></i><span>+7 (861) 221-58-18</span></a>
 						</div>
 					</div>
 					<div class="contacts-block">

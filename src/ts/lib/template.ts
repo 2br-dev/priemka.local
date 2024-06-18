@@ -8,7 +8,7 @@ let template = `
 	<div class="section-content">
 	{{#sectionContent}}
 	<div class="spec-card-wrapper">
-	<div class="spec-card hoverable z-depth-1" data-id="{{id}}" data-faculty="{{faculty.name}}">
+	<div class="spec-card hoverable z-depth-1" data-id="{{id}}" data-faculty="{{faculty.name}}" >
 		<div class="card-content">
 			<div class="education-levels">
 			{{#education_levels}}
@@ -40,7 +40,7 @@ let template = `
 				</div>
 			</div>
 			<div class="separator"></div>
-			<div class="edform-wrapper"><div class="edform-name"><span>{{education_levels.0.name}}</span></div></div>
+			<div class="edform-wrapper"><div class="edform-name"><span>{{selectedFormName}}</span></div></div>
 			<div class="requirements-wrapper">
 				<div class="requirements">
 					<div class="requirement-header">Обязательные предметы</div>
@@ -52,6 +52,9 @@ let template = `
 					<div class="requirement {{classname}}">{{name}} <span class="min">min<span class="hide-m-down"> баллов</span>: {{min}}</span></div>
 					{{/optional}}
 				</div>
+			</div>
+			<div class="card-call2action" data-form-c2a="{{selectedFormName}}">
+				<span class="hide-m-up bttn">Подробнее</span>
 			</div>
 			{{#note}}
 			<div class="note">

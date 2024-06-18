@@ -54,6 +54,7 @@ export interface ICardData{
 	price?: number,
 	selectedLevel?:IEducationLevel,
 	selectedForm?:IEducationForm,
+	selectedFormName?:string,
 	switcher?: IFormSwitcher[],
 	externalLink?: string
 }

@@ -532,6 +532,10 @@ class Calculator{
 
 		data.elements.forEach((card:ICardData) => {
 
+			card.selectedFormName = this.filterParams.level == "Магистратура" ? "Магистратура" : card.education_levels?.filter((l:IEducationLevel) => {
+				return l.name == "Бакалавриат" || l.name == "Специалитет";
+			})[0].name;
+
 			if(card.id == null){
 				if(section.name == ""){
 					section = {

@@ -37,8 +37,8 @@
                         </li>
                     </ul>
                 </nav>
-                <a href="#howto" class="scroll-link bttn send-docs-mobile">
-                    <i class="bx bx-info-circle"></i>
+                <a href="#task" class="scroll-link bttn send-docs-mobile">
+                    <i class="bx bxs-file"></i>
                     <span>Как поступить?</span>
                 </a>
                 <a href="tel:+78612215881" class="icon phone"><i class="bx bxs-phone bx-flip-horizontal"></i></a>
@@ -54,6 +54,12 @@
         <li><a href="#contacts" class="scroll-link">Контакты</a></li>
         <li><a href="#task" class="scroll-link">Как поступить?</a></li>
     </ul>
+    <!-- <div class="splash">
+		<svg width="64" height="87" viewBox="0 0 64 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path id="loading-leaf" fill-rule="evenodd" clip-rule="evenodd" d="M31.9962 83.9745L12.7082 64.7137H12.681L12.1641 64.1969C6.93619 58.9589 4 51.8606 4 44.46C4 37.0595 6.93619 29.9612 12.1641 24.7232L31.9418 5L52.8892 26.0018C57.4159 31.1489 59.8969 37.7779 59.8618 44.6323C59.8267 51.4866 57.278 58.0899 52.6988 63.1903L51.529 64.3873L31.9962 83.9745Z" fill="black"/>
+		</svg>
+		<p>Загрузка…</p>
+	</div> -->
     <main>
         <section id="hero">
             <div class="hero-content center-align">
@@ -92,7 +98,17 @@
                     <a href="#calculator" class="bttn large scroll-link">Выбрать специальность</a>
                 </div>
             </div>
-            <video class="lazy" muted loop playsinline autoplay data-src="/video/hero_compressed.mp4" width="1920" height="1080"></video>
+            <video class="lazy-video" muted loop playsinline autoplay data-src="/video/hero_compressed.mp4" width="1920" height="1080"></video>
+        </section>
+        <section id="new-hero" class="hide">
+            <div class="hero-content center-align">
+                <h1><span>Приём документов</span><span class="accent">начался!</span></h1>
+                <div class="call-to-action">
+                    <a href="#task" class="bttn-outline large scroll-link">Подать документы</a>
+                    <a href="#calculator" class="bttn large scroll-link">Выбрать специальность</a>
+                </div>
+            </div>
+            <video class="lazy-video" muted loop playsinline autoplay data-src="/video/hero_compressed.mp4" width="1920" height="1080"></video>
         </section>
         <section id="about">
             <div class="container">
@@ -157,19 +173,25 @@
                     </div>
                     <div class="col l6">
                         <div class="icon-block">
-                            <div class="icon-wrapper"><img data-src="/img/harvester.png" width="100" height="100" alt="" class="lazy responsive-img icon" /></div>
+                            <div class="icon-wrapper"><img data-src="/img/harvester.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-down" /></div>
                             <div class="content-wrapper">
-                                <h3>Аграрный сектор</h3>
+                                <div class="feature-header">
+                                    <img data-src="/img/harvester.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-up" />
+                                    <h3>Аграрный сектор</h3>
+                                </div>
                                 <h4>Фундаментально, инновационно, продуктивно, эстетично и перспективно финансово!</h4>
-                                <p>Селекция и генетика, общая ветеринария, современная агрономия и растениеводство, виноградарство и пищепром: у нас просторно для всех, кто мечтает накормить и сохранить мир! Для тех кто хочет создавать новое и готов к мировым открытиям: в КубГАУ развёрнута, пожалуй, лучшая лаборатория биотехнологий на Юге страны. Плюс своя конеферма, поголовье рогатого скота, зоны домашней птицы и многое другое!</p>
+                                <p>Селекция и генетика, общая ветеринария, современная агрономия и растениеводство, виноградарство и пищепром: у нас просторно для всех, кто мечтает накормить и сохранить мир! Для тех, кто хочет создавать новое и готов к мировым открытиям, в КубГАУ развёрнута, пожалуй, лучшая лаборатория биотехнологий на Юге страны. Плюс своя конеферма, поголовье рогатого скота, зоны домашней птицы и многое другое!</p>
                             </div>
                         </div>
                     </div>
                     <div class="col l6">
                         <div class="icon-block">
-                            <div class="icon-wrapper"><img data-src="/img/helmet.png" width="100" height="100" alt="" class="lazy responsive-img icon" /></div>
+                            <div class="icon-wrapper"><img data-src="/img/helmet.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-down" /></div>
                             <div class="content-wrapper">
-                                <h3>Инженерия и архитектура</h3>
+                                <div class="feature-header">
+                                    <img data-src="/img/helmet.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-up" />
+                                    <h3>Инженерия и архитектура</h3>
+                                </div>
                                 <h4>Созидать - это твоё? Поможем сделать из интереса карьеру!</h4>
                                 <p>Десятки инженерных специальностей, глобальные архитектурно-строительные — для всех, кто мечтал возводить объекты федерального, а то и международного значения, в КубГАУ найдётся нужный образовательный профиль.</p>
                             </div>
@@ -177,9 +199,12 @@
                     </div>
                     <div class="col l6">
                         <div class="icon-block">
-                            <div class="icon-wrapper"><img data-src="/img/briefcase.png" width="100" height="100" alt="" class="lazy responsive-img icon" /></div>
+                            <div class="icon-wrapper"><img data-src="/img/briefcase.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-down" /></div>
                             <div class="content-wrapper">
-                                <h3>Своё дело</h3>
+                                <div class="feature-header">
+                                    <img data-src="/img/briefcase.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-up" />
+                                    <h3>Своё дело</h3>
+                                </div>
                                 <h4>Любишь всё решать самостоятельно? Дадим возможность!</h4>
                                 <p>Знания и навыки, полученные в вузе, помогут грамотно вести бизнес: от технологических процессов до рекламного продвижения. Уже во время обучения мы даём студентам полезные практические навыки, а кто-то запускает бизнес еще до вручения диплома.</p>
                             </div>
@@ -187,9 +212,12 @@
                     </div>
                     <div class="col l6">
                         <div class="icon-block">
-                            <div class="icon-wrapper"><img data-src="/img/notebook.png" width="100" height="100" alt="" class="lazy responsive-img icon" /></div>
+                            <div class="icon-wrapper"><img data-src="/img/notebook.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-down" /></div>
                             <div class="content-wrapper">
-                                <h3>IT: разработка, поддержка и оптимизация</h3>
+                                <div class="feature-header">
+                                    <img data-src="/img/notebook.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-up" />
+                                    <h3>IT: разработка, поддержка и оптимизация</h3>
+                                </div>
                                 <h4>Войти в IT можно и нужно как можно раньше!</h4>
                                 <p>Учись, набирайся знаний и опыта — база КубГАУ позволяет делать это эффективно и по последнему слову технологий. Создавай игры и мобильные приложения, пиши программы и оптимизируй бизнес-процессы, работай с big data и не только - тебе всё по-плечу! А наши преподаватели обязательно помогут и поддержат.</p>
                             </div>
@@ -197,9 +225,12 @@
                     </div>
                     <div class="col l6">
                         <div class="icon-block">
-                            <div class="icon-wrapper"><img data-src="/img/globe.png" width="100" height="100" alt="" class="lazy responsive-img icon" /></div>
+                            <div class="icon-wrapper"><img data-src="/img/globe.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-down" /></div>
                             <div class="content-wrapper">
-                                <h3>Экологическая безопасность</h3>
+                                <div class="feature-header">
+                                    <img data-src="/img/globe.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-up" />
+                                    <h3>Экологическая безопасность</h3>
+                                </div>
                                 <h4>Хочешь изменить мир? Ты по адресу!</h4>
                                 <p>Социально значимые профессии можно и нужно получать в КубГАУ. Где, как не в аграрном вузе, получится по-настоящему понять экологию, защитные механизмы Земли и набраться знаний и опыта, чтобы сделать жизнь лучше, а планету чище и безопаснее.</p>
                             </div>
@@ -207,9 +238,12 @@
                     </div>
                     <div class="col l6">
                         <div class="icon-block">
-                            <div class="icon-wrapper"><img data-src="/img/church.png" width="100" height="100" alt="" class="lazy responsive-img icon" /></div>
+                            <div class="icon-wrapper"><img data-src="/img/church.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-down" /></div>
                             <div class="content-wrapper">
-                                <h3>Госслужба</h3>
+                                <div class="feature-header">
+                                    <img data-src="/img/church.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-up" />
+                                    <h3>Госслужба</h3>
+                                </div>
                                 <h4>Будущее страны в твоих руках!</h4>
                                 <p>Образование в КубГАУ позволит выпускникам сразу по окончании обучения устроиться на работу в госсектор. Это отличный старт для большой общественной карьеры. Управляющие позиции, законодательные и исполнительные ветви: дороги открыты - мчи к мечте!</p>
                             </div>
@@ -217,9 +251,12 @@
                     </div>
                     <div class="col l6 offset-l3">
                         <div class="icon-block">
-                            <div class="icon-wrapper"><img data-src="/img/chip.png" width="100" height="100" alt="" class="lazy responsive-img icon" /></div>
+                            <div class="icon-wrapper"><img data-src="/img/chip.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-down" /></div>
                             <div class="content-wrapper">
-                                <h3>Передовые технологии</h3>
+                                <div class="feature-header">
+                                    <img data-src="/img/chip.png" width="100" height="100" alt="" class="lazy responsive-img icon hide-m-up" />
+                                    <h3>Передовые технологии</h3>
+                                </div>
                                 <h4>Достижения технологического суверенитета дали мощный преобразовательный импульс</h4>
                                 <p>Теперь студенты КубГАУ на постоянной основе и на новейшем оборудовании погружаются в мир передовых технологических достижений. И двигают его сами! Промышленная робототехника, архитектура навигационных и беспилотных систем и многое другое - присмотрись к профессиям будущего уже сегодня!</p>
                             </div>
@@ -256,7 +293,7 @@
                             <div class="calculator-body">
                                 <input type="search" name="search" placeholder="Поиск" class="mobile-search">
                                 <p class="large mt0 fogged intro">
-                                    Пожалуйста, выберите, предметы ЕГЭ, которые вы сдавали (минимум 3 предмета) и нажмите «Подобрать», или воспользуйтесь поиском
+                                    Выбери свои предметы ЕГЭ (минимум 3) и нажми «Применить». Или воспользуйся Поиском, если точно знаешь, что искать
                                 </p>
                                 <div class="tags">
                                     <label class="tag">Русский язык</label><label class="tag">Математика</label><label class="tag">Биология</label><label class="tag">География</label><label class="tag">Обществознание</label><label class="tag">Иностранный язык</label><label class="tag">Информатика и ИКТ</label><label class="tag">История</label><label class="tag">Физика</label><label class="tag">Химия</label>
@@ -285,19 +322,69 @@
                             <h3>Способы подачи</h3>
                             <ul>
                                 <li>
-                                    <div class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/walkman_icon.png" alt=""></span><span class="content-wrapper">
-                                            <h4 class="title">Лично</h4><span class="content">Заглядывай с оригиналами и паспортом в гости! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.</span>
-                                        </span></div>
+                                    <div class="icon-block vcenter">
+                                        <span class="icon-wrapper hide-m-down">
+                                            <img class="lazy responsive-img" width="100" height="100" data-src="/img/walkman_icon.png" alt="">
+                                        </span>
+                                        <span class="content-wrapper">
+                                            <div class="content-header">
+                                                <img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/walkman_icon.png" alt="">
+                                                <h4 class="title">Лично</h4>
+                                            </div>
+                                            <span class="content">
+                                                Заглядывай с оригиналами и паспортом в гости! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.
+                                            </span>
+                                        </span>
+                                    </div>
                                 </li>
-                                <li><a href="" class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/cellphone_icon.png" alt=""></span><span class="content-wrapper">
-                                            <h4 class="title">Онлайн</h4><span class="content">Регистрируйся на сайте, и через Личный кабинет сможешь подать всё онлайн - быстро, удобно и в прохладе.</span>
-                                        </span></a></li>
-                                <li><a href="" class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/mail_icon.png" alt=""></span><span class="content-wrapper">
-                                            <h4 class="title">По почте</h4><span class="content">Можешь выбрать "Почту России", CDEK или любого другого удобного оператора.</span>
-                                        </span></a></li>
-                                <li><a href="" class="icon-block vcenter"><span class="icon-wrapper"><img class="lazy responsive-img" width="100" height="100" data-src="/img/gosuslugi_icon.svg" alt=""></span><span class="content-wrapper">
-                                            <h4 class="title">Через Госуслуги</h4><span class="content">Быстро и удобно - переходи в раздел «Поступление в вуз онлайн»!</span>
-                                        </span></a></li>
+                                <li>
+                                    <a href="" class="icon-block vcenter">
+                                        <span class="icon-wrapper hide-m-down">
+                                            <img class="lazy responsive-img" width="100" height="100" data-src="/img/cellphone_icon.png" alt="">
+                                        </span>
+                                        <span class="content-wrapper">
+                                            <div class="content-header">
+                                                <img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/cellphone_icon.png" alt="">
+                                                <h4 class="title">Онлайн</h4>
+                                            </div>
+                                            <span class="content">
+                                                Регистрируйся на сайте, и через Личный кабинет сможешь подать всё онлайн - быстро, удобно и в прохладе.
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="icon-block vcenter">
+                                        <span class="icon-wrapper hide-m-down">
+                                            <img class="lazy responsive-img" width="100" height="100" data-src="/img/mail_icon.png" alt="">
+                                        </span>
+                                        <span class="content-wrapper">
+                                            <div class="content-header">
+                                                <img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/mail_icon.png" alt="">
+                                                <h4 class="title">По почте</h4>
+                                            </div>
+                                            <span class="content">
+                                                Можешь выбрать "Почту России", CDEK или любого другого удобного оператора.
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="icon-block vcenter">
+                                        <span class="icon-wrapper hide-m-down">
+                                            <img class="lazy responsive-img" width="100" height="100" data-src="/img/gosuslugi_icon.svg" alt="">
+                                        </span>
+                                        <span class="content-wrapper">
+                                            <div class="content-header">
+                                                <img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/gosuslugi_icon.svg" alt="">
+                                                <h4 class="title">Через Госуслуги</h4>
+                                            </div>
+                                            <span class="content">
+                                                Быстро и удобно - переходи в раздел «Поступление в вуз онлайн»!
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -377,33 +464,31 @@
                     <div class="col">
                         <h2>Не упусти время и возможность получить образование!</h2>
                     </div>
-                    <div class="col m6 s12">
+                    <div class="col order-m1 m6 s12">
                         <p class="large">Если учиться хочется, но прямо сейчас нет возможности оплатить обучение, воспользуйся Образовательным кредитом - льготной программой с фиксированной ставкой 3% годовых.</p>
-                        <div class="banks-wrapper">
+                        <div class="banks-wrapper align-center-m-down">
                             <p>Ознакомься с официальными документами от банков-партнёров</p>
-                            <ul>
-                                <li><a class="bank-bttn" href="" id="rnkb"><span>Скачать</span><i class="bx bxs-download"></i></a></li>
-                                <li><a class="bank-bttn" href="" id="sber"><span>Скачать</span><i class="bx bxs-download"></i></a></li>
-                            </ul>
+                            <a class="bank-bttn" target="_blank" rel="nofollow" href="/files/sber.pptx" id="sber"><span>Скачать</span><i class="bx bxs-download"></i></a>
+                            <a class="bank-bttn" target="_blank" rel="nofollow" href="/files/rnkb.pptx" id="rnkb"><span>Скачать</span><i class="bx bxs-download"></i></a>
                         </div>
                         <div class="howto-wrapper">
                             <div class="row flex">
                                 <div class="col">
                                     <h3>Как это работает</h3>
                                 </div>
-                                <div class="col xl3 l6 m6 s6 xs6">
+                                <div class="col xl3 l6 m6 s6 xs6 t6">
                                     <img data-src="/img/doc_icon.svg" alt="" class="responsive-img lazy">
                                     <p>Ты подписываешь с вузом контракт о платном образовании</p>
                                 </div>
-                                <div class="col xl3 l6 m6 s6 xs6">
+                                <div class="col xl3 l6 m6 s6 xs6 t6">
                                     <img data-src="/img/bank_icon.svg" alt="" class="responsive-img lazy">
                                     <p>Выбираешь банк, связываешься с сотрудником</p>
                                 </div>
-                                <div class="col xl3 l6 m6 s6 xs6">
+                                <div class="col xl3 l6 m6 s6 xs6 t6">
                                     <img data-src="/img/handshake_icon.svg" alt="" class="responsive-img lazy">
                                     <p>Подписываешь кредитный договор</p>
                                 </div>
-                                <div class="col xl3 l6 m6 s6 xs6">
+                                <div class="col xl3 l6 m6 s6 xs6 t6">
                                     <img data-src="/img/cash_icon.svg" alt="" class="responsive-img lazy">
                                     <p>Банк сам перечислит деньги на счёт вуза</p>
                                 </div>
@@ -431,28 +516,37 @@
                         <div class="points">
                             <div class="point">
                                 <div class="point-image">
-                                    <img data-src="/img/home_icon.png" alt="" class="lazy responsive-img">
+                                    <img data-src="/img/home_icon.png" alt="" class="lazy responsive-img hide-m-down">
                                 </div>
                                 <div class="point-content">
-                                    <h3>Жилье</h3>
+                                    <div class="point-header">
+                                        <img data-src="/img/home_icon.png" alt="" class="lazy responsive-img hide-m-up">
+                                        <h3>Жилье</h3>
+                                    </div>
                                     <p>20 корпусов общежитий находятся на территории университета, а несколько минут пешком по самому зелёному кампусу не только полезно, но и приятно.</p>
                                 </div>
                             </div>
                             <div class="point">
                                 <div class="point-image">
-                                    <img data-src="/img/health_icon.png" alt="" class="lazy responsive-img">
+                                    <img data-src="/img/health_icon.png" alt="" class="lazy responsive-img hide-m-down">
                                 </div>
                                 <div class="point-content">
-                                    <h3>Здоровье</h3>
+                                    <div class="point-header">
+                                        <img data-src="/img/health_icon.png" alt="" class="lazy responsive-img hide-m-up">
+                                        <h3>Здоровье</h3>
+                                    </div>
                                     <p>Если простудишься, всё под контролем: на территории есть своя студенческая поликлиника. Знай, но не болей!</p>
                                 </div>
                             </div>
                             <div class="point">
                                 <div class="point-image">
-                                    <img data-src="/img/service_icon.png" alt="" class="lazy responsive-img">
+                                    <img data-src="/img/service_icon.png" alt="" class="lazy responsive-img hide-m-down">
                                 </div>
                                 <div class="point-content">
-                                    <h3>Сервис</h3>
+                                    <div class="point-header">
+                                        <img data-src="/img/service_icon.png" alt="" class="lazy responsive-img hide-m-up">
+                                        <h3>Сервис</h3>
+                                    </div>
                                     <p>Прачечные и сушильные комнаты, двухэтажная столовая и десятки буфетов по всему кампусу, оборудованные кухни в общежитиях: учитесь с комфортом!</p>
                                 </div>
                             </div>
@@ -467,13 +561,16 @@
         <section id="bonus">
             <div class="container">
                 <div class="row">
-                    <div class="col xl5 l4 m3 s6 offset-s3 xs8 offset-xs2">
+                    <div class="col xl5 l4 m3 s8 offset-s2 xs10 offset-xs1 hide-m-down">
                         <img data-src="/img/bonus.png" alt="" class="lazy responsive-img">
                     </div>
                     <div class="col xl6 offset-xl1 l7 offset-l1 m8 offset-m1 s12">
                         <div class="row flex">
                             <div class="col">
                                 <h2>Приятный бонус для усердных</h2>
+                            </div>
+                            <div class="col">
+                                <img data-src="/img/bonus.png" alt="" class="lazy responsive-img hide-m-up center">
                             </div>
                             <div class="col xl4 l6 m6 s12 margin-bottom">
                                 <div class="price-block">
@@ -515,7 +612,7 @@
                         </div>
                         <div class="faq-content">
                             <p class="large">
-                                В КубГАУ представлено такое большое количество образовательных программ, что в паре слов и не ответить! Лучше воспользуйся <a href="#calculator" class="scroll-link">калькулятором ЕГЭ</a> и выбирай не только умом, но и сердцем.
+                                В КубГАУ представлено такое большое количество образовательных программ, что в паре слов и не ответить! Лучше воспользуйся <a target="_blank" rel="nofollow" href="#calculator" class="scroll-link">калькулятором ЕГЭ</a> и выбирай не только умом, но и сердцем.
                             </p>
                         </div>
                     </div>
@@ -526,7 +623,7 @@
                         </div>
                         <div class="faq-content">
                             <p class="large">
-                                От года к году минимальные баллы разнятся. Самые актуальные (за прошлый) можно посмотреть <a href="">здесь</a>.
+                                От года к году минимальные баллы разнятся. Самые актуальные (за прошлый) можно посмотреть <a target="_blank" rel="nofollow" href="https://kubsau.ru/upload/iblock/00e/o1tujm5zfxqqh4hhoq6zrnslio9audf9.pdf">здесь</a>.
                             </p>
                         </div>
                     </div>
@@ -559,7 +656,7 @@
                         </div>
                         <div class="faq-content">
                             <p class="large">
-                                Очень много всего! От золотых медалей в спорте до волонтёрства - полный список читай <a href="">здесь</a>.
+                                Очень много всего! От золотых медалей в спорте до волонтёрства - полный список читай <a target="_blank" rel="nofollow" href="https://kubsau.ru/upload/iblock/8a1/tvghmj849cd0tdzfcv0qf8vy0xrql1cg.pdf">здесь</a>.
                             </p>
                         </div>
                     </div>
@@ -603,7 +700,7 @@
                         </div>
                         <div class="faq-content">
                             <p class="large">
-                                Это места, закрепляемые заранее в определенном количестве для представителей жестко регламентированных правительством групп лиц с особым статусом и для предприятий, направляющих на обучение будущие кадры. Студенты в таком случае обучаются бесплатно, однако обязаны после получения диплома отработать определенное количество времени в направляющей на обучение организации. Подробнее можно почитать <a href="">здесь</a>.
+                                Это места, закрепляемые заранее в определенном количестве для представителей жестко регламентированных правительством групп лиц с особым статусом и для предприятий, направляющих на обучение будущие кадры. Студенты в таком случае обучаются бесплатно, однако обязаны после получения диплома отработать определенное количество времени в направляющей на обучение организации. Подробнее можно почитать <a target="_blank" rel="nofollow" href="https://kubsau.ru/upload/iblock/0b7/1vcj122dz7mqurjbzzav2uxpo4mci7i6.pdf">здесь</a>.
                             </p>
                         </div>
                     </div>
@@ -625,7 +722,7 @@
                         </div>
                         <div class="faq-content">
                             <p class="large">
-                                Зависит от твоих усилий! Чем больше ты вовлечен в науку или творческую жизнь вуза, тем выше базовая и больше шансов претендовать на именные, грантовые и государственные стипендии. Например, базовая для студентов с более чем 255 баллами по ЕГЭ с первых дней обучения - 10 000 рублей, а для магистрантов уже от 15 000. Подробный перечень можно почитать <a href="">здесь</a>.
+                                Зависит от твоих усилий! Чем больше ты вовлечен в науку или творческую жизнь вуза, тем выше базовая и больше шансов претендовать на именные, грантовые и государственные стипендии. Например, базовая для студентов с более чем 255 баллами по ЕГЭ с первых дней обучения - 10 000 рублей, а для магистрантов уже от 15 000. Подробный перечень можно почитать <a target="_blank" rel="nofollow" href="">здесь</a>.
                             </p>
                         </div>
                     </div>
@@ -634,7 +731,7 @@
         </section>
         <section id="docs-baner">
             <div class="container">
-                <a href="https://kubsau.ru" rel="nofollow" target="_blank" class="banner hoverable">
+                <a href="https://kubsau.ru/sveden/common/" rel="nofollow" target="_blank" class="banner hoverable">
                     <div class="banner-content">
                         <img data-src="/img/folder.png" alt="" class="lazy" width="513" height="380">
                         <h2>Официальные документы</h2>

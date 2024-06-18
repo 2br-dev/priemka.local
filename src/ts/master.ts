@@ -62,6 +62,11 @@ function scrollTo(e:JQuery.ClickEvent){
 	$('html, body').animate({
 		scrollTop: top
 	}, 600);
+
+	let sidenav = <HTMLElement>document.querySelector('.sidenav');
+	let sidenavInstance = M.Sidenav.getInstance(sidenav);
+	sidenavInstance.close();
+
 }
 
 /**
@@ -122,10 +127,8 @@ function renderPage(){
 
 	if(timeDiff <= 0){
 		// Скрываем счётчик, и отображаем уведомление о том, что приём начался
-		$('.intro, .counter').hide();
-		$('.new-intro').show();
-		$('#in-touch').hide();
-		$('#hero .bttn-large').hide();
+		$('#hero').hide();
+		$('#new-hero').show();
 	}
 
 	// Вычисляем количество дней, часов, минут и секунд до достижения цели
