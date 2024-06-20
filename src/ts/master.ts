@@ -1,8 +1,5 @@
 import Lazy from 'vanilla-lazyload';
 import * as M from 'materialize-css';
-
-
-
 import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
 import Calendar from './lib/calendar';
@@ -14,7 +11,10 @@ let loaded = 0;
 Swiper.use([Pagination]);
 
 document.addEventListener('DOMContentLoaded', () => {
-	
+
+	history.scrollRestoration = 'manual';
+	document.documentElement.scrollTop = 0;
+
 	new Lazy({}, document.querySelectorAll('.lazy'));						// Динамическая загрузка изображений
 	new Lazy({
 		callback_loaded: hideSplash
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	$('body').on('click', '.card .footer a', view3DMap);					// Просмотр 3D-карты 
 	$('body').on('click', '.faq-header', toggleFAQ);						// Отображение блоков вопрос-ответ
 	$('body').on('click', '.scroll-link', scrollTo);						// Прокрутка до заданной секции
+	$('body').on('click', '#docs-baner .banner', openBannerLink);			// Открытие ссылки в банере
 	renderPage();															// Установка header'а
 	
 	new Swiper('#map-slider', {
@@ -47,6 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	let calendar = new Calendar('#calendar-output').init();					// Календарь событий
 	let calculator = new Calculator('#output').init();						// Калькулятор
 });
+
+function openBannerLink(e:JQuery.ClickEvent){
+	e.preventDefault();
+	let el = <HTMLElement>e.currentTarget;
+	let linkEl = <HTMLAnchorElement>el.querySelector('a');
+	let link = linkEl.href;
+	window.open(link, '_blank');
+}
 
 function hideSplash(){
 	$('.splash').fadeOut(500);
@@ -100,12 +109,12 @@ function renderPage(){
 		percent = 70;
 		// Переключаемся на тёмный текст
 		header.classList.add('dark');
-		$('#logo-text').attr('src', '/img/logo_text.svg');
-		$('#logo-leaf').attr('src', '/img/logo_leaf.svg');
+		$('#logo-text').attr('src', '/lpk-2024/img/logo_text.svg');
+		$('#logo-leaf').attr('src', '/lpk-2024/img/logo_leaf.svg');
 	}else{
 		header.classList.remove('dark');
-		$('#logo-text').attr('src', '/img/logo_text_white.svg');
-		$('#logo-leaf').attr('src', '/img/logo_leaf_white.svg');
+		$('#logo-text').attr('src', '/lpk-2024/img/logo_text_white.svg');
+		$('#logo-leaf').attr('src', '/lpk-2024/img/logo_leaf_white.svg');
 	}
 	
 	if(headerTop < 0 || window.innerWidth <= 900) headerTop = 0
@@ -128,7 +137,7 @@ function renderPage(){
 	if(timeDiff <= 0){
 		// Скрываем счётчик, и отображаем уведомление о том, что приём начался
 		$('#hero').hide();
-		$('#new-hero').show();
+		$('#new-hero').removeClass("hide").show();
 	}
 
 	// Вычисляем количество дней, часов, минут и секунд до достижения цели
@@ -234,7 +243,7 @@ function initMap(){
 			// Маркер института
 			let facultyMarker = new ymaps.Placemark([45.046726, 38.928506]);
 			facultyMarker.options.set('iconLayout', 'default#imageWithContent');
-			facultyMarker.options.set('iconImageHref', '/img/faculty_marker.svg')
+			facultyMarker.options.set('iconImageHref', '/lpk-2024/img/faculty_marker.svg')
 			facultyMarker.options.set('iconImageSize', [60, 72]);
 			facultyMarker.options.set('iconImageOffset', [-30, -72])
 			facultyMarker.options.set('iconContentLayout', LayoutClass);
@@ -251,7 +260,7 @@ function initMap(){
 			// Маркер парковки
 			let parkingMarker = new ymaps.Placemark([45.044483, 38.928892]);
 			parkingMarker.options.set('iconLayout', 'default#image');
-			parkingMarker.options.set('iconImageHref', '/img/parking_marker.svg')
+			parkingMarker.options.set('iconImageHref', '/lpk-2024/img/parking_marker.svg')
 			parkingMarker.options.set('iconImageSize', [40, 64]);
 			parkingMarker.options.set('iconImageOffset', [-20, -64])
 			map.geoObjects.add(parkingMarker);

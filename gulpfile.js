@@ -7,7 +7,6 @@ const nodeSass = require('node-sass');
 const gulpSass = require('gulp-sass');
 const sass = gulpSass(nodeSass);
 const autoPrefixer = require('gulp-autoprefixer');
-const replace = require('gulp-replace');
 const cssbeautify = require('gulp-cssbeautify');
 
 
@@ -33,9 +32,8 @@ gulp.task('scss', () => {
 			includePaths: ['node_modules']
 		}))
 		.pipe(autoPrefixer())
-		.pipe(replace('/img', '../img'))
 		.pipe(cssbeautify())
-		.pipe(gulp.dest('./release/css'))
+		.pipe(gulp.dest('./release/lpk-2024/css'))
 		.pipe(sync.stream());
 })
 
@@ -55,14 +53,14 @@ gulp.task('html', () => {
 gulp.task('java', () => {
 	return gulp.src('./src/ts/master.ts')
 		.pipe(webpack(require('./webpack.config.js')))
-		.pipe(gulp.dest('release/js/'))
+		.pipe(gulp.dest('release/lpk-2024/js/'))
 		.pipe(sync.stream())
 });
 
 gulp.task('build', () => {
 	return gulp.src('./src/ts/master.ts')
 		.pipe(webpack(require('./webpack.build-config.js')))
-		.pipe(gulp.dest('release/js/'))
+		.pipe(gulp.dest('release/lpk-2024/js/'))
 });
 
 //= WATCH ============================================

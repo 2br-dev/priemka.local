@@ -6,15 +6,12 @@ body{
 
 	& .bttn{
 		display: inline-block;
-		line-height: 2em;
-		padding: 0 1em;
 		border-radius: 2em;
 		background-color: $primary;
 		color: #fff;
-
-		@media(max-width: $small){
-			padding-bottom: 4px;
-		}
+		padding: 0 1em;
+		line-height: 2em;
+		white-space: nowrap;
 
 		&-large{
 			@extend .bttn;

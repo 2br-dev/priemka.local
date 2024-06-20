@@ -38,7 +38,7 @@
 			height: 2em;
 			aspect-ratio: 0.898 / 1;
 			content: '';
-			background-image: url(/img/tab_left_inactive.svg);
+			background-image: url(/lpk-2024/img/tab_left_inactive.svg);
 			flex-shrink: 0;
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
@@ -49,7 +49,7 @@
 			height: 2em;
 			aspect-ratio: 0.898 / 1;
 			content: '';
-			background-image: url(/img/tab_right_inactive.svg);
+			background-image: url(/lpk-2024/img/tab_right_inactive.svg);
 			
 			flex-shrink: 0;
 			background-repeat: no-repeat;
@@ -63,7 +63,7 @@
 			display: block;
 			white-space: nowrap;
 			background-size: auto 100%;
-			background-image: url(/img/tab_middle_inactive.svg);
+			background-image: url(/lpk-2024/img/tab_middle_inactive.svg);
 			background-repeat: repeat-x;
 			background-size: auto 100%;
 			margin-left: -1px;
@@ -83,7 +83,7 @@
 
 		&:first-of-type:before{
 			aspect-ratio: 0.362 / 1;
-			background-image: url(/img/tab_left_inactive_first.svg) !important;
+			background-image: url(/lpk-2024/img/tab_left_inactive_first.svg) !important;
 		}
 
 		&.active{
@@ -91,21 +91,21 @@
 			z-index: 5;
 
 			&:before{
-				background-image: url(/img/tab_left_active.svg);
+				background-image: url(/lpk-2024/img/tab_left_active.svg);
 			}
 			
 			& label{
 				color: #fff;
-				background-image: url(/img/tab_middle_active.svg);
+				background-image: url(/lpk-2024/img/tab_middle_active.svg);
 			}
 			
 			&:after{
-				background-image: url(/img/tab_right_active.svg);
+				background-image: url(/lpk-2024/img/tab_right_active.svg);
 			}
 
 			&:first-of-type:before{
 				aspect-ratio: 0.362 / 1;
-				background-image: url(/img/tab_left_active_first.svg) !important;
+				background-image: url(/lpk-2024/img/tab_left_active_first.svg) !important;
 			}
 		}
 	}
@@ -238,6 +238,7 @@ body{
 						color: $text;
 						background-color: #fff;
 						margin-bottom: 20px;
+						line-height: 2em;
 
 						&-outline{
 							background-color: transparent;
@@ -440,7 +441,7 @@ body{
 						}
 
 						&#park{
-							background-image: url(/img/tree.png);
+							background-image: url(/lpk-2024/img/tree.png);
 							background-position: bottom right;
 							background-size: auto 60%;
 							background-repeat: no-repeat;
@@ -449,7 +450,7 @@ body{
 						&#lck{
 
 							color: #fff;
-							background: url(/img/lck.jpg);
+							background: url(/lpk-2024/img/lck.jpg);
 							background-position: center center;
 							background-size: cover;
 							position: relative;
@@ -496,7 +497,7 @@ body{
 
 						&#sport{
 							background-color: #FF8001;
-							background-image: url(/img/basket_place.svg);
+							background-image: url(/lpk-2024/img/basket_place.svg);
 							background-size: 100% auto;
 							background-repeat: no-repeat;
 							background-position: bottom left;
@@ -504,7 +505,7 @@ body{
 						}
 
 						&#teachers{
-							background-image: url(/img/teachers.png);
+							background-image: url(/lpk-2024/img/teachers.png);
 							background-size: contain;
 							background-repeat: no-repeat;
 							background-position: bottom center;
@@ -716,7 +717,7 @@ body{
 
 									&:before{
 										background-color: $primary;
-										background-image: url(/img/check.svg);
+										background-image: url(/lpk-2024/img/check.svg);
 										background-position: center center;
 										background-repeat: no-repeat;
 									}
@@ -801,7 +802,7 @@ body{
 										height: 100%;
 										top: 0;
 										left: 0;
-										background-image: url(/img/folder_arrow.svg);
+										background-image: url(/lpk-2024/img/folder_arrow.svg);
 										background-position: center center;
 										background-repeat: no-repeat;
 										border-radius: 50%;
@@ -818,7 +819,7 @@ body{
 									border-bottom: 1px solid $secondary;
 								}
 								
-								& h3{
+								& h4{
 									margin: 0;
 								}
 							}
@@ -1191,6 +1192,7 @@ body{
 
 						display: flex;
 						margin-bottom: $gutter-width;
+						// align-items: center;
 						
 						& .event-date{
 							
@@ -1203,6 +1205,20 @@ body{
 							width: 25%;
 							flex-shrink: 0;
 							color: $secondary;
+							display: flex;
+							align-items: center;
+
+							& .event-date-wrapper{
+
+								@media(max-width: $medium){
+									display: flex;
+									flex-direction: column;
+								}
+
+								& span{
+									margin-right: 10px;
+								}
+							}
 
 							@media(min-width: $large){
 								min-width: 340px;
@@ -1224,7 +1240,7 @@ body{
 									height: calc(100% + 40px);
 									top: -20px;
 									left: -20px;
-									background: url(/img/date_outline.svg);
+									background: url(/lpk-2024/img/date_outline.svg);
 									background-size: 100% 100%;
 									z-index: -1;
 								}
@@ -1246,7 +1262,7 @@ body{
 								display: block;
 								width: 26px;
 								aspect-ratio: 1 / 1.3;
-								background-image: url(/img/leaf.svg);
+								background-image: url(/lpk-2024/img/leaf.svg);
 								background-size: 100% 100%;
 								top: 50%;
 								left: 50%;
@@ -1441,7 +1457,7 @@ body{
 
 					&#sber{
 						background-color: #21A038;
-						background-image: url(/img/logo_sber.svg);
+						background-image: url(/lpk-2024/img/logo_sber.svg);
 						
 						&:hover{
 							background-color: lighten(#21A038, 10);
@@ -1450,7 +1466,7 @@ body{
 					
 					&#rnkb{
 						background-color: #333E48;
-						background-image: url(/img/logo_rnkb.svg);
+						background-image: url(/lpk-2024/img/logo_rnkb.svg);
 
 						&:hover{
 							background-color: lighten(#333E48, 10);
@@ -1687,7 +1703,7 @@ body{
 								right: 0;
 								bottom: 0;
 								border-radius: 50%;
-								background-image: url(/img/folder_arrow.svg);
+								background-image: url(/lpk-2024/img/folder_arrow.svg);
 								background-position: center center;
 								background-size: 50% auto;
 								background-repeat: no-repeat;
@@ -1724,6 +1740,7 @@ body{
 					background-color: $primary;
 					position: relative;
 					overflow: hidden;
+					cursor: pointer;
 
 					@media(min-width: $medium){
 						padding-right: 32vw;
@@ -1755,6 +1772,10 @@ body{
 
 					& h2{
 						margin: 0;
+					}
+
+					& .bttn{
+						line-height: 2em;
 					}
 				}
 			}

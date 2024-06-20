@@ -1,7 +1,7 @@
 let fullcard_tpl = `
 <div class="faculty-modal-wrapper">
 	<div class="faculty-modal">
-		<div class="faculty-modal-header" style="background-image:url(/img/faculty_media/wallpapers/{{speciality.image}})">
+		<div class="faculty-modal-header" style="background-image:url(/lpk-2024/img/faculty_media/wallpapers/{{speciality.image}})">
 			<div class="label">{{selectedLevel.name}}</div>
 			<div class="header-info">
 				<div class="info-top">
@@ -29,7 +29,7 @@ let fullcard_tpl = `
 					</ul>
 					<div class="speciality-data-wrapper">
 						<div class="speciality-data">
-							<div class="title">Бюджетных мест</div>
+							<div class="title">Бюджетные места</div>
 							<div class="value"><span id="selected-free-total">{{selectedForm.vacations.free.total}}</span></div>
 							<div class="encoding-wrapper">
 								{{#selectedForm.vacations.free.main}}
@@ -59,7 +59,7 @@ let fullcard_tpl = `
 							</div>
 						</div>
 						<div class="speciality-data">
-							<div class="title">Контрактных мест</div>
+							<div class="title">Места по договорам</div>
 							<div class="value"><span id="selected-paid-total">{{selectedForm.vacations.paid.total}}</span></div>
 							<div class="encoding-wrapper">
 								{{#selectedForm.vacations.paid.main}}
@@ -70,7 +70,7 @@ let fullcard_tpl = `
 								{{/selectedForm.vacations.paid.main}}
 								{{#selectedForm.vacations.paid.foreign}}
 								<div class="encoding">
-									<div class="encoding-name">Для иностранцев</div>
+									<div class="encoding-name">Для иностранных граждан</div>
 									<div class="encoding-value"><span id="selected-paid-foreign">{{selectedForm.vacations.paid.foreign}}</span></div>
 								</div>
 								{{/selectedForm.vacations.paid.foreign}}
@@ -93,7 +93,7 @@ let fullcard_tpl = `
 					<p class="modal-section-header">О факультете</p>
 					<div class="head-info-wrapper">
 						<div class="head-image">
-							<img src="/img/faculty_media/decans/{{extra.head.photo}}">
+							<img src="/lpk-2024/img/faculty_media/decans/{{extra.head.photo}}">
 						</div>
 						<div class="head-data">
 							<p>{{extra.head.rank}}</p>

@@ -2,7 +2,7 @@ let template = `
 {{#sections}}
 <div class="faculty-header" data-faculty="{{name}}">
 	<div class="folder-arrow"></div>
-	<h3>{{name}}</h3>
+	<h4>{{name}}</h4>
 </div>
 <div class="section-wrapper">
 	<div class="section-content">
@@ -23,11 +23,11 @@ let template = `
 			<div class="subtitle"><span class="code">{{education_levels.0.code}}</span> {{profile}}</div>
 			<div class="numbers">
 				<div class="number number-free">
-					<div class="section-title">Бюджетных мест</div>
+					<div class="section-title">Бюджетные места</div>
 					<div class="number-value">{{education_levels.0.forms.0.vacations.free.total}}</div>
 				</div>
 				<div class="number number-paid">
-					<div class="section-title">Контрактных мест</div>
+					<div class="section-title">Места по договорам</div>
 					<div class="number-value">{{education_levels.0.forms.0.vacations.paid.total}}</div>
 				</div>
 				<div class="number number-duration">
@@ -35,7 +35,7 @@ let template = `
 					<div class="number-value">{{education_levels.0.forms.0.duration}}</div>
 				</div>
 				<div class="number number-cost">
-					<div class="section-title">Стоимость контракта</div>
+					<div class="section-title">Стоимость обучения</div>
 					<div class="number-value">{{education_levels.0.forms.0.price}} ₽/год</div>
 				</div>
 			</div>
@@ -53,9 +53,11 @@ let template = `
 					{{/optional}}
 				</div>
 			</div>
+			<!--
 			<div class="card-call2action" data-form-c2a="{{selectedFormName}}">
 				<span class="hide-m-up bttn">Подробнее</span>
 			</div>
+			-->
 			{{#note}}
 			<div class="note">
 			* {{.}}

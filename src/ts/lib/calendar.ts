@@ -1,6 +1,6 @@
 import { IEventsData, IEventsSection, IEvent, IEventsFilter } from './events_interfaces';
 import eventsTpl from './events_template';
-import mustache from 'mustache';
+const mustache = require('mustache');
 
 class Calendar{
 
@@ -21,7 +21,7 @@ class Calendar{
 
 	init(){
 		// Загрузка начальных данных
-		fetch("/data/events.json")
+		fetch("/lpk-2024/data/events.json")
 		.then(res => res.json())
 		.then((data:IEventsData) => {
 			this.eventsData = data;

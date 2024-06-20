@@ -1,7 +1,7 @@
-import mustache from 'mustache';
 import template from './template';
 import fullcard_tpl from './fullcardtpl';
 import dataTpl from './data_tpl';
+const mustache = require('mustache');
 
 import { 
 	IData, 
@@ -35,7 +35,7 @@ class Calculator{
 	}
 
 	init(){
-		fetch('/data/data.json')
+		fetch('/lpk-2024/data/data.json')
 		.then(response => response.json())
 		.then(data => {
 			let filteredData = this.filter(data);
@@ -576,6 +576,10 @@ class Calculator{
 	 * Открытие карточки с описанием факультета
 	 */
 	openCard(e:JQuery.ClickEvent, URLParams:IURLCardData = null){
+
+		// Отключаем модалку (временно!) ==========================================
+		return null;
+		// ========================================================================
 
 		// let selectedCase:ICardData;
 		let card:HTMLElement;

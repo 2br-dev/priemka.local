@@ -3,8 +3,10 @@ let eventsTpl=`
 {{#content}}
 <div class="event">
 	<div class="event-date{{#classname}} {{classname}}{{/classname}}">
-		<span class="date">{{date}}</span>
-		{{#time}}<span class="time">{{time}}</span>{{/time}}
+		<div class="event-date-wrapper">
+			<span class="date">{{date}}</span>
+			{{#time}}<span class="time">{{time}}</span>{{/time}}
+		</div>
 	</div>
 	<div class="event-divider"></div>
 	<div class="event-content">

@@ -3,17 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="/css/master.css">
+	<title>Приёмная комиссия КубГАУ 2024</title>
+	<link rel="stylesheet" href="/lpk-2024/css/master.css">
+	<!-- Favico -->
+	<link rel="icon" type="image/svg+xml" href="/lpk-2024/img/favico/favicon.svg" media="(prefers-color-scheme: light)">
+	<link rel="icon" type="image/png" href="/lpk-2024/img/favico/favicon.png" media="(prefers-color-scheme: light)">
+	<link rel="icon" type="image/svg+xml" href="/lpk-2024/img/favico/favicon_light.svg" media="(prefers-color-scheme: dark)">
+	<link rel="icon" type="image/png" href="/lpk-2024/img/favico/favicon_light.png" media="(prefers-color-scheme: dark)">
+	<!-- /Favico -->
 </head>
 <body>
 	@@include('./parts/header.html')
-	<!-- <div class="splash">
+	<div class="splash">
 		<svg width="64" height="87" viewBox="0 0 64 87" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path id="loading-leaf" fill-rule="evenodd" clip-rule="evenodd" d="M31.9962 83.9745L12.7082 64.7137H12.681L12.1641 64.1969C6.93619 58.9589 4 51.8606 4 44.46C4 37.0595 6.93619 29.9612 12.1641 24.7232L31.9418 5L52.8892 26.0018C57.4159 31.1489 59.8969 37.7779 59.8618 44.6323C59.8267 51.4866 57.278 58.0899 52.6988 63.1903L51.529 64.3873L31.9962 83.9745Z" fill="black"/>
 		</svg>
 		<p>Загрузка…</p>
-	</div> -->
+	</div>
 	<main>
 		<section id="hero">
 			<div class="hero-content center-align">
@@ -52,9 +58,9 @@
 					<a href="#calculator" class="bttn large scroll-link">Выбрать специальность</a>
 				</div>
 			</div>
-			<video class="lazy-video" muted loop playsinline autoplay data-src="/video/hero_compressed.mp4" width="1920" height="1080"></video>
+			<video class="lazy-video" muted loop playsinline autoplay data-src="/lpk-2024/video/hero_compressed.mp4" width="1920" height="1080"></video>
 		</section>
-		<section id="new-hero" class="hide">
+		<section id="new-hero">
 			<div class="hero-content center-align">
 				<h1><span>Приём документов</span><span class="accent">начался!</span></h1>
 				<div class="call-to-action">
@@ -62,7 +68,7 @@
 					<a href="#calculator" class="bttn large scroll-link">Выбрать специальность</a>
 				</div>
 			</div>
-			<video class="lazy-video" muted loop playsinline autoplay data-src="/video/hero_compressed.mp4" width="1920" height="1080"></video>
+			<video class="lazy-video" muted loop playsinline autoplay data-src="/lpk-2024/video/hero_compressed.mp4" width="1920" height="1080"></video>
 		</section>
 		<section id="about">
 			<div class="container">
@@ -89,10 +95,10 @@
 								</div>
 								<div class="swiper" id="map-slider">
 									<div class="swiper-wrapper">
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map1.jpg"></div>
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map2.jpg"></div>
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map3.jpg"></div>
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/img/map4.jpg"></div>
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map1.jpg"></div>
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map2.jpg"></div>
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map3.jpg"></div>
+										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map4.jpg"></div>
 									</div>
 									<div class="swiper-pagination"></div>
 								</div>
@@ -104,7 +110,7 @@
 							<div class="card hoverable" id="lck">
 								<h3>Уникальная Лаборатория цифрового контента</h3>
 								<p>Интерактивная студия для записи контента любой сложности. Снимай блоги, пиши подкасты, готовь презентации как Стив Джобс!</p>
-								<video data-src="/video/circle-video.mp4" autoplay muted playsinline loop class="lazy"></video>
+								<video data-src="/lpk-2024/video/circle-video.mp4" autoplay muted playsinline loop class="lazy"></video>
 							</div>
 							<div class="card hoverable" id="sport">
 								<h3>Спортивные возможности</h3>
@@ -166,6 +172,7 @@
 									<a href="javascript:void(0);" id="calc-reset" class="bttn-outline">Сброс</a>
 									<a href="javascript:void(0);" id="calc-apply" class="bttn">Применить</a>
 								</div>
+								<h3>Факультеты:</h3>
 								<div id="output">
 
 								</div>
@@ -188,15 +195,15 @@
 								<li>
 									<div class="icon-block vcenter">
 										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/img/walkman_icon.png" alt="">
+											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/walkman_icon.png" alt="">
 										</span>
 										<span class="content-wrapper">
 											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/walkman_icon.png" alt="">
+												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/walkman_icon.png" alt="">
 												<h4 class="title">Лично</h4>
 											</div>
 											<span class="content">
-												Заглядывай с оригиналами и паспортом в гости! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.
+												Заглядывай в гости с оригиналами аттестата или диплома, и паспорт тоже не забудь! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.
 											</span>
 										</span>
 									</div>
@@ -204,47 +211,47 @@
 								<li>
 									<a href="" class="icon-block vcenter">
 										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/img/cellphone_icon.png" alt="">
+											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/gosuslugi_icon.svg" alt="">
 										</span>
 										<span class="content-wrapper">
 											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/cellphone_icon.png" alt="">
-												<h4 class="title">Онлайн</h4>
-											</div>
-											<span class="content">
-												Регистрируйся на сайте, и через Личный кабинет сможешь подать всё онлайн - быстро, удобно и в прохладе.
-											</span>
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="" class="icon-block vcenter">
-										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/img/mail_icon.png" alt="">
-										</span>
-										<span class="content-wrapper">
-											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/mail_icon.png" alt="">
-												<h4 class="title">По почте</h4>
-											</div>
-											<span class="content">
-												Можешь выбрать "Почту России", CDEK или любого другого удобного оператора.
-											</span>
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="" class="icon-block vcenter">
-										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/img/gosuslugi_icon.svg" alt="">
-										</span>
-										<span class="content-wrapper">
-											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/img/gosuslugi_icon.svg" alt="">
+												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/gosuslugi_icon.svg" alt="">
 												<h4 class="title">Через Госуслуги</h4>
 											</div>
 											<span class="content">
-												Быстро и удобно - переходи в раздел «Поступление в вуз онлайн»!
+												Идеальный способ для поступающих на бакалавриат или специалитет. Быстро и удобно — просто зайди в раздел «Поступление в вуз онлайн»!
+											</span>
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="" class="icon-block vcenter">
+										<span class="icon-wrapper hide-m-down">
+											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/mail_icon.png" alt="">
+										</span>
+										<span class="content-wrapper">
+											<div class="content-header">
+												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/mail_icon.png" alt="">
+												<h4 class="title">По почте</h4>
+											</div>
+											<span class="content">
+												Можешь выбрать «Почту России» или любого другого удобного оператора.
+											</span>
+										</span>
+									</a>
+								</li>
+								<li>
+									<a href="" class="icon-block vcenter">
+										<span class="icon-wrapper hide-m-down">
+											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/cellphone_icon.png" alt="">
+										</span>
+										<span class="content-wrapper">
+											<div class="content-header">
+												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/cellphone_icon.png" alt="">
+												<h4 class="title">Онлайн</h4>
+											</div>
+											<span class="content">
+												Самый удобный способ для магистрантов, аспирантов и иностраных абитуриентов — регистрируйтесь на сайте, и через Личный кабинет всё прилетит к нам мгновенно.
 											</span>
 										</span>
 									</a>
@@ -256,11 +263,11 @@
 						<div class="fill-block">
 							<h3>Какие документы нужны</h3>
 							<ul>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/passport_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Паспорт</h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/diploma_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Документы об образовании <span class="note">(аттестат, диплом и др.)</span></h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/photo_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Фотографии (3х4) 4 шт.</h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/snils_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">СНИЛС</h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/img/spravka_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Медицинская справка №086/У</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/passport_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Паспорт</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/diploma_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Документы об образовании <span class="note">(аттестат, диплом и др.)</span></h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/photo_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Фотографии (3х4) 4 шт.</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/snils_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">СНИЛС</h4></div></li>
+								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/spravka_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Медицинская справка №086/У</h4></div></li>
 							</ul>
 						</div>
 					</div>
@@ -270,7 +277,7 @@
 		<section id="calendar">
 			<div class="container"><div class="row">
 				<div class="col s12">
-					<h2>Приёмная кампания 2024 начнётся уже совсем скоро. Заскринь график, чтобы не опоздать!</h2>
+					<h2>Приёмная кампания в самом разгаре! Заскринь график, чтобы не опоздать!</h2>
 				</div>
 				<div class="col s12">
 					<ul class="tabs">
@@ -308,8 +315,8 @@
 						<p class="large">Если учиться хочется, но прямо сейчас нет возможности оплатить обучение, воспользуйся Образовательным кредитом - льготной программой с фиксированной ставкой 3% годовых.</p>
 						<div class="banks-wrapper align-center-m-down">
 							<p>Ознакомься с официальными документами от банков-партнёров</p>
-							<a class="bank-bttn" target="_blank" rel="nofollow" href="/files/sber.pptx" id="sber"><span>Скачать</span><i class="bx bxs-download"></i></a>
-							<a class="bank-bttn" target="_blank" rel="nofollow" href="/files/rnkb.pptx" id="rnkb"><span>Скачать</span><i class="bx bxs-download"></i></a>
+							<a class="bank-bttn" target="_blank" rel="nofollow" href="/lpk-2024/files/sber.pptx" id="sber"><span>Скачать</span><i class="bx bxs-download"></i></a>
+							<a class="bank-bttn" target="_blank" rel="nofollow" href="/lpk-2024/files/rnkb.pptx" id="rnkb"><span>Скачать</span><i class="bx bxs-download"></i></a>
 						</div>
 						<div class="howto-wrapper">
 							<div class="row flex">
@@ -317,19 +324,19 @@
 									<h3>Как это работает</h3>
 								</div>
 								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/img/doc_icon.svg" alt="" class="responsive-img lazy">
-									<p>Ты подписываешь с вузом контракт о платном образовании</p>
+									<img data-src="/lpk-2024/img/doc_icon.svg" alt="" class="responsive-img lazy">
+									<p>Ты подписываешь с вузом договор о платном образовании</p>
 								</div>
 								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/img/bank_icon.svg" alt="" class="responsive-img lazy">
+									<img data-src="/lpk-2024/img/bank_icon.svg" alt="" class="responsive-img lazy">
 									<p>Выбираешь банк, связываешься с сотрудником</p>
 								</div>
 								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/img/handshake_icon.svg" alt="" class="responsive-img lazy">
+									<img data-src="/lpk-2024/img/handshake_icon.svg" alt="" class="responsive-img lazy">
 									<p>Подписываешь кредитный договор</p>
 								</div>
 								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/img/cash_icon.svg" alt="" class="responsive-img lazy">
+									<img data-src="/lpk-2024/img/cash_icon.svg" alt="" class="responsive-img lazy">
 									<p>Банк сам перечислит деньги на счёт вуза</p>
 								</div>
 							</div>
@@ -337,7 +344,7 @@
 					</div>
 					<div class="col m6 s12">
 						<div class="pin">
-							<img alt="" class="lazy responsive-img" data-src="/img/student_girl.jpg">
+							<img alt="" class="lazy responsive-img" data-src="/lpk-2024/img/student_girl.jpg">
 						</div>
 					</div>
 				</div>
@@ -354,11 +361,11 @@
 						<div class="points">
 							<div class="point">
 								<div class="point-image">
-									<img data-src="/img/home_icon.png" alt="" class="lazy responsive-img hide-m-down">
+									<img data-src="/lpk-2024/img/home_icon.png" alt="" class="lazy responsive-img hide-m-down">
 								</div>
 								<div class="point-content">
 									<div class="point-header">
-										<img data-src="/img/home_icon.png" alt="" class="lazy responsive-img hide-m-up">
+										<img data-src="/lpk-2024/img/home_icon.png" alt="" class="lazy responsive-img hide-m-up">
 										<h3>Жилье</h3>
 									</div>
 									<p>20 корпусов общежитий находятся на территории университета, а несколько минут пешком по самому зелёному кампусу не только полезно, но и приятно.</p>
@@ -366,11 +373,11 @@
 							</div>
 							<div class="point">
 								<div class="point-image">
-									<img data-src="/img/health_icon.png" alt="" class="lazy responsive-img hide-m-down">
+									<img data-src="/lpk-2024/img/health_icon.png" alt="" class="lazy responsive-img hide-m-down">
 								</div>
 								<div class="point-content">
 									<div class="point-header">
-										<img data-src="/img/health_icon.png" alt="" class="lazy responsive-img hide-m-up">
+										<img data-src="/lpk-2024/img/health_icon.png" alt="" class="lazy responsive-img hide-m-up">
 										<h3>Здоровье</h3>
 									</div>
 									<p>Если простудишься, всё под контролем: на территории есть своя студенческая поликлиника. Знай, но не болей!</p>
@@ -378,11 +385,11 @@
 							</div>
 							<div class="point">
 								<div class="point-image">
-									<img data-src="/img/service_icon.png" alt="" class="lazy responsive-img hide-m-down">
+									<img data-src="/lpk-2024/img/service_icon.png" alt="" class="lazy responsive-img hide-m-down">
 								</div>
 								<div class="point-content">
 									<div class="point-header">
-										<img data-src="/img/service_icon.png" alt="" class="lazy responsive-img hide-m-up">
+										<img data-src="/lpk-2024/img/service_icon.png" alt="" class="lazy responsive-img hide-m-up">
 										<h3>Сервис</h3>
 									</div>
 									<p>Прачечные и сушильные комнаты, двухэтажная столовая и десятки буфетов по всему кампусу, оборудованные кухни в общежитиях: учитесь с комфортом!</p>
@@ -390,8 +397,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="banner-image lazy" data-bg="/img/students_bg.png">
-						<img data-src="/img/students_fg.png" alt="" class="lazy">
+					<div class="banner-image lazy" data-bg="/lpk-2024/img/students_bg.png">
+						<img data-src="/lpk-2024/img/students_fg.png" alt="" class="lazy">
 					</div>
 				</div>
 			</div>
@@ -399,31 +406,31 @@
 		<section id="bonus">
 			<div class="container">
 				<div class="row">
-					<div class="col xl5 l4 m3 s8 offset-s2 xs10 offset-xs1 hide-m-down">
-						<img data-src="/img/bonus.png" alt="" class="lazy responsive-img">
+					<div class="col xl5 l4 hide-l-down">
+						<img data-src="/lpk-2024/img/bonus.png" alt="" class="lazy responsive-img">
 					</div>
-					<div class="col xl6 offset-xl1 l7 offset-l1 m8 offset-m1 s12">
+					<div class="col xl6 offset-xl1 l7 offset-l1 m12">
 						<div class="row flex">
-							<div class="col"><h2>Приятный бонус для усердных</h2></div>
-							<div class="col">
-								<img data-src="/img/bonus.png" alt="" class="lazy responsive-img hide-m-up center">
+							<div class="col align-center-l-down"><h2>Приятный бонус для усердных</h2></div>
+							<div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1 xs12">
+								<img data-src="/lpk-2024/img/bonus.png" alt="" class="lazy responsive-img hide-l-up center">
 							</div>
-							<div class="col xl4 l6 m6 s12 margin-bottom">
+							<div class="col xl4 l4 m4 s12 margin-bottom">
 								<div class="price-block">
 									<h4 class="price">15 000₽</h4>
 									<p class="small">Для победителей всероссийских олимпиад и конкурсов школьников, таких, как: АгроНТИ АгроСтарт, Иннагрика, Агро, и т.п.</p>
 								</div>
 							</div>
-							<div class="col xl4 l6 m6 s12 margin-bottom">
+							<div class="col xl4 l4 m4 s12 margin-bottom">
 								<div class="price-block">
 									<h4 class="price">10 000₽</h4>
-									<p class="small">Для студентов-бюджетников направления 19.03.02, набравших не менее 225 баллов по ЕГЭ</p>
+									<p class="small">Дополнительная стипендия для студентов агробиоинженерных направлений, набравших не менее 225 баллов по ЕГЭ, и всех форм обучения.</p>
 								</div>
 							</div>
-							<div class="col xl4 l6 m6 s12 margin-bottom">
+							<div class="col xl4 l4 m4 s12 margin-bottom">
 								<div class="price-block">
 									<h4 class="price">10 000₽</h4>
-									<p class="small">Для студентов-бюджетников всех направлений, набравших не менее 255 баллов по ЕГЭ.</p>
+									<p class="small">Дополнительная стипендия для студентов общих направлений, набравших не менее 255 баллов по ЕГЭ, и всех форм обучения.</p>
 								</div>
 							</div>
 							<div class="col align-center-m-down">
@@ -447,14 +454,14 @@
 		</section>
 		<section id="docs-baner">
 			<div class="container">
-				<a href="https://kubsau.ru/sveden/common/" rel="nofollow" target="_blank" class="banner hoverable">
+				<div class="banner hoverable">
 					<div class="banner-content">
-						<img data-src="/img/folder.png" alt="" class="lazy" width="513" height="380">
+						<img data-src="/lpk-2024/img/folder.png" alt="" class="lazy" width="513" height="380">
 						<h2>Официальные документы</h2>
 						<p class="large">А полную нормативно-правовую базу можешь скачать и прочитать на основном сайте КубГАУ по ссылке</p>
-						<span class="bttn-white large">cмотреть документы</span>
+						<a class="bttn-white large" href="https://kubsau.ru/entrant/docs/" rel="nofollow" target="_blank" >Cмотреть документы</a>
 					</div>
-				</a>
+				</div>
 			</div>
 		</section>
 		<section id="contacts">
@@ -525,7 +532,7 @@
 		<div class="row">
 			<div class="col s12">
 				<a target="_blank" rel="nofollow" href="https://kubsau.ru/" class="bttn-white">На основной сайт</a>
-				<a target="_blank" rel="nofollow" href="https://kubsau.ru/sveden/common/" class="bttn-outline"><i>Сведения</i> об <span>образовательном </span>учреждении</a>
+				<a target="_blank" rel="nofollow" href="https://kubsau.ru/sveden/common/" class="bttn-outline"><i>Сведения</i> Об <span>образовательном </span>учреждении</a>
 			</div>
 		</div>
 		<div class="row">
@@ -539,7 +546,7 @@
 		<div class="row">
 			<div class="col s12">
 				<a href="https://2br.agency" rel="nofollow" target="_blank">
-					<img data-src="/img/2br.svg" alt="Брегдинг и коммуникации" class="lazy responsive-img" width="70"/>
+					<img data-src="/lpk-2024/img/2br.svg" alt="Брегдинг и коммуникации" class="lazy responsive-img" width="70"/>
 				</a>
 			</div>
 			<div class="col s12">
@@ -548,6 +555,6 @@
 			
 		</div>
 	</footer>
-	<script src="/js/master.js"></script>
+	<script src="/lpk-2024/js/master.js"></script>
 </body>
 </html>
