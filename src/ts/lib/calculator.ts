@@ -132,6 +132,8 @@ class Calculator{
 	filterByLevel(e:JQuery.ChangeEvent):void{
 		let input = <HTMLInputElement>e.currentTarget;
 		let tab = input.parentElement;
+		if(tab?.classList.contains('disabled'))
+			return null;
 		$('.calculator-head .pseudo-tab').removeClass('active');
 		tab?.classList.add('active');
 		this.filterParams.level = e.currentTarget.value;

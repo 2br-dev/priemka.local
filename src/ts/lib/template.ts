@@ -8,6 +8,9 @@ let template = `
 	<div class="section-content">
 	{{#sectionContent}}
 	<div class="spec-card-wrapper">
+	{{#label}}
+	<div class="spec-card-label"><span>{{label}}</span></div>
+	{{/label}}
 	<div class="spec-card hoverable z-depth-1" data-id="{{id}}" data-faculty="{{faculty.name}}" >
 		<div class="card-content">
 			<div class="education-levels">
@@ -60,7 +63,7 @@ let template = `
 			-->
 			{{#note}}
 			<div class="note">
-			* {{.}}
+			{{.}}
 			</div>
 			{{/note}}
 		</div>

@@ -239,7 +239,8 @@ body{
 						background-color: #fff;
 						margin-bottom: 20px;
 						line-height: 2em;
-
+						margin: .5em;
+						
 						&-outline{
 							background-color: transparent;
 							color: #fff;
@@ -299,6 +300,28 @@ body{
 					position: absolute;
 					top: 0;
 					left: 0%;
+				}
+			}
+
+			&#new-hero{
+
+				& h1{
+					margin-bottom: 0;
+				}
+
+				& p{
+					margin-bottom: 40px;
+					font-size: clamp(24px, 2vw, 32px);
+				}
+
+				& u{
+					text-decoration-thickness: 1px;
+					text-underline-offset: 6px;
+					line-height: 1.4em;
+				}
+
+				& .more{
+					font-size: clamp(16px, 3vw, 32px);
 				}
 			}
 
@@ -406,6 +429,7 @@ body{
 							& .swiper{
 
 								height: 100%;
+								position: relative;
 
 								& img{
 									display: block;
@@ -437,12 +461,33 @@ body{
 										}
 									}
 								}
+
+								& .swiper-nav{
+									position: absolute;
+									font-size: clamp(32px, 3vw, 64px);
+									top: 50%;
+									z-index: 2;
+									color: #fff;
+									background-color: rgba(black, .4);
+
+									&#prev{
+										border-top-right-radius: 100%;
+										border-bottom-right-radius: 100%;
+									}
+									
+									&#next{
+										border-top-left-radius: 100%;
+										border-bottom-left-radius: 100%;
+										right: 0;
+									}
+								}
 							}
 						}
 
 						&#park{
-							background-image: url(/lpk-2024/img/tree.png);
-							background-position: bottom right;
+							background-color: #DFF7FF;;
+							background-image: url(/lpk-2024/img/tree_new.jpg);
+							background-position: bottom center;
 							background-size: auto 60%;
 							background-repeat: no-repeat;
 						}
@@ -545,14 +590,16 @@ body{
 						
 						& img{
 							aspect-ratio: 1 / 1;
-							object-fit: cover;
+							object-fit: contain;
+
 						}
 					}
 
 					& .content-wrapper{
 
-						& h3{
+						& h3, & h4{
 							margin-top: 0;
+							margin-bottom: .7em;
 						}
 
 						& .feature-header{
@@ -821,6 +868,43 @@ body{
 								
 								& h4{
 									margin: 0;
+								}
+							}
+
+							& .spec-card-wrapper{
+								
+								position: relative;
+
+								& .spec-card-label{
+									position: absolute;
+									line-height: 34px;
+									right: -5px;
+									top: clamp(5px, 2vw, 20px);
+									display: flex;
+									align-items: flex-end;
+									font-size: clamp(12px, 2vw, 18px);
+
+									& span{
+										padding: 0 10px;
+										background-color: $primary;
+										color: #fff;
+									}
+
+									&:before{
+										content: '';
+										display: block;
+										height: 34px;
+										width: 19px;
+										background-image: url(/lpk-2024/img/labe_before.svg);
+									}
+
+									&:after{
+										content: '';
+										display: block;
+										height: 40px;
+										width: 5px;
+										background-image: url(/lpk-2024/img/labe_after.svg);
+									}
 								}
 							}
 
@@ -1094,6 +1178,10 @@ body{
 							}
 						}
 
+						& .icon-wrapper{
+							flex-shrink: 0;
+						}
+
 						& img{
 							display: block;
 							width: clamp(60px, 3vw, 100px);
@@ -1150,6 +1238,67 @@ body{
 								align-items: center;
 								padding: 0;
 								margin-right: 6px;
+							}
+						}
+					}
+				}
+			}
+
+			&#phone{
+
+				& .phone-baner{
+
+					border-radius: $border-radius;
+					overflow: hidden;
+					cursor: pointer;
+
+					& .col{
+
+						background-color: #E4E4E4;
+
+						& img{
+							display: block;
+							float: right;
+							height: 100%;
+							object-fit:cover;
+							object-position: right center;
+
+							@media(max-width: $large){
+								float: none;
+								margin: auto;
+							}
+						}
+
+						& h2{
+							margin-top: 0;
+
+							@media(max-width: $medium){
+								font-size: clamp(32px, 6vw, 64px);
+							}
+						}
+
+						& .banner-content{
+							display: flex;
+							height: 100%;
+							flex-direction: column;
+							justify-content: space-between;
+							padding: clamp(20px, 2vw, 40px);
+
+							& .phone-wrapper{
+
+								& p{
+									margin-top: 0;
+								}
+
+								& a{
+									color: $text;
+									font-weight: bold;
+									font-size: clamp(32px, 4vw, 64px);
+
+									@media(max-width: $medium){
+										font-size: clamp(32px, 6vw, 64px);
+									}
+								}
 							}
 						}
 					}
@@ -1810,6 +1959,11 @@ body{
 					margin-bottom: 0;
 				}
 
+				& h5{
+					font-size: clamp(14px, 3vw, 24px);
+					margin-bottom: .5em;
+				}
+
 				& .contacts-wrapper{
 
 					display: grid;
@@ -1838,6 +1992,20 @@ body{
 					padding-right: 20px;
 
 					& p{
+						font-size: 12px;
+					}
+				}
+
+				& .time-wrapper{
+
+					display: flex;
+					flex-wrap: wrap;
+
+					& .time{
+						margin-right: $gutter-width;
+					}
+
+					& small{
 						font-size: 12px;
 					}
 				}

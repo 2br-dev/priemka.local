@@ -51,8 +51,9 @@ body{
 
 	& .disabled{
 
-		opacity: .5;
+		// opacity: .5;
 		cursor: not-allowed !important;
+		filter: saturate(.2) brightness(1.5);
 		
 		& *{
 			cursor: not-allowed !important;

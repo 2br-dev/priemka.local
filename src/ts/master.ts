@@ -1,14 +1,14 @@
 import Lazy from 'vanilla-lazyload';
 import * as M from 'materialize-css';
 import Swiper from 'swiper';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 import Calendar from './lib/calendar';
 import Calculator from './lib/calculator';
 
 declare var ymaps:any;
 let loaded = 0;
 
-Swiper.use([Pagination]);
+Swiper.use([Pagination, Navigation]);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	$('body').on('click', '.card .footer a', view3DMap);					// Просмотр 3D-карты 
 	$('body').on('click', '.faq-header', toggleFAQ);						// Отображение блоков вопрос-ответ
 	$('body').on('click', '.scroll-link', scrollTo);						// Прокрутка до заданной секции
-	$('body').on('click', '#docs-baner .banner', openBannerLink);			// Открытие ссылки в банере
+	$('body').on('click', '.banner-section', openBannerLink);				// Открытие ссылки в банере
 	renderPage();															// Установка header'а
 	
 	new Swiper('#map-slider', {
@@ -31,7 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			type: 'bullets',
 			el: '.swiper-pagination',
 			clickable: true
-		}
+		},
+		navigation: {
+			nextEl: '#next',
+			prevEl: '#prev'
+		},
+		initialSlide: 2
 	});
 
 	// Scroll-base анимации
