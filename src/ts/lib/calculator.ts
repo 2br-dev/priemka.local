@@ -538,6 +538,12 @@ class Calculator{
 				return l.name == "Бакалавриат" || l.name == "Специалитет";
 			})[0].name;
 
+			let selectedLevel:IEducationLevel = card.education_levels?.filter((l:IEducationLevel) => {
+				return l.name == card.selectedFormName;
+			})[0];
+
+			card.selectedLevel = selectedLevel;
+
 			if(card.id == null){
 				if(section.name == ""){
 					section = {

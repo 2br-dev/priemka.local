@@ -27,19 +27,19 @@ let template = `
 			<div class="numbers">
 				<div class="number number-free">
 					<div class="section-title">Бюджетные места</div>
-					<div class="number-value">{{education_levels.0.forms.0.vacations.free.total}}</div>
+					<div class="number-value">{{selectedLevel.forms.0.vacations.free.total}}</div>
 				</div>
 				<div class="number number-paid">
 					<div class="section-title">Места по договорам</div>
-					<div class="number-value">{{education_levels.0.forms.0.vacations.paid.total}}</div>
+					<div class="number-value">{{selectedLevel.forms.0.vacations.paid.total}}</div>
 				</div>
 				<div class="number number-duration">
 					<div class="section-title">Продолжительность</div>
-					<div class="number-value">{{education_levels.0.forms.0.duration}}</div>
+					<div class="number-value">{{selectedLevel.forms.0.duration}}</div>
 				</div>
 				<div class="number number-cost">
 					<div class="section-title">Стоимость обучения</div>
-					<div class="number-value">{{education_levels.0.forms.0.price}} ₽/год</div>
+					<div class="number-value">{{selectedLevel.forms.0.price}} ₽/год</div>
 				</div>
 			</div>
 			<div class="separator"></div>
