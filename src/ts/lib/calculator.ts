@@ -585,10 +585,6 @@ class Calculator{
 	 */
 	openCard(e:JQuery.ClickEvent, URLParams:IURLCardData = null){
 
-		// Отключаем модалку (временно!) ==========================================
-		return null;
-		// ========================================================================
-
 		// let selectedCase:ICardData;
 		let card:HTMLElement;
 		
