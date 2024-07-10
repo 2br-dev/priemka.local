@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	$('body').on('click', '.faq-header', toggleFAQ);						// Отображение блоков вопрос-ответ
 	$('body').on('click', '.scroll-link', scrollTo);						// Прокрутка до заданной секции
 	$('body').on('click', '.banner-section', openBannerLink);				// Открытие ссылки в банере
+	
 	renderPage();															// Установка header'а
 	
 	new Swiper('#map-slider', {

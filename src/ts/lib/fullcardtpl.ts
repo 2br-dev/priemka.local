@@ -1,7 +1,7 @@
 let fullcard_tpl = `
 <div class="faculty-modal-wrapper">
 	<div class="faculty-modal">
-		<div class="faculty-modal-header" style="background-image:url(/lpk-2024/img/faculty_media/wallpapers/{{speciality.image}})">
+		<div class="faculty-modal-header" style="background-image:url(/lpk-2024/img/faculty_media/wallpapers/{{selectedLevel.details.image}})">
 			<div class="label">{{selectedLevel.name}}</div>
 			<div class="header-info">
 				<div class="info-top">
@@ -13,7 +13,7 @@ let fullcard_tpl = `
 					</div>
 				</div>
 				<div class="info-bottom">
-					{{speciality.name}}
+					{{speciality}}
 				</div>
 			</div>
 			<button class="faculty-modal-close bx bx-x"></button>
@@ -52,7 +52,7 @@ let fullcard_tpl = `
 								{{/selectedForm.vacations.free.particular}}
 								{{#selectedForm.vacations.free.special}}
 								<div class="encoding">
-									<div class="encoding-name">Специальная квота</div>
+									<div class="encoding-name">Особая квота</div>
 									<div class="encoding-value"><span id="selected-free-special">{{selectedForm.vacations.free.special}}</span></div>
 								</div>
 								{{/selectedForm.vacations.free.special}}
@@ -81,12 +81,32 @@ let fullcard_tpl = `
 							<div class="value"><span id="selected-duration">{{selectedForm.duration}}</span></div>
 						</div>
 						<div class="speciality-data">
-							<div class="title">Стоимость контракта</div>
-							<div class="value"><span class="selected-price">{{selectedForm.price}}</span> ₽/год</div>
+							<div class="title">Стоимость договора</div>
+							<div class="value"><span class="selected-price">
+								{{#selectedForm.remark}}
+								<a href="javascript:void(0);" data-remark="{{selectedForm.remark}}">
+									<span>{{selectedForm.price}}</span> ₽/год</span>
+									<i class="bx bxs-info-circle"></i>
+								</a>
+								{{/selectedForm.remark}}
+								{{^selectedForm.remark}}
+								{{selectedForm.price}}</span> ₽/год
+								{{/selectedForm.remark}}
+							</div>
 						</div>
 					</div>
 					<div class="speciality-info">
-						{{{speciality.about}}}
+						{{#note}}
+						<small>{{note}}</small>
+						{{/note}}
+					</div>
+					<div class="speciality-info">
+						<div>
+						{{{selectedLevel.details.about}}}
+						{{#selectedLevel.video}}
+						<a class="bttn video-trigger" href="#video" data-video="{{selectedLevel.video}}"><i class="bx bx-play" ></i>Смотреть видео</a>
+						{{/selectedLevel.video}}
+						</div>
 					</div>
 				</div>
 				<div class="faculty">

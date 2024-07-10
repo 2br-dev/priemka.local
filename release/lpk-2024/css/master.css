@@ -3989,6 +3989,7 @@ body .bttn, body .bttn-large, body .bttn-outline, body .bttn-white {
     padding: 0 1em;
     line-height: 2em;
     white-space: nowrap;
+    transition: background-color .2s;
 }
 
 body .bttn-large {
@@ -3999,6 +4000,10 @@ body .bttn-outline {
     color: #FF8001;
     background-color: transparent;
     box-shadow: 0 0 0 1px #FF8001 inset;
+}
+
+body .bttn-outline:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 body .bttn-white {
@@ -13241,7 +13246,7 @@ header .container .main-link i {
     display: none;
 }
 
-@media (max-width: 1820px) {
+@media (max-width: 1910px) {
     header .container .logo picture {
         width: auto !important;
     }
@@ -14301,7 +14306,6 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     background-color: #fff;
     border-radius: clamp(5px, 2vw, 15px);
     margin: 0;
-    overflow: hidden;
     cursor: pointer;
 }
 
@@ -14438,6 +14442,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     padding: clamp(15px, 2vw, 20px);
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number {
@@ -14452,6 +14457,62 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
 body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value {
     font-size: clamp(18px, 3vw, 32px);
     font-weight: 700;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value i {
+    color: #FF8001;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value a {
+    color: #2F3932;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value a i {
+    font-size: clamp(18px, 3vw, 21px);
+    transform: translateY(-0.5em);
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value .remark-popup {
+    position: relative;
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    right: 0;
+    bottom: clamp(4em, 3vw, 5em);
+    background-color: #fff;
+    padding: clamp(10px, 2vw, 20px);
+    padding-right: 30px;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.4em;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: opacity .4s, transform .4s;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value .remark-popup a {
+    font-size: 26px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #000;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value .remark-popup a i {
+    color: #FF8001;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value .remark-popup.open {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number .number-value .remark-popup {
+    right: 10px;
+    width: calc(100% - 20px);
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .numbers .number:last-of-type {
@@ -14475,9 +14536,20 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     text-align: center;
     border-top: 1px solid #ccc;
     padding: 12px;
+    position: relative;
 }
 
-body main section#calculator .calculator-app .calculator-body #output .spec-card [data-form-c2a="Магистратура"] {
+body main section#calculator .calculator-app .calculator-body #output .spec-card .card-call2action .video-trigger {
+    display: inline-flex;
+    align-items: center;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card .card-call2action .video-trigger i {
+    transform: scale(1.7);
+    margin-right: 6px;
+}
+
+body main section#calculator .calculator-app .calculator-body #output .spec-card[data-no-data="true"] .card-call2action {
     display: none !important;
 }
 
@@ -14498,11 +14570,16 @@ body main section#calculator .calculator-app[data-level="Магистратур�
 }
 
 body main section#calculator .calculator-app[data-level="Магистратура"] .education-level[data-level="Бакалавриат"],
-    body main section#calculator .calculator-app[data-level="Магистратура"] .education-level[data-level="Специалитет"] {
+    body main section#calculator .calculator-app[data-level="Магистратура"] .education-level[data-level="Специалитет"] body main section#calculator .calculator-app[data-level="Магистратура"] .education-level[data-level="Аспирантура"] {
     display: none !important;
 }
 
 body main section#calculator .calculator-app[data-level="Магистратура"] .spec-card .requirements-wrapper {
+    display: none;
+}
+
+body main section#calculator .calculator-app:not([data-level="Бакалавриат/специалитет"]) #output .spec-card .edform-wrapper {
+    border: 1px solid red;
     display: none;
 }
 
@@ -15460,30 +15537,31 @@ body main section#contacts h5 {
 
 body main section#contacts .contacts-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 6fr 6fr;
+    gap: 20px;
     width: -moz-fit-content;
     width: fit-content;
 }
 
 @media (max-width: 1800px) {
     body main section#contacts .contacts-wrapper {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 1200px) {
     body main section#contacts .contacts-wrapper {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 5fr 7fr;
+    }
+}
+
+@media (max-width: 800px) {
+    body main section#contacts .contacts-wrapper {
+        grid-template-columns: 4fr 8fr;
     }
 }
 
 @media (max-width: 600px) {
-    body main section#contacts .contacts-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 400px) {
     body main section#contacts .contacts-wrapper {
         grid-template-columns: 1fr;
     }
@@ -15495,6 +15573,7 @@ body main section#contacts .contact {
 
 body main section#contacts .contact p {
     font-size: 12px;
+    line-height: 1.4em;
 }
 
 body main section#contacts .time-wrapper {
@@ -15697,6 +15776,76 @@ body main section#map-section .placemark-text {
     font-size: clamp(21px, 3vw, 32px);
     line-height: 1.6em;
     font-weight: bold;
+    position: relative;
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value i {
+    color: #FF8001;
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value a {
+    color: #2F3932;
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value a i {
+    font-size: clamp(18px, 3vw, 21px);
+    transform: translateY(-0.5em);
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value .remark-popup {
+    position: relative;
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    right: 0;
+    bottom: clamp(4em, 3vw, 5em);
+    background-color: #fff;
+    padding: clamp(10px, 2vw, 20px);
+    padding-right: 30px;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.4em;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: opacity .4s, transform .4s;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value .remark-popup a {
+    font-size: 26px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #000;
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value .remark-popup a i {
+    color: #FF8001;
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value .remark-popup.open {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@media (min-width: 800px) {
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value .remark-popup {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 800px) {
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value .remark-popup {
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .value .remark-popup {
+        min-width: calc(100vw - 60px);
+    }
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality .speciality-data-wrapper .speciality-data .encoding-wrapper {
@@ -15750,6 +15899,13 @@ body main section#map-section .placemark-text {
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty .head-info-wrapper .head-data .name {
     font-weight: bold;
+}
+
+.faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper small {
+    display: block;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    color: #808080;
 }
 
 @media (max-width: 1200px) {
@@ -15872,6 +16028,54 @@ body main section#map-section .placemark-text {
         height: 100%;
         border-radius: 0;
     }
+}
+
+.faculty-modal-wrapper#video-modal {
+    z-index: 1002;
+}
+
+.faculty-modal-wrapper#video-modal .faculty-modal .faculty-modal-body {
+    padding: 0;
+    position: relative;
+}
+
+.faculty-modal-wrapper#video-modal .faculty-modal .faculty-modal-body .label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    padding: 5px clamp(5px, 2vw, 20px);
+    background-color: #fff;
+    border-top-right-radius: clamp(5px, 2vw, 20px);
+    border-bottom-right-radius: clamp(5px, 2vw, 20px);
+}
+
+.faculty-modal-wrapper#video-modal .faculty-modal .faculty-modal-body .faculty-modal-close {
+    border: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    font-size: 24px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faculty-modal-wrapper#video-modal .faculty-modal .faculty-modal-body .faculty-modal-close:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.faculty-modal-wrapper#video-modal .faculty-modal .faculty-modal-body video {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 @keyframes liner {

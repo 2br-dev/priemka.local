@@ -12,6 +12,7 @@ body{
 		padding: 0 1em;
 		line-height: 2em;
 		white-space: nowrap;
+		transition: background-color .2s;
 
 		&-large{
 			@extend .bttn;
@@ -23,6 +24,10 @@ body{
 			color: $primary;
 			background-color: transparent;
 			box-shadow: 0 0 0 1px $primary inset;
+
+			&:hover{
+				background-color: rgba(black, .05);
+			}
 		}
 
 		&-white{

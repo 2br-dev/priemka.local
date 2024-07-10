@@ -1,5 +1,6 @@
 import template from './template';
 import fullcard_tpl from './fullcardtpl';
+import videocard_tpl from './videocardtpl';
 import dataTpl from './data_tpl';
 const mustache = require('mustache');
 
@@ -71,7 +72,90 @@ class Calculator{
 		$('body').on('click', '.faculty-modal-wrapper', this.closeOutside.bind(this))	// Закрытие модального окна по клику мимо
 		$('body').on('click', '.form-switcher a', this.switchModalForm.bind(this));		// Переключение формы обучения в модальном окне
 		$('body').on('keyup', this.closeCardEsc.bind(this));							// Закрытие модального окна по Esc
+		
+		$('body').on('click', '[data-remark]', this.openRemark.bind(this));				// Открытие пояснения к стоимости
+		$('body').on('click', '.remark-close-trigger', this.closeRemark.bind(this));	// Закрытие пояснения к стоимости по клику на X
 
+		$('body').on('click', '.video-trigger', this.openVideoModal.bind(this));		// Открытие видео из модалки факультета
+
+		$(window).on('popstate', this.historyPop.bind(this));
+
+	}
+
+	historyPop(e:any){
+		let state = e.originalEvent.state;
+		let modalOpened = document.querySelectorAll('.faculty-modal-wrapper.open').length > 0
+		if(!state || modalOpened){
+			this.closeCard();
+		}else{
+			this.openCard(null, null, state.selectedCase);
+		}
+	}
+
+	/**
+	 * Закрытие ремарки по клику на X
+	 */
+	closeRemark(e:JQuery.ClickEvent){
+		e.preventDefault();
+		let remark  = $(e.currentTarget).parents('.remark-popup');
+		remark.removeClass('open');
+
+		setTimeout(() => {
+			remark.remove();
+		}, 500)
+	}
+
+	/**
+	 * Открытие пояснения к стоимости
+	 */
+	openRemark(e:JQuery.ClickEvent){
+		let remark = e.currentTarget.dataset['remark'];
+
+		// Проверяем наличие уже открытого popup'а
+		if($('.remark-popup').length > 0){
+			return null;
+		}
+
+		if(remark && remark != ""){
+
+			// Формирование DOM
+			let remarkPopup = document.createElement('div');
+			remarkPopup.className = 'remark-popup';
+			let remarkCloseTrigger = document.createElement('a');
+			remarkCloseTrigger.className = 'bx bx-x remark-close-trigger';
+			remarkCloseTrigger.setAttribute('href', 'javascript:void(0)');
+			let remarkContent = document.createElement('div');
+			remarkContent.className = 'remark-content';
+			remarkContent.innerHTML = remark;
+			remarkPopup.append(remarkContent);
+			remarkPopup.append(remarkCloseTrigger);
+			let parent = e.currentTarget.parentElement;
+
+
+			// Открытие
+			parent.append(remarkPopup);
+			setTimeout(() => {
+				remarkPopup.classList.add('open');
+			})
+		}
+	}
+
+	/**
+	 * Открытие модального окна с видео
+	 */
+	openVideoModal(e:JQuery.ClickEvent){
+		e.preventDefault();
+		let src = $(e.currentTarget).attr('data-video');
+		
+		let dom = mustache.render(videocard_tpl, this.selectedCase);
+		$('body').append(dom);
+
+		setTimeout(() => {
+			$('#video-modal').addClass('open');
+			let video = <HTMLVideoElement>document.querySelector('#video-modal video');
+			video.setAttribute('src', src);
+			video.play();
+		}, 200);
 	}
 
 	// Закрытие модального окна по нажатию Escape
@@ -114,7 +198,6 @@ class Calculator{
 	 * Закрытие модального окна при клике мимо
 	 */
 	closeOutside(e:JQuery.ClickEvent){
-		e.preventDefault();
 		let path = Array.from(e.originalEvent?.composedPath());
 		let filteredNodes = path.filter((el:HTMLElement) => {
 			if(el.classList){
@@ -122,6 +205,7 @@ class Calculator{
 			}
 		})
 		if(!filteredNodes.length){
+			e.preventDefault();
 			this.closeCard();
 		}
 	}
@@ -183,7 +267,7 @@ class Calculator{
 			
 			outputArray = outputArray.filter((el:ICardData) => {
 
-				let needleS = (el.speciality.name || "").toLowerCase();
+				let needleS = (el.speciality || "").toLowerCase();
 				let needleF = el.faculty.name.toLowerCase();
 				let needleP = (el.profile || "").toLowerCase();
 				let search = this.filterParams.quickSearch.toLowerCase().trim();
@@ -474,7 +558,22 @@ class Calculator{
 		numberFree.textContent = form.vacations.free.total.toString();
 		numberPaid.textContent = form.vacations.paid.total.toString();
 		duration.textContent = form.duration.toString();
-		price.textContent = form.price.toString() + " ₽/год";
+
+		if(!form.remark){
+			price.textContent = form.price.toString() + " ₽/год";
+		}else{
+			let priceLink = document.createElement('a');
+			priceLink.href = 'javascript:void(0)';
+			priceLink.textContent = form.price.toString() + " ₽/год";
+			
+			let pricelinkInfoIcon = document.createElement('i');
+			pricelinkInfoIcon.classList.add('bx', 'bxs-info-circle');
+			priceLink.append(pricelinkInfoIcon);
+			
+			priceLink.dataset['remark'] = form.remark;
+			price.innerHTML = "";
+			price?.append(priceLink);
+		}
 		
 	}
 
@@ -534,15 +633,32 @@ class Calculator{
 
 		data.elements.forEach((card:ICardData) => {
 
-			card.selectedFormName = this.filterParams.level == "Магистратура" ? "Магистратура" : card.education_levels?.filter((l:IEducationLevel) => {
+			let formName = this.filterParams.level == "Бакалавриат/специалитет" ?  card.education_levels?.filter((l:IEducationLevel) => {
 				return l.name == "Бакалавриат" || l.name == "Специалитет";
-			})[0].name;
+			})[0].name : this.filterParams.level;
+
+			card.selectedFormName = formName;
 
 			let selectedLevel:IEducationLevel = card.education_levels?.filter((l:IEducationLevel) => {
 				return l.name == card.selectedFormName;
 			})[0];
 
 			card.selectedLevel = selectedLevel;
+
+			if(card.selectedLevel){
+
+				if(card.selectedLevel.details){
+
+					if(selectedLevel.details.about == "" || selectedLevel.details.about == null){
+						card.noDetails = true
+					}else{
+						card.noDetails = false
+					}
+				}else{
+					card.noDetails = true
+				}
+			}
+
 
 			if(card.id == null){
 				if(section.name == ""){
@@ -583,38 +699,56 @@ class Calculator{
 	/**
 	 * Открытие карточки с описанием факультета
 	 */
-	openCard(e:JQuery.ClickEvent, URLParams:IURLCardData = null){
+	openCard(e:JQuery.ClickEvent, URLParams:IURLCardData = null, historyCase:ICardData = null){
 
 		// let selectedCase:ICardData;
 		let card:HTMLElement;
 		
 		if(!URLParams){
 			
-			card = e.currentTarget;
-			e.preventDefault();
-		
-			// Прерываем выполнение если клик происходит по интерактивному элементу внутри карточки
-			let path = Array.from(e.originalEvent?.composedPath());
-			let links = path.filter((el:HTMLElement) => {
-				return el.tagName == "A";
-			});
-		
-			if(links.length) return;
-		
-			// Если клик по карточке не происходит по интерактивным элементам, продолжаем…
-			let id = parseInt(card.dataset['id']);
-		
-			this.selectedCase = this.cards_data.elements.filter((card:ICardData) => {
-				return card.id == id;
-			})[0];
+			if(!historyCase){
 
-			// Если у карточки присутствует поле внешней ссылки, вместо открытия модалки открываем её
-		
-			let externalLink = this.selectedCase.externalLink;
-			if(externalLink != null && externalLink != ""){
-				// Открываем окно и прерываем выполнение
-				window.open(externalLink, "_blank");
-				return null;
+				card = e.currentTarget;
+				e.preventDefault();
+			
+				// Прерываем выполнение если клик происходит по интерактивному элементу внутри карточки
+				let path = Array.from(e.originalEvent?.composedPath());
+				let links = path.filter((el:HTMLElement) => {
+					if(el.classList){
+						return el.classList.contains('remark-popup') || el.tagName == 'A';
+					}else{
+						return el.tagName == "A";
+					}
+				});
+			
+				if(links.length) return;
+	
+				// Закрываем remark-popup если он был открыт
+				let remarkPopup = <HTMLElement>card.querySelector('.remark-popup');
+				if(remarkPopup){
+					remarkPopup.classList.remove('open');
+					setTimeout(() => {
+						remarkPopup.remove();
+					}, 500);
+				}
+			
+				// Если клик по карточке не происходит по интерактивным элементам, продолжаем…
+				let id = parseInt(card.dataset['id']);
+			
+				this.selectedCase = this.cards_data.elements.filter((card:ICardData) => {
+					return card.id == id;
+				})[0];
+	
+				// Если у карточки присутствует поле внешней ссылки, вместо открытия модалки открываем её
+			
+				// let externalLink = this.selectedCase.externalLink;
+				// if(externalLink != null && externalLink != ""){
+				// 	// Открываем окно и прерываем выполнение
+				// 	window.open(externalLink, "_blank");
+				// 	return null;
+				// }
+			}else{
+				this.selectedCase = historyCase;
 			}
 
 		}else{
@@ -634,50 +768,61 @@ class Calculator{
 		}
 
 		// Выбранный уровень образования
-		if(!URLParams){
-			this.selectedCase.selectedLevel = this.selectedCase.education_levels.filter((l:IEducationLevel) => {
-				if(this.filterParams.level == "Бакалавриат/специалитет"){
-					return l.name == "Бакалавриат" || l.name == "Специалитет"
-				}else{
-					return l.name === this.filterParams.level;
-				}
-			})[0];
-		}else{
-			this.selectedCase.selectedLevel = this.selectedCase.education_levels?.filter((l:IEducationLevel) => {
-				return l.name == URLParams.level;
-			})[0];
+		if(!historyCase){
+			if(!URLParams){
+				this.selectedCase.selectedLevel = this.selectedCase.education_levels.filter((l:IEducationLevel) => {
+					if(this.filterParams.level == "Бакалавриат/специалитет"){
+						return l.name == "Бакалавриат" || l.name == "Специалитет"
+					}else{
+						return l.name === this.filterParams.level;
+					}
+				})[0];
+			}else{
+				this.selectedCase.selectedLevel = this.selectedCase.education_levels?.filter((l:IEducationLevel) => {
+					return l.name == URLParams.level;
+				})[0];
+			}
 		}
 
 		// Если форма обучения - магистратура, прерываем выполнения (ждём описания)
 		// TODO Убрать ограничения, когда получим данные
-		if(this.selectedCase.selectedLevel.name == "Магистратура"){
+		if(this.selectedCase.noDetails){
 			return null;
 		}
 
 		// Выбранная форма обучения
-		if(!URLParams){
-			let formEl = <HTMLElement>card.querySelector('.education-form.active');
-			let formText = formEl.textContent;
-			this.selectedCase.selectedForm = this.selectedCase.selectedLevel.forms.filter((f:IEducationForm) => {
-				return f.name == formText;
-			})[0];
-		}else{
-			this.selectedCase.selectedForm = this.selectedCase.selectedLevel?.forms.filter((f:IEducationForm) => {
-				return f.name == URLParams.form
-			})[0];
+		if(!historyCase){
+
+			if(!URLParams){
+				let formEl = <HTMLElement>card.querySelector('.education-form.active');
+				let formText = formEl.textContent;
+				this.selectedCase.selectedForm = this.selectedCase.selectedLevel.forms.filter((f:IEducationForm) => {
+					return f.name == formText;
+				})[0];
+			}else{
+				this.selectedCase.selectedForm = this.selectedCase.selectedLevel?.forms.filter((f:IEducationForm) => {
+					return f.name == URLParams.form
+				})[0];
+			}
+
+			// Формирование данных для переключателя
+			this.selectedCase.switcher = [];
+			this.selectedCase.selectedLevel.forms.forEach((f:IEducationForm) => {
+				let className = f.name == this.selectedCase.selectedForm.name ? "selected" : "";
+				this.selectedCase.switcher?.push({
+					name: f.name,
+					classname: className
+				});
+			})
 		}
 
-		// Формирование данных для переключателя
-		this.selectedCase.switcher = [];
-		this.selectedCase.selectedLevel.forms.forEach((f:IEducationForm) => {
-			let className = f.name == this.selectedCase.selectedForm.name ? "selected" : "";
-			this.selectedCase.switcher?.push({
-				name: f.name,
-				classname: className
-			});
-		})
 
 		let dom = mustache.render(fullcard_tpl, this.selectedCase);
+
+		history.pushState({
+			modalState: 'open',
+			selectedCase: this.selectedCase
+		}, null);
 
 		$('body').append(dom);
 
@@ -690,9 +835,11 @@ class Calculator{
 	 * Закрытие каоточки с описанием факультета
 	 */
 	closeCard(){
-		$('.faculty-modal-wrapper').removeClass('open');
+		$('.faculty-modal-wrapper:last-of-type').removeClass('open');
+		let video = <HTMLVideoElement>document.querySelector('#video-modal video');
+		video?.pause();
 		setTimeout(() => {
-			$('.faculty-modal-wrapper').remove();
+			$('.faculty-modal-wrapper:last-of-type').remove();
 		}, 600);
 	}
 

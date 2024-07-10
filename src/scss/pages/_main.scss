@@ -168,6 +168,56 @@
     z-index: 1;
 }
 
+@mixin remarkPopup{
+
+	& a{
+		color: $text;
+
+		& i{
+			font-size: clamp(18px, 3vw, 21px);
+			transform: translateY(-.5em);
+		}
+	}
+
+	& .remark-popup{
+		position: relative;
+		position: absolute;
+		width: 100%;
+		max-width: 600px;
+		right: 0;
+		bottom: clamp(4em, 3vw, 5em);
+		background-color: #fff;
+		padding: clamp(10px, 2vw, 20px);
+		padding-right: 30px;
+		box-sizing: border-box;
+		font-weight: 400;
+		font-size: clamp(16px, 2vw, 18px);
+		line-height: 1.4em;
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(black, .4);	
+		transition: opacity .4s, transform .4s;
+		transform: translateY(20px);
+		opacity: 0;
+
+		& a{
+			font-size: 26px;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+			color: #000;
+
+			& i{
+				color: $primary;
+			}
+		}
+
+		&.open{
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+}
+
 body{
 
 	&.fixed{
@@ -913,7 +963,7 @@ body{
 								background-color: #fff;
 								border-radius: clamp(5px, 2vw, 15px);
 								margin: 0;
-								overflow: hidden;
+								// overflow: hidden;
 								cursor: pointer;
 								// height: 100%;
 
@@ -1064,6 +1114,7 @@ body{
 									padding: $padding;
 									display: flex;
 									flex-wrap: wrap;
+									position: relative;
 
 									& .number{
 
@@ -1077,6 +1128,17 @@ body{
 										& .number-value{
 											font-size: clamp(18px, 3vw, 32px);
 											font-weight: 700;
+
+											& i{
+												color: $primary;
+											}
+
+											@include remarkPopup();
+
+											& .remark-popup{
+												right: 10px;
+												width: calc(100% - 20px);
+											}
 										}
 
 										&:last-of-type{
@@ -1100,10 +1162,25 @@ body{
 									text-align: center;
 									border-top: 1px solid #ccc;
 									padding: 12px;
+									position: relative;
+
+									& .video-trigger{
+
+										display: inline-flex;
+										align-items: center;
+
+										& i{
+											transform: scale(1.7);
+											margin-right: 6px;
+										}
+									}
 								}
 
-								& [data-form-c2a="Магистратура"]{
-									display: none !important;
+								&[data-no-data="true"]{
+
+									& .card-call2action{
+										display: none !important;
+									}
 								}
 
 							}
@@ -1133,12 +1210,27 @@ body{
 
 						& .education-level[data-level="Бакалавриат"],
 						& .education-level[data-level="Специалитет"]
+						& .education-level[data-level="Аспирантура"]
 						{
 							display: none !important;
 						}
 
 						& .spec-card .requirements-wrapper{
 							display: none;
+						}
+					}
+
+					&:not([data-level="Бакалавриат/специалитет"]){
+
+						& #output{
+
+							& .spec-card{
+
+								& .edform-wrapper{
+									border: 1px solid red;
+									display: none;
+								}
+							}
 						}
 					}
 				}
@@ -1967,22 +2059,23 @@ body{
 				& .contacts-wrapper{
 
 					display: grid;
-					grid-template-columns: repeat(3, 1fr);
+					grid-template-columns: 6fr 6fr;
+					gap: $gutter-width;
 					width: fit-content;
 
 					@media(max-width: 1800px){
-						grid-template-columns: repeat(2, 1fr);
+						grid-template-columns: 1fr;
 					}
 
 					@media(max-width: 1200px){
-						grid-template-columns: repeat(3, 1fr);
+						grid-template-columns: 5fr 7fr;
+					}
+
+					@media(max-width: 800px){
+						grid-template-columns: 4fr 8fr;
 					}
 
 					@media(max-width: 600px){
-						grid-template-columns: repeat(2, 1fr);
-					}
-
-					@media(max-width: 400px){
 						grid-template-columns: 1fr;
 					}
 				}
@@ -1993,6 +2086,7 @@ body{
 
 					& p{
 						font-size: 12px;
+						line-height: 1.4em;
 					}
 				}
 
@@ -2197,7 +2291,6 @@ body{
 
 						& .speciality-data{
 
-							
 							& .title{
 								font-size: 12px;
 							}
@@ -2206,6 +2299,28 @@ body{
 								font-size: clamp(21px, 3vw, 32px);
 								line-height: 1.6em;
 								font-weight: bold;
+								position: relative;
+
+								& i{
+									color: $primary;
+								}
+
+								@include remarkPopup();
+
+								& .remark-popup{
+
+									@media(min-width: $medium){
+										min-width: 600px;
+									}
+
+									@media(max-width: $medium){
+										min-width: 600px;
+									}
+
+									@media(max-width: $small){
+										min-width: calc(100vw - 60px);
+									}
+								}
 							}
 
 							& .encoding-wrapper{
@@ -2266,6 +2381,13 @@ body{
 							}
 						}
 					}
+				}
+
+				& small{
+					display: block;
+					margin-top: 20px;
+					border-top: 1px solid #ccc;
+					color: #808080;
 				}
 
 				@media(max-width: 1200px){
@@ -2397,6 +2519,60 @@ body{
 				top: 0;
 				height: 100%;
 				border-radius: 0;
+			}
+		}
+	}
+
+	&#video-modal{
+
+		z-index: 1002;
+
+		& .faculty-modal{
+
+			& .faculty-modal-body{
+
+				padding: 0;
+				position: relative;
+
+				& .label{
+					position: absolute;
+					top: 30px;
+					left: 0;
+					padding: 5px clamp(5px, 2vw, 20px);
+					background-color: #fff;
+					border-top-right-radius: $border-radius;
+					border-bottom-right-radius: $border-radius;
+				}
+
+				& .faculty-modal-close{
+					border: 0;
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					width: 40px;
+					aspect-ratio: 1 / 1;
+					font-size: 24px;
+					z-index: 1;
+					background-color: rgba(black, .4);
+					color: #fff;
+					border-radius: 50%;
+					cursor: pointer;
+					transition: background-color .4s;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&:hover{
+						background-color: rgba(black, .7);
+					}
+	
+				}
+
+				& video{
+					width: 100%;
+					height: auto;
+					display: block;
+				}
 			}
 		}
 	}

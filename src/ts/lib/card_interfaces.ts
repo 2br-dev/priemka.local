@@ -2,6 +2,7 @@ export interface IEducationForm{
 	name: string,
 	duration: number,
 	price: number,
+	remark:string,
 	vacations: {
 		free: {
 			total: number,
@@ -27,6 +28,10 @@ export interface IRequirement{
 export interface IEducationLevel{
 	name: string,
 	code: string,
+	details?: {
+		image?: string,
+		about?: string
+	},
 	forms: Array<IEducationForm>
 }
 
@@ -42,11 +47,8 @@ export interface ICardData{
 		about: string
 	}
 	profile?: string,
-	speciality?: {
-		name:string,
-		about:string,
-		image:string
-	}
+	speciality?: string,
+	noDetails?: boolean | true,
 	education_levels?: Array<IEducationLevel>,
 	requirements?: Array<IRequirement>,
 	necessary?:Array<IRequirement>,
