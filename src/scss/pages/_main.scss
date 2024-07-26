@@ -339,6 +339,7 @@ body{
 							}
 						}
 					}
+					
 				}
 
 				& video{
@@ -371,7 +372,12 @@ body{
 				}
 
 				& .more{
-					font-size: clamp(16px, 3vw, 32px);
+					font-size: clamp(16px, 1.5vw, 32px);
+					display: inline-block;
+
+					&:not(:last-of-type){
+						margin-bottom: 20px;
+					}
 				}
 			}
 
@@ -538,7 +544,7 @@ body{
 							background-color: #DFF7FF;;
 							background-image: url(/lpk-2024/img/tree_new.jpg);
 							background-position: bottom center;
-							background-size: auto 60%;
+							background-size: contain;
 							background-repeat: no-repeat;
 						}
 

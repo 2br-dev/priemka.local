@@ -13256,13 +13256,13 @@ header .container .main-link i {
     }
 }
 
-@media (max-width: 1480px) {
+@media (max-width: 1500px) {
     header .container .events-cut {
         display: none;
     }
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 1700px) {
     header .container .phone-cut {
         display: none;
     }
@@ -13272,7 +13272,7 @@ header .container .main-link i {
     }
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1500px) {
     header .container nav {
         display: none;
     }
@@ -13282,7 +13282,7 @@ header .container .main-link i {
     }
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 1500px) {
     header .container .send-docs-mobile {
         display: none;
     }
@@ -13552,7 +13552,12 @@ body main section#new-hero u {
 }
 
 body main section#new-hero .more {
-    font-size: clamp(16px, 3vw, 32px);
+    font-size: clamp(16px, 1.5vw, 32px);
+    display: inline-block;
+}
+
+body main section#new-hero .more:not(:last-of-type) {
+    margin-bottom: 20px;
 }
 
 body main section#about h2, body main section#about p {
@@ -13715,7 +13720,7 @@ body main section#about .cards-wrapper .card#park {
     background-color: #DFF7FF;
     background-image: url(/lpk-2024/img/tree_new.jpg);
     background-position: bottom center;
-    background-size: auto 60%;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 

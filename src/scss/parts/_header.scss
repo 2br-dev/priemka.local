@@ -123,14 +123,14 @@ header{
 			}
 		}
 
-		@media(max-width: 1480px){
+		@media(max-width: 1500px){
 
 			& .events-cut{
 				display: none;
 			}
 		}
 
-		@media(max-width: 1450px){
+		@media(max-width: 1700px){
 
 			& .phone-cut{
 				display: none;
@@ -141,7 +141,7 @@ header{
 			}
 		}
 
-		@media(max-width: 1250px){
+		@media(max-width: 1500px){
 
 			& nav{
 				display: none;
@@ -152,7 +152,7 @@ header{
 			}
 		}
 
-		@media(min-width: 1250px){
+		@media(min-width: 1500px){
 
 			& .send-docs-mobile{
 				display: none;
