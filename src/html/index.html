@@ -1,591 +1,1110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Приёмная комиссия КубГАУ 2024</title>
-	<link rel="stylesheet" href="/lpk-2024/css/master.css">
-	<!-- Favico -->
-	<link rel="icon" type="image/svg+xml" href="/lpk-2024/img/favico/favicon.svg" media="(prefers-color-scheme: light)">
-	<link rel="icon" type="image/png" href="/lpk-2024/img/favico/favicon.png" media="(prefers-color-scheme: light)">
-	<link rel="icon" type="image/svg+xml" href="/lpk-2024/img/favico/favicon_light.svg" media="(prefers-color-scheme: dark)">
-	<link rel="icon" type="image/png" href="/lpk-2024/img/favico/favicon_light.png" media="(prefers-color-scheme: dark)">
-	<!-- /Favico -->
-</head>
-<body>
-	@@include('./parts/header.html')
-	<div class="splash">
-		<svg width="64" height="87" viewBox="0 0 64 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path id="loading-leaf" fill-rule="evenodd" clip-rule="evenodd" d="M31.9962 83.9745L12.7082 64.7137H12.681L12.1641 64.1969C6.93619 58.9589 4 51.8606 4 44.46C4 37.0595 6.93619 29.9612 12.1641 24.7232L31.9418 5L52.8892 26.0018C57.4159 31.1489 59.8969 37.7779 59.8618 44.6323C59.8267 51.4866 57.278 58.0899 52.6988 63.1903L51.529 64.3873L31.9962 83.9745Z" fill="black"/>
-		</svg>
-		<p>Загрузка…</p>
-	</div>
-	<main>
-		<section id="hero">
-			<div class="hero-content center-align">
-				<h1><span>Думай головой,</span><span class="accent">выбирай сердцем!</span></h1>
-				<div class="timer" data-end="June 20, 2024">
-					<div class="num">
-						<div class="val" id="days">
-							<div class="value" id="d">00</div>
-						</div>
-						<div class="text">дней</div>
-					</div>
-					<div class="separator">:</div>
-					<div class="num">
-						<div class="val" id="hours">
-							<div class="value" id="h">00</div>
-						</div>
-						<div class="text">часов</div>
-					</div>
-					<div class="separator">:</div>
-					<div class="num">
-						<div class="val" id="minutes">
-							<div class="value" id="m">00</div>
-						</div>
-						<div class="text">минут</div>
-					</div>
-					<div class="separator">:</div>
-					<div class="num">
-						<div class="val" id="seconds">
-							<div class="value" id="s">00</div>
-						</div>
-						<div class="text">секунд</div>
-					</div>
-				</div>
-				<div class="call-to-action">
-					<a href="#task" class="bttn-outline large scroll-link">Подать документы</a>
-					<a href="#calculator" class="bttn large scroll-link">Выбрать специальность</a>
-				</div>
-			</div>
-			<video class="lazy-video" muted loop playsinline autoplay data-src="/lpk-2024/video/hero_compressed.mp4" width="1920" height="1080"></video>
-		</section>
-		<section id="new-hero">
-			<div class="hero-content center-align">
-				<h1><span>Думай головой,</span><span class="accent">выбирай сердцем!</span></h1>
-				<p>Приём документов начался!</p>
-				<div class="call-to-action">
-					<a href="#task" class="bttn-outline large scroll-link">Подать документы</a>
-					<a href="#calculator" class="bttn large scroll-link">Выбрать специальность</a>
-				</div>
-				<p>
-					<a href="https://kubsau.ru/entrant/lists/" target="_blank" rel="nofollow" class="white-text more"><i class="bx bxs-folder"></i> <u>Список лиц, подавших документы</u></a><br>
-					<a href="https://kubsau.ru/entrant/grafiki-sobraniy-s-zachislennymi/" target="_blank" rel="nofollow" class="white-text more"><i class="bx bxs-calendar"></i> <u>Графики собраний с зачисленными</u></a>
-				</p>
-			</div>
-			<video class="lazy-video" muted loop playsinline autoplay data-src="/lpk-2024/video/hero_compressed.mp4" width="1920" height="1080"></video>
-		</section>
-		<section id="about">
-			<div class="container">
-				<div class="row">
-					<div class="col l4 m12">
-						<h2>Давай знакомиться!</h2>
-					</div>
-					<div class="col l7 m12">
-						<p class="large">Это КубГАУ, университет современного образования с самым большим и удобным кампусом на Юге России! У наших студентов огромные возможности для всестороннего развития, а энергии хватает на всё. Как? Смотри сам:</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<div class="cards-wrapper">
-							<div class="card hoverable" id="territory">
-								<div class="territory-content">
-									<div class="header">
-										<h3>Территория вуза</h3>
-										<p>168 га: как 4 Ватикана, 7,5 парков «Краснодар» или 235 футбольных полей</p>
-									</div>
-									<div class="footer">
-
-									</div>
-								</div>
-								<div class="swiper" id="map-slider">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map1.jpg"></div>
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map2.jpg"></div>
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map3.jpg"></div>
-										<div class="swiper-slide"><img alt="" class="responsive-img" src="/lpk-2024/img/map4.jpg"></div>
-									</div>
-									<div class="swiper-pagination"></div>
-									<a href="javascript:void(0);" class="swiper-nav" id="prev"><i class="bx bx-chevron-left"></i></a>
-									<a href="javascript:void(0);" class="swiper-nav" id="next"><i class="bx bx-chevron-right"></i></a>
-								</div>
-							</div>
-							<div class="card hoverable" id="park">
-								<h3>Прогулочный парк</h3>
-								<p>Свой, зелёный, с уникальными растениями и прямо на территории кампуса</p>
-							</div>
-							<div class="card hoverable" id="lck">
-								<h3>Уникальная Лаборатория цифрового контента</h3>
-								<p>Интерактивная студия для записи контента любой сложности. Снимай блоги, пиши подкасты, готовь презентации как Стив Джобс!</p>
-								<video data-src="/lpk-2024/video/circle-video.mp4" autoplay muted playsinline loop class="lazy"></video>
-							</div>
-							<div class="card hoverable" id="sport">
-								<h3>Возможности для спорта</h3>
-								<p>Стадион по стандартам УЕФА , игровые площадки и станции воркаута, беговые треки, бассейн, зал киберспорта – качай и разум, и тело</p>
-							</div>
-							<div class="card hoverable" id="teachers">
-								<h3>Профессорско-преподавательский состав</h3>
-								<p>Один из лучших в стране, и всегда открыт для студентов. Команда преподавателей всегда готова проконсультировать, подсказать, поделиться личным опытом и помочь определиться с вектором развития</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="features">
-			<div class="container">
-				<div class="row flex">
-					<div class="col s12">
-						<h2>После КубГАУ хоть куда!</h2>
-					</div>
-					@@loop('./parts/feature.html', './data/features.json')
-				</div>
-			</div>
-		</section>
-		<section id="calculator">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<h2>Узнай, куда поступишь на бюджет!</h2>
-						<div class="calculator-app" data-level="Бакалавриат/специалитет">
-							<div class="calculator-head">
-								<ul class="pseudo-tabs">
-									<li class="pseudo-tab active">
-										<input type="radio" name="level" id="l1" checked value="Бакалавриат/специалитет">
-										<label for="l1">Бакалавриат/специалитет</label>
-									</li>
-									<li class="pseudo-tab" >
-										<input type="radio" name="level" id="l2" value="Магистратура">
-										<label for="l2">Магистратура</label>
-									</li>
-									<li class="pseudo-tab disabled">
-										<!-- <input type="radio" name="level" id="l3" value="Аспирантура"> -->
-										<label for="l3">Аспирантура</label>
-									</li>
-								</ul>
-								<div class="quick-search">
-									<input type="search" name="search" placeholder="Поиск">
-								</div>
-							</div>
-							<div class="calculator-body">
-								<input type="search" name="search" placeholder="Поиск" class="mobile-search">
-								<p class="large mt0 fogged intro">
-									Выбери свои предметы ЕГЭ (минимум 3) и нажми «Применить». Или воспользуйся Поиском, если точно знаешь, что искать
-								</p>
-								<div class="tags">
-									@@loop('./parts/eg.html', './data/tags.json')
-								</div>
-								<div class="actions">
-									<a href="javascript:void(0);" id="calc-reset" class="bttn-outline">Сброс</a>
-									<a href="javascript:void(0);" id="calc-apply" class="bttn">Применить</a>
-								</div>
-								<h3>Факультеты:</h3>
-								<div id="output">
-
-								</div>
-							</div>	
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="task">
-			<div class="container">
-				<div class="row flex">
-					<div class="col s12">
-						<h2>Твоё первое задание как студента – подать документы</h2>
-					</div>
-					<div class="col l7 m6 margin-bottom">
-						<div class="outline-block">
-							<h3>Способы подачи</h3>
-							<ul>
-								<li>
-									<div class="icon-block vcenter">
-										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/walkman_icon.png" alt="">
-										</span>
-										<span class="content-wrapper">
-											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/walkman_icon.png" alt="">
-												<h4 class="title">Лично</h4>
-											</div>
-											<span class="content">
-												Заглядывай в гости с оригиналами аттестата или диплома, и паспорт тоже не забудь! Если с тобой будут родители, то их паспорта тоже будут нужны на входе.
-											</span>
-										</span>
-									</div>
-								</li>
-								<li>
-									<a target="_blank" rel="nofollow" href="https://www.gosuslugi.ru/vuzonline" class="icon-block vcenter">
-										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/gosuslugi_icon.svg" alt="">
-										</span>
-										<span class="content-wrapper">
-											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/gosuslugi_icon.svg" alt="">
-												<h4 class="title">Через Госуслуги</h4>
-											</div>
-											<span class="content">
-												Идеальный способ для поступающих на бакалавриат или специалитет. Быстро и удобно — просто зайди в раздел «Поступление в вуз онлайн»!
-											</span>
-										</span>
-									</a>
-								</li>
-								<li>
-									<a target="_blank" rel="nofollow" href="https://kubsau.ru/entrant/podacha-dokumentov-cherez-operatorov-pochtoy-svyazi-obshchego-polzovaniya/" class="icon-block vcenter">
-										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/mail_icon.png" alt="">
-										</span>
-										<span class="content-wrapper">
-											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/mail_icon.png" alt="">
-												<h4 class="title">По почте</h4>
-											</div>
-											<span class="content">
-												Можешь выбрать «Почту России» или любого другого удобного оператора.
-											</span>
-										</span>
-									</a>
-								</li>
-								<li>
-									<a target="_blank" rel="nofollow" href="https://abp.kubsau.ru/user/sign-in/login?_referrer=%2Fsite%2Findex" class="icon-block vcenter">
-										<span class="icon-wrapper hide-m-down">
-											<img class="lazy responsive-img" width="100" height="100" data-src="/lpk-2024/img/cellphone_icon.png" alt="">
-										</span>
-										<span class="content-wrapper">
-											<div class="content-header">
-												<img class="lazy responsive-img hide-m-up" width="100" height="100" data-src="/lpk-2024/img/cellphone_icon.png" alt="">
-												<h4 class="title">Онлайн</h4>
-											</div>
-											<span class="content">
-												Самый удобный способ для магистрантов, аспирантов и иностраных абитуриентов — регистрируйтесь на сайте, и через Личный кабинет всё прилетит к нам мгновенно.
-											</span>
-										</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col l5 m6 margin-bottom">
-						<div class="fill-block">
-							<h3>Какие документы нужны</h3>
-							<ul>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/passport_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Паспорт</h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/diploma_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Документы об образовании <span class="note">(аттестат, диплом и др.)</span></h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/photo_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Фотографии (3х4) 4 шт.</h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/snils_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">СНИЛС</h4></div></li>
-								<li><div class="icon-block vcenter"><span class="icon-wrapper"><img data-src="/lpk-2024/img/spravka_icon.svg" class="lazy responsive-img" alt=""></span><h4 class="content-wrapper">Медицинская справка №086/У</h4></div></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="phone">
-			<div class="container">
-				<div class="row phone-baner banner-section flex z-depth-1 hoverable">
-					<div class="col l7 s12 align-center-l-down">
-						<div class="banner-content">
-							<h2>КубГАУ всегда на связи</h2>
-							<div class="phone-wrapper">
-								<p class="large">Многоканальный номер:</p>
-								<a href="tel:+78612215881" class="phone">+7 (861) 221-58-81</a>
-							</div>
-						</div>
-					</div>
-					<div class="col l5 s12 no-padding align-right-l-up align-center-l-down">
-						<img alt="" class="lazy responsive-img" data-src="/lpk-2024/img/phone.png">
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="calendar">
-			<div class="container"><div class="row">
-				<div class="col s12">
-					<h2>Приёмная кампания в самом разгаре! Заскринь график, чтобы не опоздать!</h2>
-				</div>
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab active">
-							<input checked type="radio" name="calendar" value="Бакалавриат/специалитет" id="bakalavr">
-							<label for="bakalavr">Бакалавриат/специалитет</label>
-						</li>
-						<li class="tab" >
-							<input type="radio" name="calendar" value="Магистратура" id="magistr">
-							<label for="magistr">Магистратура</label>
-						</li>
-						<li class="tab">
-							<input type="radio" name="calendar" value="Аспирантура" id="aspirant">
-							<label for="aspirant">Аспирантура</label>
-						</li>
-					</ul>
-					<div class="calendar-wrapper" data-section="Бакалавриат/специалитет">
-						<ul class="subtabs">
-							<li class="tab active"><a href="javascript:void(0);" data-section="Бакалавриат/специалитет" data-form="free">Все формы (бюджет)</a></li>
-							<li class="tab"><a href="javascript:void(0);" data-section="Бакалавриат/специалитет" data-form="direct">Очная форма <i class="bx bx-ruble"></i></a></li>
-							<li class="tab"><a href="javascript:void(0);" data-section="Бакалавриат/специалитет" data-form="remote">Заочная форма <i class="bx bx-ruble"></i></a></li>
-						</ul>
-						<div id="calendar-output">
-
-						</div>
-					</div>
-				</div>
-			</div></div>
-		</section>
-		<section id="bank">
-			<div class="container">
-				<div class="row flex">
-					<div class="col"><h2>Не упусти время и возможность получить образование!</h2></div>
-					<div class="col order-m1 m6 s12">
-						<p class="large">Если учиться хочется, но прямо сейчас нет возможности оплатить обучение, воспользуйся Образовательным кредитом — льготной программой с фиксированной ставкой 3% годовых.</p>
-						<div class="banks-wrapper align-center-m-down">
-							<p>Ознакомься с официальными документами от банков-партнёров</p>
-							<a class="bank-bttn" target="_blank" rel="nofollow" href="/lpk-2024/files/sber.pptx" id="sber"><span>Скачать</span><i class="bx bxs-download"></i></a>
-							<a class="bank-bttn" target="_blank" rel="nofollow" href="/lpk-2024/files/rnkb.pptx" id="rnkb"><span>Скачать</span><i class="bx bxs-download"></i></a>
-						</div>
-						<div class="howto-wrapper">
-							<div class="row flex">
-								<div class="col">
-									<h3>Как это работает</h3>
-								</div>
-								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/lpk-2024/img/doc_icon.svg" alt="" class="responsive-img lazy">
-									<p>Ты подписываешь с вузом договор о платном образовании</p>
-								</div>
-								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/lpk-2024/img/bank_icon.svg" alt="" class="responsive-img lazy">
-									<p>Выбираешь банк, связываешься с сотрудником</p>
-								</div>
-								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/lpk-2024/img/handshake_icon.svg" alt="" class="responsive-img lazy">
-									<p>Подписываешь кредитный договор</p>
-								</div>
-								<div class="col xl3 l6 m6 s6 xs6 t6">
-									<img data-src="/lpk-2024/img/cash_icon.svg" alt="" class="responsive-img lazy">
-									<p>Банк сам перечислит деньги на счёт вуза</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col m6 s12">
-						<div class="pin">
-							<img alt="" class="lazy responsive-img" data-src="/lpk-2024/img/student_girl.jpg">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="baner">
-			<div class="container">
-				<div class="banner-home">
-					<div class="mobile-header"><h2>У нас уютно, как и должно быть дома</h2></div>
-					<div class="banner-content">
-						<div class="desktop-header">
-							<h2>У нас уютно, как и должно быть дома</h2>
-						</div>
-						<div class="points">
-							<div class="point">
-								<div class="point-image">
-									<img data-src="/lpk-2024/img/service_icon.png" alt="" class="lazy responsive-img hide-m-down">
-								</div>
-								<div class="point-content">
-									<div class="point-header">
-										<img data-src="/lpk-2024/img/service_icon.png" alt="" class="lazy responsive-img hide-m-up">
-										<h3>Жилье</h3>
-									</div>
-									<p>20 корпусов общежитий находятся на территории университета, а несколько минут пешком по самому зелёному кампусу не только полезно, но и приятно.</p>
-								</div>
-							</div>
-							<div class="point">
-								<div class="point-image">
-									<img data-src="/lpk-2024/img/health_icon.png" alt="" class="lazy responsive-img hide-m-down">
-								</div>
-								<div class="point-content">
-									<div class="point-header">
-										<img data-src="/lpk-2024/img/health_icon.png" alt="" class="lazy responsive-img hide-m-up">
-										<h3>Здоровье</h3>
-									</div>
-									<p>Если простудишься, всё под контролем: на территории есть своя студенческая поликлиника. Знай, но не болей!</p>
-								</div>
-							</div>
-							<div class="point">
-								<div class="point-image">
-									<img data-src="/lpk-2024/img/home_icon.png" alt="" class="lazy responsive-img hide-m-down">
-								</div>
-								<div class="point-content">
-									<div class="point-header">
-										<img data-src="/lpk-2024/img/home_icon.png" alt="" class="lazy responsive-img hide-m-up">
-										<h3>Сервис</h3>
-									</div>
-									<p>Прачечные и сушильные комнаты, двухэтажная столовая и десятки буфетов по всему кампусу, оборудованные кухни в общежитиях: учитесь с комфортом!</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="banner-image lazy" data-bg="/lpk-2024/img/students_bg.png">
-						<img data-src="/lpk-2024/img/students_fg.png" alt="" class="lazy">
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="bonus">
-			<div class="container">
-				<div class="row">
-					<div class="col xl5 l4 hide-l-down">
-						<img data-src="/lpk-2024/img/bonus.png" alt="" class="lazy responsive-img">
-					</div>
-					<div class="col xl6 offset-xl1 l7 offset-l1 m12">
-						<div class="row flex">
-							<div class="col align-center-l-down"><h2>Приятный бонус для усердных</h2></div>
-							<div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1 xs12">
-								<img data-src="/lpk-2024/img/bonus.png" alt="" class="lazy responsive-img hide-l-up center">
-							</div>
-							<div class="col xl4 l4 m4 s12 margin-bottom">
-								<div class="price-block">
-									<h4 class="price">15 000₽</h4>
-									<p class="small">Для победителей всероссийских олимпиад и конкурсов школьников, таких, как: АгроНТИ АгроСтарт, Иннагрика, Агро, и т.п.</p>
-								</div>
-							</div>
-							<div class="col xl4 l4 m4 s12 margin-bottom">
-								<div class="price-block">
-									<h4 class="price">10 000₽</h4>
-									<p class="small">Дополнительная стипендия для студентов агробиоинженерных направлений, набравших не менее 225 баллов по ЕГЭ, и всех форм обучения.</p>
-								</div>
-							</div>
-							<div class="col xl4 l4 m4 s12 margin-bottom">
-								<div class="price-block">
-									<h4 class="price">10 000₽</h4>
-									<p class="small">Дополнительная стипендия для студентов общих направлений, набравших не менее 255 баллов по ЕГЭ, и всех форм обучения.</p>
-								</div>
-							</div>
-							<div class="col align-center-m-down">
-								<p>В КубГАУ до первой сессии стипендию получают все первокурсники бюджетных отделений. Дальше - в зависимости от успеваемости и вовлечённости в науку, но даже студенты коммерческой формы могут получить поддержку: от универа, города, страны, фондов или будущих работодателей. Кстати, стипендии суммируются</p>
-								<a href="https://kubsau.ru/stipendia-prioritet/" class="bttn-large">Все программы</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="faq">
-			<div class="container">
-				<div class="col">
-					<h2>Самые популярные вопросы</h2>
-				</div>
-				<div class="col">
-					@@loop('./parts/faq_entry.html', './data/faq.json')
-				</div>
-			</div>
-		</section>
-		<section id="docs-baner">
-			<div class="container">
-				<div class="banner hoverable banner-section">
-					<div class="banner-content">
-						<img data-src="/lpk-2024/img/folder.png" alt="" class="lazy" width="513" height="380">
-						<h2>Официальные документы</h2>
-						<p class="large">А полную нормативно-правовую базу можешь скачать и прочитать на основном сайте КубГАУ по ссылке</p>
-						<a class="bttn-white large" href="https://kubsau.ru/entrant/docs/" rel="nofollow" target="_blank" >Cмотреть документы</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="contacts">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<h2>До встречи в КубГАУ!</h2>
-						<p>Если у тебя остались вопросы, с удовольствием всё объясним и подробно расскажем: хоть лично, хоть по телефону или в мессенджере</p>
-					</div>
-					<div class="col l5">
-						<h4>Звоните</h4>
-						<div class="contacts-wrapper">
-							<div class="contact">
-								<p class="title">«Горячая линия» по вопросам поступления</p>
-								<a href="tel:+78612215881"><i class="bx bxs-phone"></i> +7 (861) 221-58-81</a>
-							</div>
-							<div class="contact">
-								<p class="title">Горячая линия по вопросам приёма лиц с ограниченными возможностями здоровья и инвалидов</p>
-								<a href="tel:+78612215485"><i class="bx bxs-phone"></i> +7 (861) 221-54-85</a>
-							</div>
-							<div class="contact">
-								<p class="title">Деканат факультета заочного обучения</p>
-								<a href="tel:+78612215857"><i class="bx bxs-phone"></i> +7 (861) 221-58-57</a>
-							</div>
-							<div class="contact">
-								<p class="title">Центр довузовской подготовки</p>
-								<a href="tel:+78612215817"><i class="bx bxs-phone"></i>+7 (861) 221-58-17</a>
-							</div>
-						</div>
-					</div>
-					<div class="col xl2 l3 offset-xl1 m5 s4">
-						<h4>Пишите</h4>
-						<div class="contact">
-							<p class="title">Электронная почта приёмной комиссии</p>
-							<a href="mailto:pk@kubsau.ru"><i class="bx bxs-envelope-open"></i> pk@kubsau.ru</a>
-						</div>
-					</div>
-					<div class="col xl4 l4 m7 s8">
-						<h4>Приезжайте</h4>
-						<div class="contact">
-							<p class="title">Ждём вас по адресу</p>
-							<a href="https://yandex.ru/maps/35/krasnodar/?ll=38.933176%2C45.045049&mode=routes&rtext=~45.046639%2C38.928455&rtt=auto&ruri=~&z=16"><i class="bx bxs-map"></i> 350044, Россия, г. Краснодар, ул. Калинина, д. 13</a>
-						</div>
-						<h5>График работы:</h5>
-						<div class="time-wrapper">
-							<div class="time">
-								<small>пн-пт</small>
-								<div class="time">9:00 — 16:00</div>
-							</div>
-							<div class="time">
-								<small>сб</small>
-								<div class="time">9:00 — 12:00</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row flex vcenter">
-					<div class="col s9">
-					</div>
-					<div class="col s3">
-						<div class="align-right-s-up align-center-s-down">
-							<a href="https://t.me/priemkubsau" class="social-icon"><i class="bx bxl-telegram"></i></a>
-							<a href="https://vk.com/priemkubsau?t2fs=c2c214e46fe71ded0f_3" class="social-icon"><i class="bx bxl-vk"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="map-section">
-			<div id="map"></div>
-		</section>
-	</main>
-	<footer class="center-align">
-		<div class="row">
-			<div class="col s12">
-				<a target="_blank" rel="nofollow" href="https://kubsau.ru/index-main.php" class="bttn-white">На основной сайт</a>
-				<a target="_blank" rel="nofollow" href="https://kubsau.ru/sveden/common/" class="bttn-outline"><i>Сведения</i> Об <span>образовательном </span>учреждении</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col xl4 offset-xl4 l6 offset-l3 m8 offset-m2 s10 offset-s1 xs12">
-				<p>
-					© <span id="year"></span> ФГБОУ ВО «Кубанский государственный аграрный университет имени И. Т. Трубилина»
-		350044, Россия, г. Краснодар, ул. Калинина, 13
-				</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s12">
-				<a href="https://2br.agency" rel="nofollow" target="_blank">
-					<img data-src="/lpk-2024/img/2br.svg" alt="Брегдинг и коммуникации" class="lazy responsive-img" width="70"/>
-				</a>
-			</div>
-			<div class="col s12">
-				<p>Дизайн страницы – <a href="https://2br.agency" rel="nofollow" target="_blank" class="agency-link">2br.agency</a></p>
-			</div>
-			
-		</div>
-	</footer>
-	<script src="/lpk-2024/js/master.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приёмная комиссия КубГАУ 2024</title>
+    <link rel="stylesheet" href="/lpk-2024/css/master.css" />
+    <!-- Favico -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/lpk-2024/img/favico/favicon.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/lpk-2024/img/favico/favicon.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/lpk-2024/img/favico/favicon_light.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/lpk-2024/img/favico/favicon_light.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <!-- /Favico -->
+  </head>
+  <body>
+    @@include('./parts/header.html')
+    <div class="splash">
+      <svg
+        width="64"
+        height="87"
+        viewBox="0 0 64 87"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          id="loading-leaf"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M31.9962 83.9745L12.7082 64.7137H12.681L12.1641 64.1969C6.93619 58.9589 4 51.8606 4 44.46C4 37.0595 6.93619 29.9612 12.1641 24.7232L31.9418 5L52.8892 26.0018C57.4159 31.1489 59.8969 37.7779 59.8618 44.6323C59.8267 51.4866 57.278 58.0899 52.6988 63.1903L51.529 64.3873L31.9962 83.9745Z"
+          fill="black"
+        />
+      </svg>
+      <p>Загрузка…</p>
+    </div>
+    <main>
+      <section id="hero">
+        <div class="hero-content center-align">
+          <h1>
+            <span>Думай головой,</span
+            ><span class="accent">выбирай сердцем!</span>
+          </h1>
+          <div class="timer" data-end="June 20, 2024">
+            <div class="num">
+              <div class="val" id="days">
+                <div class="value" id="d">00</div>
+              </div>
+              <div class="text">дней</div>
+            </div>
+            <div class="separator">:</div>
+            <div class="num">
+              <div class="val" id="hours">
+                <div class="value" id="h">00</div>
+              </div>
+              <div class="text">часов</div>
+            </div>
+            <div class="separator">:</div>
+            <div class="num">
+              <div class="val" id="minutes">
+                <div class="value" id="m">00</div>
+              </div>
+              <div class="text">минут</div>
+            </div>
+            <div class="separator">:</div>
+            <div class="num">
+              <div class="val" id="seconds">
+                <div class="value" id="s">00</div>
+              </div>
+              <div class="text">секунд</div>
+            </div>
+          </div>
+          <div class="call-to-action">
+            <a href="#task" class="bttn-outline large scroll-link"
+              >Подать документы</a
+            >
+            <a href="#calculator" class="bttn large scroll-link"
+              >Выбрать специальность</a
+            >
+          </div>
+        </div>
+        <video
+          class="lazy-video"
+          muted
+          loop
+          playsinline
+          autoplay
+          data-src="/lpk-2024/video/hero_compressed.mp4"
+          width="1920"
+          height="1080"
+        ></video>
+      </section>
+      <section id="new-hero">
+        <div class="hero-content center-align">
+          <h1>
+            <span>Думай головой,</span
+            ><span class="accent">выбирай сердцем!</span>
+          </h1>
+          <p>Приём документов начался!</p>
+          <div class="call-to-action">
+            <a href="#task" class="bttn-outline large scroll-link"
+              >Подать документы</a
+            >
+            <a href="#calculator" class="bttn large scroll-link"
+              >Выбрать специальность</a
+            >
+          </div>
+          <p>
+            <a
+              href="https://kubsau.ru/entrant/lists/"
+              target="_blank"
+              rel="nofollow"
+              class="white-text more"
+              ><i class="bx bxs-folder"></i>
+              <u>Список лиц, подавших документы</u></a
+            ><br />
+            <a
+              href="https://kubsau.ru/entrant/grafiki-sobraniy-s-zachislennymi/"
+              target="_blank"
+              rel="nofollow"
+              class="white-text more"
+              ><i class="bx bxs-calendar"></i>
+              <u>Графики собраний с зачисленными</u></a
+            >
+          </p>
+        </div>
+        <video
+          class="lazy-video"
+          muted
+          loop
+          playsinline
+          autoplay
+          data-src="/lpk-2024/video/hero_compressed.mp4"
+          width="1920"
+          height="1080"
+        ></video>
+      </section>
+      <section id="about">
+        <div class="container">
+          <div class="row">
+            <div class="col l4 m12">
+              <h2>Давай знакомиться!</h2>
+            </div>
+            <div class="col l7 m12">
+              <p class="large">
+                Это КубГАУ, университет современного образования с самым большим
+                и удобным кампусом на Юге России! У наших студентов огромные
+                возможности для всестороннего развития, а энергии хватает на
+                всё. Как? Смотри сам:
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="cards-wrapper">
+                <div class="card hoverable" id="territory">
+                  <div class="territory-content">
+                    <div class="header">
+                      <h3>Территория вуза</h3>
+                      <p>
+                        168 га: как 4 Ватикана, 7,5 парков «Краснодар» или 235
+                        футбольных полей
+                      </p>
+                    </div>
+                    <div class="footer"></div>
+                  </div>
+                  <div class="swiper" id="map-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          alt=""
+                          class="responsive-img"
+                          src="/lpk-2024/img/map1.jpg"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          alt=""
+                          class="responsive-img"
+                          src="/lpk-2024/img/map2.jpg"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          alt=""
+                          class="responsive-img"
+                          src="/lpk-2024/img/map3.jpg"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          alt=""
+                          class="responsive-img"
+                          src="/lpk-2024/img/map4.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <a href="javascript:void(0);" class="swiper-nav" id="prev"
+                      ><i class="bx bx-chevron-left"></i
+                    ></a>
+                    <a href="javascript:void(0);" class="swiper-nav" id="next"
+                      ><i class="bx bx-chevron-right"></i
+                    ></a>
+                  </div>
+                </div>
+                <div class="card hoverable" id="park">
+                  <h3>Прогулочный парк</h3>
+                  <p>
+                    Свой, зелёный, с уникальными растениями и прямо
+                    на территории кампуса
+                  </p>
+                </div>
+                <div class="card hoverable" id="lck">
+                  <h3>Уникальная Лаборатория цифрового контента</h3>
+                  <p>
+                    Интерактивная студия для записи контента любой сложности.
+                    Снимай блоги, пиши подкасты, готовь презентации как Стив
+                    Джобс!
+                  </p>
+                  <video
+                    data-src="/lpk-2024/video/circle-video.mp4"
+                    autoplay
+                    muted
+                    playsinline
+                    loop
+                    class="lazy"
+                  ></video>
+                </div>
+                <div class="card hoverable" id="sport">
+                  <h3>Возможности для спорта</h3>
+                  <p>
+                    Стадион по стандартам УЕФА , игровые площадки и станции
+                    воркаута, беговые треки, бассейн, зал киберспорта – качай и
+                    разум, и тело
+                  </p>
+                </div>
+                <div class="card hoverable" id="teachers">
+                  <h3>Профессорско-преподавательский состав</h3>
+                  <p>
+                    Один из лучших в стране, и всегда открыт для студентов.
+                    Команда преподавателей всегда готова проконсультировать,
+                    подсказать, поделиться личным опытом и помочь определиться с
+                    вектором развития
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="features">
+        <div class="container">
+          <div class="row flex">
+            <div class="col s12">
+              <h2>После КубГАУ хоть куда!</h2>
+            </div>
+            @@loop('./parts/feature.html', './data/features.json')
+          </div>
+        </div>
+      </section>
+      <section id="calculator">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2>Узнай, куда поступишь на бюджет!</h2>
+              <div class="calculator-app" data-level="Бакалавриат/специалитет">
+                <div class="calculator-head">
+                  <ul class="pseudo-tabs">
+                    <li class="pseudo-tab active">
+                      <input
+                        type="radio"
+                        name="level"
+                        id="l1"
+                        checked
+                        value="Бакалавриат/специалитет"
+                      />
+                      <label for="l1">Бакалавриат/специалитет</label>
+                    </li>
+                    <li class="pseudo-tab">
+                      <input
+                        type="radio"
+                        name="level"
+                        id="l2"
+                        value="Магистратура"
+                      />
+                      <label for="l2">Магистратура</label>
+                    </li>
+                    <li class="pseudo-tab disabled">
+                      <!-- <input type="radio" name="level" id="l3" value="Аспирантура"> -->
+                      <label for="l3">Аспирантура</label>
+                    </li>
+                  </ul>
+                  <div class="quick-search">
+                    <input type="search" name="search" placeholder="Поиск" />
+                  </div>
+                </div>
+                <div class="calculator-body">
+                  <input
+                    type="search"
+                    name="search"
+                    placeholder="Поиск"
+                    class="mobile-search"
+                  />
+                  <p class="large mt0 fogged intro">
+                    Выбери свои предметы ЕГЭ (минимум 3) и нажми «Применить».
+                    Или воспользуйся Поиском, если точно знаешь, что искать
+                  </p>
+                  <div class="tags">
+                    @@loop('./parts/eg.html', './data/tags.json')
+                  </div>
+                  <div class="actions">
+                    <a
+                      href="javascript:void(0);"
+                      id="calc-reset"
+                      class="bttn-outline"
+                      >Сброс</a
+                    >
+                    <a href="javascript:void(0);" id="calc-apply" class="bttn"
+                      >Применить</a
+                    >
+                  </div>
+                  <h3>Факультеты:</h3>
+                  <div id="output"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="task">
+        <div class="container">
+          <div class="row flex">
+            <div class="col s12">
+              <h2>Твоё первое задание как студента – подать документы</h2>
+            </div>
+            <div class="col l7 m6 margin-bottom">
+              <div class="outline-block">
+                <h3>Способы подачи</h3>
+                <ul>
+                  <li>
+                    <div class="icon-block vcenter">
+                      <span class="icon-wrapper hide-m-down">
+                        <img
+                          class="lazy responsive-img"
+                          width="100"
+                          height="100"
+                          data-src="/lpk-2024/img/walkman_icon.png"
+                          alt=""
+                        />
+                      </span>
+                      <span class="content-wrapper">
+                        <div class="content-header">
+                          <img
+                            class="lazy responsive-img hide-m-up"
+                            width="100"
+                            height="100"
+                            data-src="/lpk-2024/img/walkman_icon.png"
+                            alt=""
+                          />
+                          <h4 class="title">Лично</h4>
+                        </div>
+                        <span class="content">
+                          Заглядывай в гости с оригиналами аттестата или
+                          диплома, и паспорт тоже не забудь! Если с тобой будут
+                          родители, то их паспорта тоже будут нужны на входе.
+                        </span>
+                      </span>
+                    </div>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="nofollow"
+                      href="https://www.gosuslugi.ru/vuzonline"
+                      class="icon-block vcenter"
+                    >
+                      <span class="icon-wrapper hide-m-down">
+                        <img
+                          class="lazy responsive-img"
+                          width="100"
+                          height="100"
+                          data-src="/lpk-2024/img/gosuslugi_icon.svg"
+                          alt=""
+                        />
+                      </span>
+                      <span class="content-wrapper">
+                        <div class="content-header">
+                          <img
+                            class="lazy responsive-img hide-m-up"
+                            width="100"
+                            height="100"
+                            data-src="/lpk-2024/img/gosuslugi_icon.svg"
+                            alt=""
+                          />
+                          <h4 class="title">Через Госуслуги</h4>
+                        </div>
+                        <span class="content">
+                          Идеальный способ для поступающих на бакалавриат
+                          или специалитет. Быстро и удобно — просто зайди
+                          в раздел «Поступление в вуз онлайн»!
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="nofollow"
+                      href="https://kubsau.ru/entrant/podacha-dokumentov-cherez-operatorov-pochtoy-svyazi-obshchego-polzovaniya/"
+                      class="icon-block vcenter"
+                    >
+                      <span class="icon-wrapper hide-m-down">
+                        <img
+                          class="lazy responsive-img"
+                          width="100"
+                          height="100"
+                          data-src="/lpk-2024/img/mail_icon.png"
+                          alt=""
+                        />
+                      </span>
+                      <span class="content-wrapper">
+                        <div class="content-header">
+                          <img
+                            class="lazy responsive-img hide-m-up"
+                            width="100"
+                            height="100"
+                            data-src="/lpk-2024/img/mail_icon.png"
+                            alt=""
+                          />
+                          <h4 class="title">По почте</h4>
+                        </div>
+                        <span class="content">
+                          Можешь выбрать «Почту России» или любого другого
+                          удобного оператора.
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="nofollow"
+                      href="https://abp.kubsau.ru/user/sign-in/login?_referrer=%2Fsite%2Findex"
+                      class="icon-block vcenter"
+                    >
+                      <span class="icon-wrapper hide-m-down">
+                        <img
+                          class="lazy responsive-img"
+                          width="100"
+                          height="100"
+                          data-src="/lpk-2024/img/cellphone_icon.png"
+                          alt=""
+                        />
+                      </span>
+                      <span class="content-wrapper">
+                        <div class="content-header">
+                          <img
+                            class="lazy responsive-img hide-m-up"
+                            width="100"
+                            height="100"
+                            data-src="/lpk-2024/img/cellphone_icon.png"
+                            alt=""
+                          />
+                          <h4 class="title">Онлайн</h4>
+                        </div>
+                        <span class="content">
+                          Самый удобный способ для магистрантов, аспирантов
+                          и иностраных абитуриентов — регистрируйтесь на сайте,
+                          и через Личный кабинет всё прилетит к нам мгновенно.
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col l5 m6 margin-bottom">
+              <div class="fill-block">
+                <h3>Какие документы нужны</h3>
+                <ul>
+                  <li>
+                    <div class="icon-block vcenter">
+                      <span class="icon-wrapper"
+                        ><img
+                          data-src="/lpk-2024/img/passport_icon.svg"
+                          class="lazy responsive-img"
+                          alt=""
+                      /></span>
+                      <h4 class="content-wrapper">Паспорт</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="icon-block vcenter">
+                      <span class="icon-wrapper"
+                        ><img
+                          data-src="/lpk-2024/img/diploma_icon.svg"
+                          class="lazy responsive-img"
+                          alt=""
+                      /></span>
+                      <h4 class="content-wrapper">
+                        Документы об образовании
+                        <span class="note">(аттестат, диплом и др.)</span>
+                      </h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="icon-block vcenter">
+                      <span class="icon-wrapper"
+                        ><img
+                          data-src="/lpk-2024/img/photo_icon.svg"
+                          class="lazy responsive-img"
+                          alt=""
+                      /></span>
+                      <h4 class="content-wrapper">Фотографии (3х4) 4 шт.</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="icon-block vcenter">
+                      <span class="icon-wrapper"
+                        ><img
+                          data-src="/lpk-2024/img/snils_icon.svg"
+                          class="lazy responsive-img"
+                          alt=""
+                      /></span>
+                      <h4 class="content-wrapper">СНИЛС</h4>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="icon-block vcenter">
+                      <span class="icon-wrapper"
+                        ><img
+                          data-src="/lpk-2024/img/spravka_icon.svg"
+                          class="lazy responsive-img"
+                          alt=""
+                      /></span>
+                      <h4 class="content-wrapper">
+                        Медицинская справка №086/У
+                      </h4>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="phone">
+        <div class="container">
+          <div class="row phone-baner banner-section flex z-depth-1 hoverable">
+            <div class="col l7 s12 align-center-l-down">
+              <div class="banner-content">
+                <h2>КубГАУ всегда на связи</h2>
+                <div class="phone-wrapper">
+                  <p class="large">Многоканальный номер:</p>
+                  <a href="tel:+78612215881" class="phone"
+                    >+7 (861) 221-58-81</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="col l5 s12 no-padding align-right-l-up align-center-l-down"
+            >
+              <img
+                alt=""
+                class="lazy responsive-img"
+                data-src="/lpk-2024/img/phone.png"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="calendar">
+        <div class="container">
+          <div class="row">
+            <div class="col s12">
+              <h2>
+                Приёмная кампания в самом разгаре! Заскринь график, чтобы не
+                опоздать!
+              </h2>
+            </div>
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab active">
+                  <input
+                    checked
+                    type="radio"
+                    name="calendar"
+                    value="Бакалавриат/специалитет"
+                    id="bakalavr"
+                  />
+                  <label for="bakalavr">Бакалавриат/специалитет</label>
+                </li>
+                <li class="tab">
+                  <input
+                    type="radio"
+                    name="calendar"
+                    value="Магистратура"
+                    id="magistr"
+                  />
+                  <label for="magistr">Магистратура</label>
+                </li>
+                <li class="tab">
+                  <input
+                    type="radio"
+                    name="calendar"
+                    value="Аспирантура"
+                    id="aspirant"
+                  />
+                  <label for="aspirant">Аспирантура</label>
+                </li>
+              </ul>
+              <div
+                class="calendar-wrapper"
+                data-section="Бакалавриат/специалитет"
+              >
+                <ul class="subtabs">
+                  <li class="tab active">
+                    <a
+                      href="javascript:void(0);"
+                      data-section="Бакалавриат/специалитет"
+                      data-form="free"
+                      >Все формы (бюджет)</a
+                    >
+                  </li>
+                  <li class="tab">
+                    <a
+                      href="javascript:void(0);"
+                      data-section="Бакалавриат/специалитет"
+                      data-form="direct"
+                      >Очная форма <i class="bx bx-ruble"></i
+                    ></a>
+                  </li>
+                  <li class="tab">
+                    <a
+                      href="javascript:void(0);"
+                      data-section="Бакалавриат/специалитет"
+                      data-form="remote"
+                      >Заочная форма <i class="bx bx-ruble"></i
+                    ></a>
+                  </li>
+                </ul>
+                <div id="calendar-output"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="bank">
+        <div class="container">
+          <div class="row flex">
+            <div class="col">
+              <h2>Не упусти время и возможность получить образование!</h2>
+            </div>
+            <div class="col order-m1 m6 s12">
+              <p class="large">
+                Если учиться хочется, но прямо сейчас нет возможности оплатить
+                обучение, воспользуйся Образовательным кредитом — льготной
+                программой с фиксированной ставкой 3% годовых.
+              </p>
+              <div class="banks-wrapper align-center-m-down">
+                <p>Ознакомься с официальными документами от банков-партнёров</p>
+                <a
+                  class="bank-bttn"
+                  target="_blank"
+                  rel="nofollow"
+                  href="/lpk-2024/files/sber.pptx"
+                  id="sber"
+                  ><span>Скачать</span><i class="bx bxs-download"></i
+                ></a>
+                <a
+                  class="bank-bttn"
+                  target="_blank"
+                  rel="nofollow"
+                  href="/lpk-2024/files/rnkb.pptx"
+                  id="rnkb"
+                  ><span>Скачать</span><i class="bx bxs-download"></i
+                ></a>
+              </div>
+              <div class="howto-wrapper">
+                <div class="row flex">
+                  <div class="col">
+                    <h3>Как это работает</h3>
+                  </div>
+                  <div class="col xl3 l6 m6 s6 xs6 t6">
+                    <img
+                      data-src="/lpk-2024/img/doc_icon.svg"
+                      alt=""
+                      class="responsive-img lazy"
+                    />
+                    <p>Ты подписываешь с вузом договор о платном образовании</p>
+                  </div>
+                  <div class="col xl3 l6 m6 s6 xs6 t6">
+                    <img
+                      data-src="/lpk-2024/img/bank_icon.svg"
+                      alt=""
+                      class="responsive-img lazy"
+                    />
+                    <p>Выбираешь банк, связываешься с сотрудником</p>
+                  </div>
+                  <div class="col xl3 l6 m6 s6 xs6 t6">
+                    <img
+                      data-src="/lpk-2024/img/handshake_icon.svg"
+                      alt=""
+                      class="responsive-img lazy"
+                    />
+                    <p>Подписываешь кредитный договор</p>
+                  </div>
+                  <div class="col xl3 l6 m6 s6 xs6 t6">
+                    <img
+                      data-src="/lpk-2024/img/cash_icon.svg"
+                      alt=""
+                      class="responsive-img lazy"
+                    />
+                    <p>Банк сам перечислит деньги на счёт вуза</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col m6 s12">
+              <div class="pin">
+                <img
+                  alt=""
+                  class="lazy responsive-img"
+                  data-src="/lpk-2024/img/student_girl.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="baner">
+        <div class="container">
+          <div class="banner-home">
+            <div class="mobile-header">
+              <h2>У нас уютно, как и должно быть дома</h2>
+            </div>
+            <div class="banner-content">
+              <div class="desktop-header">
+                <h2>У нас уютно, как и должно быть дома</h2>
+              </div>
+              <div class="points">
+                <div class="point">
+                  <div class="point-image">
+                    <img
+                      data-src="/lpk-2024/img/service_icon.png"
+                      alt=""
+                      class="lazy responsive-img hide-m-down"
+                    />
+                  </div>
+                  <div class="point-content">
+                    <div class="point-header">
+                      <img
+                        data-src="/lpk-2024/img/service_icon.png"
+                        alt=""
+                        class="lazy responsive-img hide-m-up"
+                      />
+                      <h3>Жилье</h3>
+                    </div>
+                    <p>
+                      20 корпусов общежитий находятся на территории
+                      университета, а несколько минут пешком по самому зелёному
+                      кампусу не только полезно, но и приятно.
+                    </p>
+                  </div>
+                </div>
+                <div class="point">
+                  <div class="point-image">
+                    <img
+                      data-src="/lpk-2024/img/health_icon.png"
+                      alt=""
+                      class="lazy responsive-img hide-m-down"
+                    />
+                  </div>
+                  <div class="point-content">
+                    <div class="point-header">
+                      <img
+                        data-src="/lpk-2024/img/health_icon.png"
+                        alt=""
+                        class="lazy responsive-img hide-m-up"
+                      />
+                      <h3>Здоровье</h3>
+                    </div>
+                    <p>
+                      Если простудишься, всё под контролем: на территории есть
+                      своя студенческая поликлиника. Знай, но не болей!
+                    </p>
+                  </div>
+                </div>
+                <div class="point">
+                  <div class="point-image">
+                    <img
+                      data-src="/lpk-2024/img/home_icon.png"
+                      alt=""
+                      class="lazy responsive-img hide-m-down"
+                    />
+                  </div>
+                  <div class="point-content">
+                    <div class="point-header">
+                      <img
+                        data-src="/lpk-2024/img/home_icon.png"
+                        alt=""
+                        class="lazy responsive-img hide-m-up"
+                      />
+                      <h3>Сервис</h3>
+                    </div>
+                    <p>
+                      Прачечные и сушильные комнаты, двухэтажная столовая и
+                      десятки буфетов по всему кампусу, оборудованные кухни
+                      в общежитиях: учитесь с комфортом!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="banner-image lazy"
+              data-bg="/lpk-2024/img/students_bg.png"
+            >
+              <img
+                data-src="/lpk-2024/img/students_fg.png"
+                alt=""
+                class="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="bonus">
+        <div class="container">
+          <div class="row">
+            <div class="col xl5 l4 hide-l-down">
+              <img
+                data-src="/lpk-2024/img/bonus.png"
+                alt=""
+                class="lazy responsive-img"
+              />
+            </div>
+            <div class="col xl6 offset-xl1 l7 offset-l1 m12">
+              <div class="row flex">
+                <div class="col align-center-l-down">
+                  <h2>Приятный бонус для усердных</h2>
+                </div>
+                <div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1 xs12">
+                  <img
+                    data-src="/lpk-2024/img/bonus.png"
+                    alt=""
+                    class="lazy responsive-img hide-l-up center"
+                  />
+                </div>
+                <div class="col xl4 l4 m4 s12 margin-bottom">
+                  <div class="price-block">
+                    <h4 class="price">15 000₽</h4>
+                    <p class="small">
+                      Для победителей всероссийских олимпиад и конкурсов
+                      школьников, таких, как: АгроНТИ АгроСтарт, Иннагрика,
+                      Агро, и т.п.
+                    </p>
+                  </div>
+                </div>
+                <div class="col xl4 l4 m4 s12 margin-bottom">
+                  <div class="price-block">
+                    <h4 class="price">10 000₽</h4>
+                    <p class="small">
+                      Дополнительная стипендия для студентов агробиоинженерных
+                      направлений, набравших не менее 225 баллов по ЕГЭ, и всех
+                      форм обучения.
+                    </p>
+                  </div>
+                </div>
+                <div class="col xl4 l4 m4 s12 margin-bottom">
+                  <div class="price-block">
+                    <h4 class="price">10 000₽</h4>
+                    <p class="small">
+                      Дополнительная стипендия для студентов общих направлений,
+                      набравших не менее 255 баллов по ЕГЭ, и всех форм
+                      обучения.
+                    </p>
+                  </div>
+                </div>
+                <div class="col align-center-m-down">
+                  <p>
+                    В КубГАУ до первой сессии стипендию получают все
+                    первокурсники бюджетных отделений. Дальше - в зависимости от
+                    успеваемости и вовлечённости в науку, но даже студенты
+                    коммерческой формы могут получить поддержку: от универа,
+                    города, страны, фондов или будущих работодателей. Кстати,
+                    стипендии суммируются
+                  </p>
+                  <a
+                    href="https://kubsau.ru/stipendia-prioritet/"
+                    class="bttn-large"
+                    >Все программы</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="faq">
+        <div class="container">
+          <div class="col">
+            <h2>Самые популярные вопросы</h2>
+          </div>
+          <div class="col">
+            @@loop('./parts/faq_entry.html', './data/faq.json')
+          </div>
+        </div>
+      </section>
+      <section id="docs-baner">
+        <div class="container">
+          <div class="banner hoverable banner-section">
+            <div class="banner-content">
+              <img
+                data-src="/lpk-2024/img/folder.png"
+                alt=""
+                class="lazy"
+                width="513"
+                height="380"
+              />
+              <h2>Официальные документы</h2>
+              <p class="large">
+                А полную нормативно-правовую базу можешь скачать и прочитать на
+                основном сайте КубГАУ по ссылке
+              </p>
+              <a
+                class="bttn-white large"
+                href="https://kubsau.ru/entrant/docs/"
+                rel="nofollow"
+                target="_blank"
+                >Cмотреть документы</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contacts">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2>До встречи в КубГАУ!</h2>
+              <p>
+                Если у тебя остались вопросы, с удовольствием всё объясним и
+                подробно расскажем: хоть лично, хоть по телефону или в
+                мессенджере
+              </p>
+            </div>
+            <div class="col l5">
+              <h4>Звоните</h4>
+              <div class="contacts-wrapper">
+                <div class="contact">
+                  <p class="title">«Горячая линия» по вопросам поступления</p>
+                  <a href="tel:+78612215881"
+                    ><i class="bx bxs-phone"></i> +7 (861) 221-58-81</a
+                  >
+                </div>
+                <div class="contact">
+                  <p class="title">
+                    Горячая линия по вопросам приёма лиц с ограниченными
+                    возможностями здоровья и инвалидов
+                  </p>
+                  <a href="tel:+78612215485"
+                    ><i class="bx bxs-phone"></i> +7 (861) 221-54-85</a
+                  >
+                </div>
+                <div class="contact">
+                  <p class="title">Деканат факультета заочного обучения</p>
+                  <a href="tel:+78612215857"
+                    ><i class="bx bxs-phone"></i> +7 (861) 221-58-57</a
+                  >
+                </div>
+                <div class="contact">
+                  <p class="title">Центр довузовской подготовки</p>
+                  <a href="tel:+78612215817"
+                    ><i class="bx bxs-phone"></i>+7 (861) 221-58-17</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col xl2 l3 offset-xl1 m5 s4">
+              <h4>Пишите</h4>
+              <div class="contact">
+                <p class="title">Электронная почта приёмной комиссии</p>
+                <a href="mailto:pk@kubsau.ru"
+                  ><i class="bx bxs-envelope-open"></i> pk@kubsau.ru</a
+                >
+              </div>
+            </div>
+            <div class="col xl4 l4 m7 s8">
+              <h4>Приезжайте</h4>
+              <div class="contact">
+                <p class="title">Ждём вас по адресу</p>
+                <a
+                  href="https://yandex.ru/maps/35/krasnodar/?ll=38.933176%2C45.045049&mode=routes&rtext=~45.046639%2C38.928455&rtt=auto&ruri=~&z=16"
+                  ><i class="bx bxs-map"></i> 350044, Россия, г. Краснодар, ул.
+                  Калинина, д. 13</a
+                >
+              </div>
+              <h5>График работы:</h5>
+              <div class="time-wrapper">
+                <div class="time">
+                  <small>пн-пт</small>
+                  <div class="time">9:00 — 16:00</div>
+                </div>
+                <div class="time">
+                  <small>сб</small>
+                  <div class="time">9:00 — 12:00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row flex vcenter">
+            <div class="col s9"></div>
+            <div class="col s3">
+              <div class="align-right-s-up align-center-s-down">
+                <a href="https://t.me/priemkubsau" class="social-icon"
+                  ><i class="bx bxl-telegram"></i
+                ></a>
+                <a
+                  href="https://vk.com/priemkubsau?t2fs=c2c214e46fe71ded0f_3"
+                  class="social-icon"
+                  ><i class="bx bxl-vk"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="map-section">
+        <div id="map"></div>
+      </section>
+    </main>
+    <footer class="center-align">
+      <div class="row">
+        <div class="col s12">
+          <a
+            target="_blank"
+            rel="nofollow"
+            href="https://kubsau.ru/index-main.php"
+            class="bttn-white"
+            >На основной сайт</a
+          >
+          <a
+            target="_blank"
+            rel="nofollow"
+            href="https://kubsau.ru/sveden/common/"
+            class="bttn-outline"
+            ><i>Сведения</i> Об <span>образовательном </span>учреждении</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col xl4 offset-xl4 l6 offset-l3 m8 offset-m2 s10 offset-s1 xs12"
+        >
+          <p>
+            © <span id="year"></span> ФГБОУ ВО «Кубанский государственный
+            аграрный университет имени И. Т. Трубилина» 350044, Россия,
+            г. Краснодар, ул. Калинина, 13
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <a href="https://2br.agency" rel="nofollow" target="_blank">
+            <img
+              data-src="/lpk-2024/img/2br.svg"
+              alt="Брегдинг и коммуникации"
+              class="lazy responsive-img"
+              width="70"
+            />
+          </a>
+        </div>
+        <div class="col s12">
+          <p>
+            Дизайн страницы –
+            <a
+              href="https://2br.agency"
+              rel="nofollow"
+              target="_blank"
+              class="agency-link"
+              >2br.agency</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="/lpk-2024/js/master.js"></script>
+  </body>
 </html>

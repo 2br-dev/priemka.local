@@ -3981,7 +3981,7 @@ body .margin-bottom {
     margin-bottom: 20px;
 }
 
-body .bttn, body .bttn-large, body .bttn-outline, body .bttn-white {
+body .bttn, body .bttn.large, body .bttn-outline, body .bttn-white {
     display: inline-block;
     border-radius: 2em;
     background-color: #FF8001;
@@ -3989,11 +3989,11 @@ body .bttn, body .bttn-large, body .bttn-outline, body .bttn-white {
     padding: 0 1em;
     line-height: 2em;
     white-space: nowrap;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
 }
 
-body .bttn-large {
-    font-size: clamp(18px, 2vw, 24px);
+body .large.bttn, body .large.bttn-outline, body .large.bttn-white {
+    font-size: clamp(18px, 2vw, 20px) !important;
 }
 
 body .bttn-outline {
@@ -13468,12 +13468,12 @@ body main section#hero .hero-content h1 span.accent, body main section#new-hero 
     color: #FF8001;
 }
 
-body main section#hero .hero-content .bttn, body main section#hero .hero-content .bttn-large, body main section#hero .hero-content .bttn-outline, body main section#hero .hero-content .bttn-white, body main section#new-hero .hero-content .bttn, body main section#new-hero .hero-content .bttn-large, body main section#new-hero .hero-content .bttn-outline, body main section#new-hero .hero-content .bttn-white {
+body main section#hero .hero-content .bttn, body main section#hero .hero-content .bttn-outline, body main section#hero .hero-content .bttn-white, body main section#new-hero .hero-content .bttn, body main section#new-hero .hero-content .bttn-outline, body main section#new-hero .hero-content .bttn-white {
     color: #2F3932;
     background-color: #fff;
     margin-bottom: 20px;
     line-height: 2em;
-    margin: .5em;
+    margin: 0.5em;
 }
 
 body main section#hero .hero-content .bttn-outline, body main section#new-hero .hero-content .bttn-outline {
@@ -13490,7 +13490,7 @@ body main section#hero .hero-content .timer, body main section#new-hero .hero-co
 
 body main section#hero .hero-content .timer .separator, body main section#new-hero .hero-content .timer .separator {
     font-size: clamp(28px, 5vw, 134px);
-    line-height: .75em;
+    line-height: 0.75em;
     padding: 0 10px;
 }
 
@@ -13552,15 +13552,16 @@ body main section#new-hero u {
 }
 
 body main section#new-hero .more {
-    font-size: clamp(16px, 1.5vw, 32px);
+    font-size: clamp(16px, 1vw, 24px);
     display: inline-block;
 }
 
 body main section#new-hero .more:not(:last-of-type) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-body main section#about h2, body main section#about p {
+body main section#about h2,
+  body main section#about p {
     margin-top: 0;
 }
 
@@ -13575,12 +13576,13 @@ body main section#about .cards-wrapper .card {
     border-radius: clamp(5px, 2vw, 20px);
     padding: clamp(5px, 3vw, 20px);
     box-sizing: border-box;
-    aspect-ratio: 1 / .9;
+    aspect-ratio: 1 / 0.9;
     min-height: 100%;
     overflow: hidden;
 }
 
-body main section#about .cards-wrapper .card h3, body main section#about .cards-wrapper .card p {
+body main section#about .cards-wrapper .card h3,
+      body main section#about .cards-wrapper .card p {
     margin-top: 0;
     margin-bottom: 20px;
 }
@@ -13591,7 +13593,7 @@ body main section#about .cards-wrapper .card h3 {
 }
 
 body main section#about .cards-wrapper .card p {
-    transition: opacity .2s, transform .2s;
+    transition: opacity 0.2s, transform 0.2s;
     transform: translateY(20px);
     opacity: 0;
     font-size: clamp(16px, 1.6vw, 18px);
@@ -13685,7 +13687,7 @@ body main section#about .cards-wrapper .card#territory .swiper .swiper-paginatio
     flex-grow: 1;
     display: block;
     margin: 6px;
-    height: .5rem;
+    height: 0.5rem;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 1rem;
     transition: background-color #fff;
@@ -13717,7 +13719,7 @@ body main section#about .cards-wrapper .card#territory .swiper .swiper-nav#next 
 }
 
 body main section#about .cards-wrapper .card#park {
-    background-color: #DFF7FF;
+    background-color: #dff7ff;
     background-image: url(/lpk-2024/img/tree_new.jpg);
     background-position: bottom center;
     background-size: contain;
@@ -13733,7 +13735,7 @@ body main section#about .cards-wrapper .card#lck {
 }
 
 body main section#about .cards-wrapper .card#lck:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -13741,7 +13743,7 @@ body main section#about .cards-wrapper .card#lck:before {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
-    transition: opacity .2s;
+    transition: opacity 0.2s;
     opacity: 0;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -13774,7 +13776,7 @@ body main section#about .cards-wrapper .card#lck:hover:before {
 }
 
 body main section#about .cards-wrapper .card#sport {
-    background-color: #FF8001;
+    background-color: #ff8001;
     background-image: url(/lpk-2024/img/basket_place.svg);
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -13841,9 +13843,10 @@ body main section#features .icon-block .icon-wrapper img {
     object-fit: contain;
 }
 
-body main section#features .icon-block .content-wrapper h3, body main section#features .icon-block .content-wrapper h4 {
+body main section#features .icon-block .content-wrapper h3,
+      body main section#features .icon-block .content-wrapper h4 {
     margin-top: 0;
-    margin-bottom: .7em;
+    margin-bottom: 0.7em;
 }
 
 body main section#features .icon-block .content-wrapper .feature-header {
@@ -13934,7 +13937,7 @@ body main section#calculator .calculator-app .calculator-head .pseudo-tabs li:be
     display: inline-block;
     height: 2em;
     aspect-ratio: 0.898 / 1;
-    content: '';
+    content: "";
     background-image: url(/lpk-2024/img/tab_left_inactive.svg);
     flex-shrink: 0;
     background-repeat: no-repeat;
@@ -13945,13 +13948,13 @@ body main section#calculator .calculator-app .calculator-head .pseudo-tabs li:af
     display: inline-block;
     height: 2em;
     aspect-ratio: 0.898 / 1;
-    content: '';
+    content: "";
     background-image: url(/lpk-2024/img/tab_right_inactive.svg);
     flex-shrink: 0;
     background-repeat: no-repeat;
 }
 
-body main section#calculator .calculator-app .calculator-head .pseudo-tabs li input[type=radio] {
+body main section#calculator .calculator-app .calculator-head .pseudo-tabs li input[type="radio"] {
     display: none;
 }
 
@@ -14136,19 +14139,19 @@ body main section#calculator .calculator-app .calculator-body .tags .tag {
     margin-bottom: 10px;
     position: relative;
     cursor: pointer;
-    transition: background-color .2s, color .2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 body main section#calculator .calculator-app .calculator-body .tags .tag:before {
-    content: '';
+    content: "";
     position: absolute;
-    top: .2em;
-    left: .2em;
+    top: 0.2em;
+    left: 0.2em;
     width: 1.6em;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background-color: #d9d9d9;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
 }
 
 body main section#calculator .calculator-app .calculator-body .tags .tag:nth-child(-n + 4) {
@@ -14156,7 +14159,7 @@ body main section#calculator .calculator-app .calculator-body .tags .tag:nth-chi
 }
 
 body main section#calculator .calculator-app .calculator-body .tags .tag:hover {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1) inset;
 }
 
@@ -14182,7 +14185,7 @@ body main section#calculator .calculator-app .calculator-body .actions > a {
 }
 
 body main section#calculator .calculator-app .calculator-body .actions:before {
-    content: '';
+    content: "";
     border-bottom: 1px solid #ccc;
     height: 1em;
     display: block;
@@ -14191,7 +14194,7 @@ body main section#calculator .calculator-app .calculator-body .actions:before {
 
 body main section#calculator .calculator-app .calculator-body #output {
     margin-top: 20px;
-    background-color: #F3F3F3;
+    background-color: #f3f3f3;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .section-wrapper {
@@ -14243,7 +14246,7 @@ body main section#calculator .calculator-app .calculator-body #output .faculty-h
 }
 
 body main section#calculator .calculator-app .calculator-body #output .faculty-header .folder-arrow:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     width: 100%;
@@ -14255,7 +14258,7 @@ body main section#calculator .calculator-app .calculator-body #output .faculty-h
     background-repeat: no-repeat;
     border-radius: 50%;
     background-size: 50% auto;
-    transition: transform .4s;
+    transition: transform 0.4s;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .faculty-header.active .folder-arrow:before {
@@ -14291,7 +14294,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card-wrapper .spec-card-label:before {
-    content: '';
+    content: "";
     display: block;
     height: 34px;
     width: 19px;
@@ -14299,7 +14302,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card-wrapper .spec-card-label:after {
-    content: '';
+    content: "";
     display: block;
     height: 40px;
     width: 5px;
@@ -14363,11 +14366,11 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .edform-wrapper .edform-name::before, body main section#calculator .calculator-app .calculator-body #output .spec-card .edform-wrapper .edform-name:after {
-    content: '';
+    content: "";
     display: block;
     border-bottom: 1px solid #1FAD96;
     flex-grow: 1;
-    height: .7em;
+    height: 0.7em;
     margin: 0 1em;
 }
 
@@ -14376,7 +14379,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     color: #fff;
     border-radius: 2em;
     line-height: 1.7em;
-    padding: 0 .7em;
+    padding: 0 0.7em;
     font-size: clamp(12px, 2vw, 14px);
 }
 
@@ -14391,7 +14394,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .requirements-wrapper {
     padding: 10px clamp(15px, 2vw, 20px);
-    background-color: #E6F7F5;
+    background-color: #e6f7f5;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .requirements-wrapper .requirements {
@@ -14436,7 +14439,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     line-height: 2em;
     padding: 0 clamp(0.5em, 1vw, 1em);
     border-radius: 2em;
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
 }
 
 body main section#calculator .calculator-app .calculator-body #output .spec-card .separator {
@@ -14493,7 +14496,7 @@ body main section#calculator .calculator-app .calculator-body #output .spec-card
     line-height: 1.4em;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transition: opacity .4s, transform .4s;
+    transition: opacity 0.4s, transform 0.4s;
     transform: translateY(20px);
     opacity: 0;
 }
@@ -14570,7 +14573,9 @@ body main section#calculator .calculator-app[data-level="Бакалавриат/
     display: none !important;
 }
 
-body main section#calculator .calculator-app[data-level="Магистратура"] .tags, body main section#calculator .calculator-app[data-level="Магистратура"] .actions, body main section#calculator .calculator-app[data-level="Магистратура"] .intro {
+body main section#calculator .calculator-app[data-level="Магистратура"] .tags,
+    body main section#calculator .calculator-app[data-level="Магистратура"] .actions,
+    body main section#calculator .calculator-app[data-level="Магистратура"] .intro {
     display: none;
 }
 
@@ -14588,7 +14593,8 @@ body main section#calculator .calculator-app:not([data-level="Бакалаври
     display: none;
 }
 
-body main section#task h3, body main section#task h4 {
+body main section#task h3,
+  body main section#task h4 {
     margin: 0;
 }
 
@@ -14716,7 +14722,7 @@ body main section#phone .phone-baner {
 }
 
 body main section#phone .phone-baner .col {
-    background-color: #E4E4E4;
+    background-color: #e4e4e4;
 }
 
 body main section#phone .phone-baner .col img {
@@ -14801,7 +14807,7 @@ body main section#calendar .tabs li:before {
     display: inline-block;
     height: 2em;
     aspect-ratio: 0.898 / 1;
-    content: '';
+    content: "";
     background-image: url(/lpk-2024/img/tab_left_inactive.svg);
     flex-shrink: 0;
     background-repeat: no-repeat;
@@ -14812,13 +14818,13 @@ body main section#calendar .tabs li:after {
     display: inline-block;
     height: 2em;
     aspect-ratio: 0.898 / 1;
-    content: '';
+    content: "";
     background-image: url(/lpk-2024/img/tab_right_inactive.svg);
     flex-shrink: 0;
     background-repeat: no-repeat;
 }
 
-body main section#calendar .tabs li input[type=radio] {
+body main section#calendar .tabs li input[type="radio"] {
     display: none;
 }
 
@@ -14974,7 +14980,7 @@ body main section#calendar .calendar-wrapper .event .event-date.outline .date, b
 }
 
 body main section#calendar .calendar-wrapper .event .event-date.outline .date:before, body main section#calendar .calendar-wrapper .event .outline.event-content .date:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     width: calc(100% + 25px);
@@ -14998,7 +15004,7 @@ body main section#calendar .calendar-wrapper .event .event-divider {
 }
 
 body main section#calendar .calendar-wrapper .event .event-divider:before {
-    content: '';
+    content: "";
     display: block;
     width: 26px;
     aspect-ratio: 1 / 1.3;
@@ -15091,7 +15097,7 @@ body main section#calendar .calendar-wrapper .info-trigger:after {
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     pointer-events: none;
-    transition: transform .2s, opacity .2s;
+    transition: transform 0.2s, opacity 0.2s;
     font-weight: normal;
     transform: translateY(2em);
     opacity: 0;
@@ -15180,7 +15186,7 @@ body main section#bank .bank-bttn {
     background-position: left 20px center;
     background-repeat: no-repeat;
     background-position: left 20px center;
-    transition: background-color .2s;
+    transition: background-color 0.2s;
 }
 
 @media (max-width: 800px) {
@@ -15193,7 +15199,7 @@ body main section#bank .bank-bttn {
 }
 
 body main section#bank .bank-bttn#sber {
-    background-color: #21A038;
+    background-color: #21a038;
     background-image: url(/lpk-2024/img/logo_sber.svg);
 }
 
@@ -15202,7 +15208,7 @@ body main section#bank .bank-bttn#sber:hover {
 }
 
 body main section#bank .bank-bttn#rnkb {
-    background-color: #333E48;
+    background-color: #333e48;
     background-image: url(/lpk-2024/img/logo_rnkb.svg);
 }
 
@@ -15257,7 +15263,7 @@ body main section#baner .banner-home .banner-content .points .point .point-heade
 }
 
 body main section#baner .banner-home .banner-content .points .point h3 {
-    margin: .2em 0;
+    margin: 0.2em 0;
 }
 
 @media (max-width: 1800px) {
@@ -15316,7 +15322,7 @@ body main section#baner .banner-home .banner-content .points .point h3 {
     }
 
     body main section#baner .banner-home .banner-image:after {
-        content: '';
+        content: "";
         position: absolute;
         width: 100%;
         height: 100%;
@@ -15366,7 +15372,7 @@ body main section#baner .banner-home .banner-image {
 }
 
 body main section#baner .banner-home .banner-image:before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -15391,12 +15397,12 @@ body main section#baner .banner-home .mobile-header {
 body main section#bonus .price-block {
     height: 100%;
     padding: clamp(5px, 2vw, 20px);
-    background-color: #E4F5F2;
+    background-color: #e4f5f2;
     border-radius: clamp(5px, 2vw, 10px);
 }
 
 body main section#bonus .price-block .price {
-    color: #1FAD96;
+    color: #1fad96;
     margin: 0;
     font-weight: normal;
 }
@@ -15427,7 +15433,7 @@ body main section#faq .faq-entry .faq-header .folder-arrow {
 }
 
 body main section#faq .faq-entry .faq-header .folder-arrow:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -15439,7 +15445,7 @@ body main section#faq .faq-entry .faq-header .folder-arrow:before {
     background-position: center center;
     background-size: 50% auto;
     background-repeat: no-repeat;
-    transition: transform .4s;
+    transition: transform 0.4s;
 }
 
 body main section#faq .faq-entry .faq-header.active .folder-arrow:before {
@@ -15503,7 +15509,7 @@ body main section#docs-baner .banner h2 {
     margin: 0;
 }
 
-body main section#docs-baner .banner .bttn, body main section#docs-baner .banner .bttn-large, body main section#docs-baner .banner .bttn-outline, body main section#docs-baner .banner .bttn-white {
+body main section#docs-baner .banner .bttn, body main section#docs-baner .banner .bttn-outline, body main section#docs-baner .banner .bttn-white {
     line-height: 2em;
 }
 
@@ -15537,7 +15543,7 @@ body main section#contacts h4 {
 
 body main section#contacts h5 {
     font-size: clamp(14px, 3vw, 24px);
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 body main section#contacts .contacts-wrapper {
@@ -15625,7 +15631,7 @@ body main section#map-section .placemark-text {
     height: 100%;
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0.8);
-    transition: opacity .3s;
+    transition: opacity 0.3s;
     opacity: 0;
 }
 
@@ -15641,7 +15647,7 @@ body main section#map-section .placemark-text {
     width: 80%;
     max-height: calc(100% - 2vw);
     overflow: auto;
-    transition: transform .3s, width .3s, height .3s, top .3s, border-radius .3s;
+    transition: transform 0.3s, width 0.3s, height 0.3s, top 0.3s, border-radius 0.3s;
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-header {
@@ -15668,7 +15674,7 @@ body main section#map-section .placemark-text {
     color: #fff;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color .4s;
+    transition: background-color 0.4s;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15813,7 +15819,7 @@ body main section#map-section .placemark-text {
     line-height: 1.4em;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transition: opacity .4s, transform .4s;
+    transition: opacity 0.4s, transform 0.4s;
     transform: translateY(20px);
     opacity: 0;
 }
@@ -15899,7 +15905,7 @@ body main section#map-section .placemark-text {
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty .head-info-wrapper .head-data p {
-    margin: .2em 0;
+    margin: 0.2em 0;
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty .head-info-wrapper .head-data .name {
@@ -15918,7 +15924,8 @@ body main section#map-section .placemark-text {
         flex-direction: column;
     }
 
-    .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality, .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty {
+    .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .speciality,
+          .faculty-modal-wrapper .faculty-modal .faculty-modal-body .content-wrapper .faculty {
         width: 100%;
     }
 
@@ -15952,7 +15959,8 @@ body main section#map-section .placemark-text {
     color: #fff;
 }
 
-.faculty-modal-wrapper .faculty-modal .faculty-modal-footer .social a, .faculty-modal-wrapper .faculty-modal .faculty-modal-footer .share a {
+.faculty-modal-wrapper .faculty-modal .faculty-modal-footer .social a,
+      .faculty-modal-wrapper .faculty-modal .faculty-modal-footer .share a {
     border: 1px solid #fff;
     display: inline-block;
     width: 60px;
@@ -15967,7 +15975,7 @@ body main section#map-section .placemark-text {
     font-size: clamp(18px, 2vw, 24px);
     font-weight: bold;
     margin-top: 0;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 .faculty-modal-wrapper .faculty-modal .faculty-modal-footer .contacts-wrapper {
@@ -16067,7 +16075,7 @@ body main section#map-section .placemark-text {
     color: #fff;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color .4s;
+    transition: background-color 0.4s;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,10 +1,9 @@
-body{
-
-	& .margin-bottom{
+body {
+	& .margin-bottom {
 		margin-bottom: $gutter-width;
 	}
 
-	& .bttn{
+	& .bttn {
 		display: inline-block;
 		border-radius: 2em;
 		background-color: $primary;
@@ -12,55 +11,54 @@ body{
 		padding: 0 1em;
 		line-height: 2em;
 		white-space: nowrap;
-		transition: background-color .2s;
+		transition: background-color 0.2s;
 
-		&-large{
+		&.large {
 			@extend .bttn;
-			font-size: clamp(18px, 2vw, 24px);
+			font-size: clamp(18px, 2vw, 20px) !important;
 		}
 
-		&-outline{
+		&-outline {
 			@extend .bttn;
 			color: $primary;
 			background-color: transparent;
 			box-shadow: 0 0 0 1px $primary inset;
 
-			&:hover{
-				background-color: rgba(black, .05);
+			&:hover {
+				background-color: rgba(black, 0.05);
 			}
 		}
 
-		&-white{
+		&-white {
 			@extend .bttn;
 			background-color: #fff;
 			color: $primary;
 		}
 	}
 
-	& .pin{
+	& .pin {
 		position: sticky;
 		top: 80px;
 	}
 
-	.mt0{
+	.mt0 {
 		margin-top: 0;
 	}
 
-	& .no-margin{
+	& .no-margin {
 		margin: 0;
 	}
 
-	& .fogged{
+	& .fogged {
 		color: #808080;
 	}
 
-	& .disabled{
-
+	& .disabled {
 		// opacity: .5;
 		cursor: not-allowed !important;
-		filter: saturate(.2) brightness(1.5);
-		
-		& *{
+		filter: saturate(0.2) brightness(1.5);
+
+		& * {
 			cursor: not-allowed !important;
 		}
 	}
